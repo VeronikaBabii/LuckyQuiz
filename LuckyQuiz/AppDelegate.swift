@@ -13,6 +13,7 @@ import OneSignal
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    
     let utils = Utils()
     let vc = ViewController()
     
