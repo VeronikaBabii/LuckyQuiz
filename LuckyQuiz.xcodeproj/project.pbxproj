@@ -1,0 +1,780 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		151018C62510210700A877AC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151018C52510210700A877AC /* Utils.swift */; };
+		1546A9E72548400200D69494 /* SecondWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E62548400200D69494 /* SecondWinVC.swift */; };
+		1546A9E92548402000D69494 /* SecondQuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E82548402000D69494 /* SecondQuizVC.swift */; };
+		1546A9EC2548407800D69494 /* QuizLogic2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9EB2548407800D69494 /* QuizLogic2.swift */; };
+		1546A9EE2548410D00D69494 /* QuizLogic3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9ED2548410D00D69494 /* QuizLogic3.swift */; };
+		1546A9F02548413D00D69494 /* ThirdWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9EF2548413D00D69494 /* ThirdWinVC.swift */; };
+		1546A9F22548414D00D69494 /* ThirdQuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9F12548414D00D69494 /* ThirdQuizVC.swift */; };
+		154FBBE724E71919006CC92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FBBE624E71919006CC92B /* AppDelegate.swift */; };
+		154FBBE924E71919006CC92B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FBBE824E71919006CC92B /* SceneDelegate.swift */; };
+		154FBBEB24E71919006CC92B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FBBEA24E71919006CC92B /* ViewController.swift */; };
+		154FBBEE24E71919006CC92B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154FBBEC24E71919006CC92B /* Main.storyboard */; };
+		154FBBF024E7191C006CC92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154FBBEF24E7191C006CC92B /* Assets.xcassets */; };
+		154FBBF324E7191C006CC92B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154FBBF124E7191C006CC92B /* LaunchScreen.storyboard */; };
+		154FBBFC24EAB6AE006CC92B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154FBBFB24EAB6AE006CC92B /* WebKit.framework */; };
+		156499C8253C960F001DB310 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156499C7253C960F001DB310 /* NotificationService.swift */; };
+		156499CC253C960F001DB310 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 156499C5253C960F001DB310 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		156499D2253CDFF5001DB310 /* PushPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156499D1253CDFF5001DB310 /* PushPromptViewController.swift */; };
+		157E05312550218E00CC405B /* pribambas_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 157E05302550214200CC405B /* pribambas_regular.ttf */; };
+		15DB441D24FAE1BA00964171 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DB441C24FAE1BA00964171 /* GameScreen.storyboard */; };
+		15DB441F24FAE1C300964171 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB441E24FAE1C300964171 /* GameViewController.swift */; };
+		15DB442824FB9B3300964171 /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442724FB9B3300964171 /* WinViewController.swift */; };
+		15DB442A24FB9B4A00964171 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442924FB9B4A00964171 /* QuizViewController.swift */; };
+		15DB442C24FB9B7900964171 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442B24FB9B7900964171 /* Constants.swift */; };
+		15DB442E24FB9B8800964171 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442D24FB9B8800964171 /* Question.swift */; };
+		15DB443024FB9B9300964171 /* QuizLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442F24FB9B9300964171 /* QuizLogic.swift */; };
+		69392DCB78D9713A89DFE0D4 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3494DFF30409062BA2D506BA /* Pods_OneSignalNotificationServiceExtension.framework */; };
+		95CD9E4C5263DD51BB0E4819 /* Pods_LuckyQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3174636DDBE49C5FF6EF8F6 /* Pods_LuckyQuiz.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		156499CA253C960F001DB310 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 154FBBDB24E71919006CC92B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 156499C4253C960F001DB310;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		159A0AB72501220F00118CDD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				156499CC253C960F001DB310 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		151018C52510210700A877AC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1546A9E62548400200D69494 /* SecondWinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWinVC.swift; sourceTree = "<group>"; };
+		1546A9E82548402000D69494 /* SecondQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondQuizVC.swift; sourceTree = "<group>"; };
+		1546A9EB2548407800D69494 /* QuizLogic2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic2.swift; sourceTree = "<group>"; };
+		1546A9ED2548410D00D69494 /* QuizLogic3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic3.swift; sourceTree = "<group>"; };
+		1546A9EF2548413D00D69494 /* ThirdWinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdWinVC.swift; sourceTree = "<group>"; };
+		1546A9F12548414D00D69494 /* ThirdQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdQuizVC.swift; sourceTree = "<group>"; };
+		154FBBE324E71919006CC92B /* LuckyQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckyQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		154FBBE624E71919006CC92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		154FBBE824E71919006CC92B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		154FBBEA24E71919006CC92B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		154FBBED24E71919006CC92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		154FBBEF24E7191C006CC92B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		154FBBF224E7191C006CC92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		154FBBF424E7191C006CC92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		154FBBFB24EAB6AE006CC92B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		156499C5253C960F001DB310 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		156499C7253C960F001DB310 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		156499C9253C960F001DB310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		156499D0253C9E25001DB310 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		156499D1253CDFF5001DB310 /* PushPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushPromptViewController.swift; sourceTree = "<group>"; };
+		157E05302550214200CC405B /* pribambas_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pribambas_regular.ttf; sourceTree = "<group>"; };
+		159A0ABB2501266300118CDD /* WebViewDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebViewDemo.entitlements; sourceTree = "<group>"; };
+		15DB441C24FAE1BA00964171 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
+		15DB441E24FAE1C300964171 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		15DB442724FB9B3300964171 /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
+		15DB442924FB9B4A00964171 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		15DB442B24FB9B7900964171 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		15DB442D24FB9B8800964171 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		15DB442F24FB9B9300964171 /* QuizLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic.swift; sourceTree = "<group>"; };
+		3494DFF30409062BA2D506BA /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		886FAAB3F0B0886FBE2BEA29 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		A82657E22E68D1EECF1F8325 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		C3174636DDBE49C5FF6EF8F6 /* Pods_LuckyQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LuckyQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D5DECA9BAEE838F515FADE /* Pods-LuckyQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuckyQuiz.release.xcconfig"; path = "Target Support Files/Pods-LuckyQuiz/Pods-LuckyQuiz.release.xcconfig"; sourceTree = "<group>"; };
+		F0879882DE10B645C199B782 /* Pods-LuckyQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuckyQuiz.debug.xcconfig"; path = "Target Support Files/Pods-LuckyQuiz/Pods-LuckyQuiz.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		154FBBE024E71919006CC92B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				154FBBFC24EAB6AE006CC92B /* WebKit.framework in Frameworks */,
+				95CD9E4C5263DD51BB0E4819 /* Pods_LuckyQuiz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		156499C2253C960F001DB310 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69392DCB78D9713A89DFE0D4 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		154FBBDA24E71919006CC92B = {
+			isa = PBXGroup;
+			children = (
+				154FBBE524E71919006CC92B /* LuckyQuiz */,
+				156499C6253C960F001DB310 /* OneSignalNotificationServiceExtension */,
+				154FBBE424E71919006CC92B /* Products */,
+				154FBBFA24EAB6AE006CC92B /* Frameworks */,
+				7856902E5B0FA6C68D485F20 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		154FBBE424E71919006CC92B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				154FBBE324E71919006CC92B /* LuckyQuiz.app */,
+				156499C5253C960F001DB310 /* OneSignalNotificationServiceExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		154FBBE524E71919006CC92B /* LuckyQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				159A0ABB2501266300118CDD /* WebViewDemo.entitlements */,
+				157E05302550214200CC405B /* pribambas_regular.ttf */,
+				154FBBE824E71919006CC92B /* SceneDelegate.swift */,
+				154FBBE624E71919006CC92B /* AppDelegate.swift */,
+				151018C52510210700A877AC /* Utils.swift */,
+				15E63DC925190F0E005888E5 /* WebView */,
+				15DB441724FAE14C00964171 /* Game */,
+				154FBBEF24E7191C006CC92B /* Assets.xcassets */,
+				154FBBF424E7191C006CC92B /* Info.plist */,
+			);
+			path = LuckyQuiz;
+			sourceTree = "<group>";
+		};
+		154FBBFA24EAB6AE006CC92B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				154FBBFB24EAB6AE006CC92B /* WebKit.framework */,
+				3494DFF30409062BA2D506BA /* Pods_OneSignalNotificationServiceExtension.framework */,
+				C3174636DDBE49C5FF6EF8F6 /* Pods_LuckyQuiz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		156499C6253C960F001DB310 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				156499D0253C9E25001DB310 /* OneSignalNotificationServiceExtension.entitlements */,
+				156499C7253C960F001DB310 /* NotificationService.swift */,
+				156499C9253C960F001DB310 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		15DB441724FAE14C00964171 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				15DB442324FAE28400964171 /* Helpers */,
+				15DB442624FAE2AF00964171 /* Models */,
+				15DB442424FAE28F00964171 /* Views */,
+				15DB442524FAE2A100964171 /* Controllers */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		15DB442324FAE28400964171 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				15DB442B24FB9B7900964171 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		15DB442424FAE28F00964171 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				15DB441C24FAE1BA00964171 /* GameScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		15DB442524FAE2A100964171 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				15DB441E24FAE1C300964171 /* GameViewController.swift */,
+				15DB442924FB9B4A00964171 /* QuizViewController.swift */,
+				15DB442724FB9B3300964171 /* WinViewController.swift */,
+				1546A9E82548402000D69494 /* SecondQuizVC.swift */,
+				1546A9E62548400200D69494 /* SecondWinVC.swift */,
+				1546A9F12548414D00D69494 /* ThirdQuizVC.swift */,
+				1546A9EF2548413D00D69494 /* ThirdWinVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		15DB442624FAE2AF00964171 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15DB442D24FB9B8800964171 /* Question.swift */,
+				15DB442F24FB9B9300964171 /* QuizLogic.swift */,
+				1546A9EB2548407800D69494 /* QuizLogic2.swift */,
+				1546A9ED2548410D00D69494 /* QuizLogic3.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		15E63DC925190F0E005888E5 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				154FBBEA24E71919006CC92B /* ViewController.swift */,
+				156499D1253CDFF5001DB310 /* PushPromptViewController.swift */,
+				154FBBEC24E71919006CC92B /* Main.storyboard */,
+				154FBBF124E7191C006CC92B /* LaunchScreen.storyboard */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		7856902E5B0FA6C68D485F20 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				886FAAB3F0B0886FBE2BEA29 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				A82657E22E68D1EECF1F8325 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				F0879882DE10B645C199B782 /* Pods-LuckyQuiz.debug.xcconfig */,
+				C9D5DECA9BAEE838F515FADE /* Pods-LuckyQuiz.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		154FBBE224E71919006CC92B /* LuckyQuiz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 154FBBF724E7191C006CC92B /* Build configuration list for PBXNativeTarget "LuckyQuiz" */;
+			buildPhases = (
+				F3A69085930228198E655AB6 /* [CP] Check Pods Manifest.lock */,
+				154FBBDF24E71919006CC92B /* Sources */,
+				154FBBE024E71919006CC92B /* Frameworks */,
+				154FBBE124E71919006CC92B /* Resources */,
+				C39150A31A825D0D85C04D68 /* [CP] Embed Pods Frameworks */,
+				159A0AB72501220F00118CDD /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				156499CB253C960F001DB310 /* PBXTargetDependency */,
+			);
+			name = LuckyQuiz;
+			packageProductDependencies = (
+			);
+			productName = WebViewDemo;
+			productReference = 154FBBE324E71919006CC92B /* LuckyQuiz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		156499C4253C960F001DB310 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 156499CF253C960F001DB310 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				F51A13246938DF8278045B08 /* [CP] Check Pods Manifest.lock */,
+				156499C1253C960F001DB310 /* Sources */,
+				156499C2253C960F001DB310 /* Frameworks */,
+				156499C3253C960F001DB310 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 156499C5253C960F001DB310 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		154FBBDB24E71919006CC92B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Veronika Babii";
+				TargetAttributes = {
+					154FBBE224E71919006CC92B = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					156499C4253C960F001DB310 = {
+						CreatedOnToolsVersion = 11.7;
+					};
+				};
+			};
+			buildConfigurationList = 154FBBDE24E71919006CC92B /* Build configuration list for PBXProject "LuckyQuiz" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 154FBBDA24E71919006CC92B;
+			packageReferences = (
+			);
+			productRefGroup = 154FBBE424E71919006CC92B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				154FBBE224E71919006CC92B /* LuckyQuiz */,
+				156499C4253C960F001DB310 /* OneSignalNotificationServiceExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		154FBBE124E71919006CC92B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				154FBBF324E7191C006CC92B /* LaunchScreen.storyboard in Resources */,
+				154FBBF024E7191C006CC92B /* Assets.xcassets in Resources */,
+				154FBBEE24E71919006CC92B /* Main.storyboard in Resources */,
+				157E05312550218E00CC405B /* pribambas_regular.ttf in Resources */,
+				15DB441D24FAE1BA00964171 /* GameScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		156499C3253C960F001DB310 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C39150A31A825D0D85C04D68 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LuckyQuiz/Pods-LuckyQuiz-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LuckyQuiz/Pods-LuckyQuiz-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LuckyQuiz/Pods-LuckyQuiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3A69085930228198E655AB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LuckyQuiz-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F51A13246938DF8278045B08 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		154FBBDF24E71919006CC92B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15DB441F24FAE1C300964171 /* GameViewController.swift in Sources */,
+				1546A9E92548402000D69494 /* SecondQuizVC.swift in Sources */,
+				156499D2253CDFF5001DB310 /* PushPromptViewController.swift in Sources */,
+				15DB443024FB9B9300964171 /* QuizLogic.swift in Sources */,
+				1546A9F22548414D00D69494 /* ThirdQuizVC.swift in Sources */,
+				1546A9EC2548407800D69494 /* QuizLogic2.swift in Sources */,
+				1546A9E72548400200D69494 /* SecondWinVC.swift in Sources */,
+				15DB442A24FB9B4A00964171 /* QuizViewController.swift in Sources */,
+				154FBBEB24E71919006CC92B /* ViewController.swift in Sources */,
+				15DB442E24FB9B8800964171 /* Question.swift in Sources */,
+				154FBBE724E71919006CC92B /* AppDelegate.swift in Sources */,
+				15DB442824FB9B3300964171 /* WinViewController.swift in Sources */,
+				151018C62510210700A877AC /* Utils.swift in Sources */,
+				154FBBE924E71919006CC92B /* SceneDelegate.swift in Sources */,
+				1546A9F02548413D00D69494 /* ThirdWinVC.swift in Sources */,
+				1546A9EE2548410D00D69494 /* QuizLogic3.swift in Sources */,
+				15DB442C24FB9B7900964171 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		156499C1253C960F001DB310 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				156499C8253C960F001DB310 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		156499CB253C960F001DB310 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 156499C4253C960F001DB310 /* OneSignalNotificationServiceExtension */;
+			targetProxy = 156499CA253C960F001DB310 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		154FBBEC24E71919006CC92B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				154FBBED24E71919006CC92B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		154FBBF124E7191C006CC92B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				154FBBF224E7191C006CC92B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		154FBBF524E7191C006CC92B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		154FBBF624E7191C006CC92B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		154FBBF824E7191C006CC92B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0879882DE10B645C199B782 /* Pods-LuckyQuiz.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LuckyQuiz/WebViewDemo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = ABQ45DYU2A;
+				INFOPLIST_FILE = LuckyQuiz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-weak_framework",
+					"\"Accelerate\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gb.luckyquizz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		154FBBF924E7191C006CC92B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9D5DECA9BAEE838F515FADE /* Pods-LuckyQuiz.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LuckyQuiz/WebViewDemo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = ABQ45DYU2A;
+				INFOPLIST_FILE = LuckyQuiz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-weak_framework",
+					"\"Accelerate\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gb.luckyquizz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		156499CD253C960F001DB310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 886FAAB3F0B0886FBE2BEA29 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ABQ45DYU2A;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gb.luckyquizz.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		156499CE253C960F001DB310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A82657E22E68D1EECF1F8325 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ABQ45DYU2A;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gb.luckyquizz.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		154FBBDE24E71919006CC92B /* Build configuration list for PBXProject "LuckyQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				154FBBF524E7191C006CC92B /* Debug */,
+				154FBBF624E7191C006CC92B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		154FBBF724E7191C006CC92B /* Build configuration list for PBXNativeTarget "LuckyQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				154FBBF824E7191C006CC92B /* Debug */,
+				154FBBF924E7191C006CC92B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		156499CF253C960F001DB310 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				156499CD253C960F001DB310 /* Debug */,
+				156499CE253C960F001DB310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 154FBBDB24E71919006CC92B /* Project object */;
+}
