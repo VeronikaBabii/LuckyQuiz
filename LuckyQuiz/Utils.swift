@@ -87,18 +87,21 @@ struct Utils {
     
     // MARK: - make request to the server to check whether to show web view agreement
     func checkAgreementStatus() {
+        
+        //TODO: add bundle 
+        
         let bundleId = Bundle.main.bundleIdentifier
         //let url = URL(string: "https://integr-testing.site/checker/\(bundleId!)")!
-        let url = URL(string: "https://integr-testing.site/checker/com.gb.slitquiz")! // old bundle - for casino testing
+        let url = URL(string: "https://integr-testing.site/checker/com.gb.luckyquiz")! // old bundle - for casino testing
         print("\(url)\n")
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
             
-//            let SHOW_AGREEMENT = String(data: data, encoding: .utf8)!
-//            print("show agreement - \(SHOW_AGREEMENT)\n")
+            let SHOW_AGREEMENT = String(data: data, encoding: .utf8)!
+            print("show agreement - \(SHOW_AGREEMENT)\n")
             
-            let SHOW_AGREEMENT = "false" // for game testing
+            //let SHOW_AGREEMENT = "false" // for game testing
             
             UserDefaults.standard.set(SHOW_AGREEMENT, forKey: "SHOW_AGREEMENT")
             

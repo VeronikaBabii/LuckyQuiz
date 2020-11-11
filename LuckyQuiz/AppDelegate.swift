@@ -55,8 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // add formed web url to show to UserDefaults
             let AGREEMENT_URL = self.utils.formUrlToShow(sortedBySubs)
             
-            //let AGREEMENT_URL = "https://developer.apple.com" // for testing
-            
             UserDefaults.standard.set(AGREEMENT_URL, forKey: "AGREEMENT_URL")
             //print("now showing - \(AGREEMENT_URL)\n")
             
