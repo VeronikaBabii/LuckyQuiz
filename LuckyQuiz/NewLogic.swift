@@ -18,31 +18,48 @@ class NewLogic {
     
     func getDataFromDeeplink(completion: (ResultData?) -> ()) {
         
-        if true {
-            print("deeplink data must be here")
-            completion(placeholder)
-        } else {
-            print("nil")
+        // get deeplink and proccess it into deeplinkData in ResultData format
+        let deeplink = ""
+        
+        
+        
+        let deeplinkData = ResultData(key: <#T##String#>, sub1: <#T##String#>, sub2: <#T##String?#>, sub3: <#T##String?#>, source: <#T##TrafficSource#>)
+        
+        completion(deeplinkData)
+        
+        if false { // add some condition
+            print("no deeplinkData")
             completion(nil)
         }
     }
-
+    
     func getDataFromNaming(mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
         
-        if true {
-            print("naming data must be here")
-            completion(placeholder)
-        } else {
-            print("nil")
+        // get naming and proccess it into namingData in ResultData format
+        let naming = ""
+        
+        
+        
+        let namingData = ResultData(key: <#T##String#>, sub1: <#T##String#>, sub2: <#T##String?#>, sub3: <#T##String?#>, source: <#T##TrafficSource#>)
+        
+        completion(namingData)
+        
+        if false { // add some condition
+            print("no namingData")
             completion(nil)
         }
     }
-
-    // pass data here and create link
+    
     func createDataFromResult(_ data: ResultData, _ status: (String , String), _ callback: () -> Void) {
         
+        // create link from passed params
+        let link = ""
+        
+        
+        
+        print(link)
     }
-
+    
     func requestData(callback: () -> Void) {
         
         print("\nUser - \(status.user) \nSource - \(status.source)")
@@ -50,7 +67,7 @@ class NewLogic {
         if status.user != "true" {
             print("\nUser not true")
         }
-         
+        
         // user == "true" - check deeplink
         getDataFromDeeplink() { deeplinkData -> () in
             
