@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		151018C62510210700A877AC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151018C52510210700A877AC /* Utils.swift */; };
+		153BC030255C34450099D7D0 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153BC02F255C34450099D7D0 /* Structs.swift */; };
 		1546A9E72548400200D69494 /* SecondWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E62548400200D69494 /* SecondWinVC.swift */; };
 		1546A9E92548402000D69494 /* SecondQuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E82548402000D69494 /* SecondQuizVC.swift */; };
 		1546A9EC2548407800D69494 /* QuizLogic2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9EB2548407800D69494 /* QuizLogic2.swift */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		151018C52510210700A877AC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		153BC02F255C34450099D7D0 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		1546A9E62548400200D69494 /* SecondWinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWinVC.swift; sourceTree = "<group>"; };
 		1546A9E82548402000D69494 /* SecondQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondQuizVC.swift; sourceTree = "<group>"; };
 		1546A9EB2548407800D69494 /* QuizLogic2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic2.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				157E05302550214200CC405B /* pribambas_regular.ttf */,
 				154FBBE824E71919006CC92B /* SceneDelegate.swift */,
 				154FBBE624E71919006CC92B /* AppDelegate.swift */,
+				153BC02F255C34450099D7D0 /* Structs.swift */,
 				151018C52510210700A877AC /* Utils.swift */,
 				15E63DC925190F0E005888E5 /* WebView */,
 				15DB441724FAE14C00964171 /* Game */,
@@ -424,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153BC030255C34450099D7D0 /* Structs.swift in Sources */,
 				15DB441F24FAE1C300964171 /* GameViewController.swift in Sources */,
 				1546A9E92548402000D69494 /* SecondQuizVC.swift in Sources */,
 				156499D2253CDFF5001DB310 /* PushPromptViewController.swift in Sources */,
