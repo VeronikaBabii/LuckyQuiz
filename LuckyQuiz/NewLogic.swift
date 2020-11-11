@@ -10,11 +10,61 @@ import Foundation
 
 class NewLogic {
     
-    func requestData() {
+    let placeholder = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
+    
+    func getDataFromDeeplink(completion: (ResultData?) -> ()) {
         
+        if true {
+            print("deeplink data must be here")
+            completion(placeholder)
+        } else {
+            print("nil")
+            completion(nil)
+        }
+    }
+
+    func getDataFromNaming(mediaSources: String, completion: (ResultData?) -> ()) {
         
+        if mediaSources == "Facebook" {
+            print("naming data must be here")
+            completion(placeholder)
+        } else {
+            print("nil")
+            completion(nil)
+        }
+    }
+
+    func createDataFromResult(_ data: ResultData, _ status: String, _ callback: String) {
         
     }
+
+    func requestData() {
+        
+        getDataFromDeeplink() { deeplinkData -> () in
+            
+            if deeplinkData != nil {
+                print(deeplinkData!)
+                createDataFromResult(deeplinkData!, "status", "callback")
+            }
+            
+            getDataFromNaming(mediaSources: "Facebook") { namingData -> () in
+                
+                if namingData != nil {
+                    print(namingData!)
+                    createDataFromResult(namingData!, "status", "callback")
+                }
+            }
+            
+            let organicData = ResultData(
+                key: Consts.ORGANIC_FB,
+                sub1: "organic_fb",
+                source: <#T##TrafficSource#>)
+            
+            createDataFromResult(organicData, "status", "callback")
+        }
+    }
+    
+    
     
     func getDataFromChecker (url: URL, completion: @escaping(Responce?) -> Void) {
         
@@ -39,7 +89,7 @@ class NewLogic {
     
     func checkerDataUsage() {
         
-        let url = URL(string: "https://integr-testing.site/checker/?token=jCMs3QPM7gsT5D3V")!
+        let url = URL(string: "https://integr-testing.site/checker/?token=\(Consts.CLOAK_TOKEN)")!
         
         getDataFromChecker(url: url) { result in
             
