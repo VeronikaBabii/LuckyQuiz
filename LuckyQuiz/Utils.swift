@@ -97,8 +97,8 @@ struct Utils {
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
             
-            let ouput = String(data: data, encoding: .utf8)!
-            print("\n\(ouput)\n")
+            let fbCheckerOuput = String(data: data, encoding: .utf8)!
+            //print("\n\(fbCheckerOuput)\n")
             
             //let SHOW_AGREEMENT = "false" // for game testing
 //            UserDefaults.standard.set(SHOW_AGREEMENT, forKey: "SHOW_AGREEMENT")

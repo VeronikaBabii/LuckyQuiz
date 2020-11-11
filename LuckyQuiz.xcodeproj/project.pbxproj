@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		151018C62510210700A877AC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151018C52510210700A877AC /* Utils.swift */; };
-		153BC030255C34450099D7D0 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153BC02F255C34450099D7D0 /* Structs.swift */; };
 		1546A9E72548400200D69494 /* SecondWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E62548400200D69494 /* SecondWinVC.swift */; };
 		1546A9E92548402000D69494 /* SecondQuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E82548402000D69494 /* SecondQuizVC.swift */; };
 		1546A9EC2548407800D69494 /* QuizLogic2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9EB2548407800D69494 /* QuizLogic2.swift */; };
@@ -25,6 +24,7 @@
 		156499C8253C960F001DB310 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156499C7253C960F001DB310 /* NotificationService.swift */; };
 		156499CC253C960F001DB310 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 156499C5253C960F001DB310 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		156499D2253CDFF5001DB310 /* PushPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156499D1253CDFF5001DB310 /* PushPromptViewController.swift */; };
+		156D774E255C6EEB00F71186 /* NewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D774D255C6EEB00F71186 /* NewLogic.swift */; };
 		157E05312550218E00CC405B /* pribambas_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 157E05302550214200CC405B /* pribambas_regular.ttf */; };
 		15DB441D24FAE1BA00964171 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DB441C24FAE1BA00964171 /* GameScreen.storyboard */; };
 		15DB441F24FAE1C300964171 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB441E24FAE1C300964171 /* GameViewController.swift */; };
@@ -63,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		151018C52510210700A877AC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		153BC02F255C34450099D7D0 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		1546A9E62548400200D69494 /* SecondWinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWinVC.swift; sourceTree = "<group>"; };
 		1546A9E82548402000D69494 /* SecondQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondQuizVC.swift; sourceTree = "<group>"; };
 		1546A9EB2548407800D69494 /* QuizLogic2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic2.swift; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		156499C9253C960F001DB310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		156499D0253C9E25001DB310 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		156499D1253CDFF5001DB310 /* PushPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushPromptViewController.swift; sourceTree = "<group>"; };
+		156D774D255C6EEB00F71186 /* NewLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogic.swift; sourceTree = "<group>"; };
 		157E05302550214200CC405B /* pribambas_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pribambas_regular.ttf; sourceTree = "<group>"; };
 		159A0ABB2501266300118CDD /* WebViewDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebViewDemo.entitlements; sourceTree = "<group>"; };
 		15DB441C24FAE1BA00964171 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 				157E05302550214200CC405B /* pribambas_regular.ttf */,
 				154FBBE824E71919006CC92B /* SceneDelegate.swift */,
 				154FBBE624E71919006CC92B /* AppDelegate.swift */,
-				153BC02F255C34450099D7D0 /* Structs.swift */,
+				156D774D255C6EEB00F71186 /* NewLogic.swift */,
 				151018C52510210700A877AC /* Utils.swift */,
 				15E63DC925190F0E005888E5 /* WebView */,
 				15DB441724FAE14C00964171 /* Game */,
@@ -427,7 +427,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				153BC030255C34450099D7D0 /* Structs.swift in Sources */,
 				15DB441F24FAE1C300964171 /* GameViewController.swift in Sources */,
 				1546A9E92548402000D69494 /* SecondQuizVC.swift in Sources */,
 				156499D2253CDFF5001DB310 /* PushPromptViewController.swift in Sources */,
@@ -444,6 +443,7 @@
 				154FBBE924E71919006CC92B /* SceneDelegate.swift in Sources */,
 				1546A9F02548413D00D69494 /* ThirdWinVC.swift in Sources */,
 				1546A9EE2548410D00D69494 /* QuizLogic3.swift in Sources */,
+				156D774E255C6EEB00F71186 /* NewLogic.swift in Sources */,
 				15DB442C24FB9B7900964171 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

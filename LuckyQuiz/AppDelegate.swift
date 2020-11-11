@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     let utils = Utils()
+    let logic = NewLogic()
     let vc = ViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -58,7 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(AGREEMENT_URL, forKey: "AGREEMENT_URL")
             //print("now showing - \(AGREEMENT_URL)\n")
             
-            self.utils.checkAgreementStatus()
+            //self.utils.checkAgreementStatus()
+            self.logic.checkerDataUsage()
         }
         
         // MARK: - OneSignal
