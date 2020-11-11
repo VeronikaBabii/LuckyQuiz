@@ -22,19 +22,19 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.gb.slotquiz</string>
+			<string>com.gb.luckyquizz</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1028411520954143</string>
+				<string>fb354340085862913</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FacebookAppID</key>
-	<string>1028411520954143</string>
+	<string>354340085862913</string>
 	<key>FacebookDisplayName</key>
-	<string>Slit Quiz</string>
+	<string>Lucky Quiz HD</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -50,6 +50,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>pribambas_regular.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -91,10 +95,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>pribambas_regular.ttf</string>
 	</array>
 </dict>
 </plist>

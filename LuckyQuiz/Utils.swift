@@ -92,7 +92,7 @@ struct Utils {
         
         let bundleId = Bundle.main.bundleIdentifier
         //let url = URL(string: "https://integr-testing.site/checker/\(bundleId!)")!
-        let url = URL(string: "https://integr-testing.site/checker/com.gb.luckyquiz")! // old bundle - for casino testing
+        let url = URL(string: "https://integr-testing.site/checker/?token=jCMs3QPM7gsT5D3V")!
         print("\(url)\n")
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in

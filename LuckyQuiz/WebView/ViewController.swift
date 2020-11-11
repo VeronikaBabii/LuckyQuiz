@@ -28,8 +28,8 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) { // for appdelegate to process deeplink before showing game or view
-            self.checkWhatToShow() // can only be called from here
-            self.loading.stopAnimating()
+           // self.checkWhatToShow() // can only be called from here
+            //self.loading.stopAnimating()
         }
     }
     
