@@ -61,7 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //self.utils.checkAgreementStatus()
             self.logic.checkerDataUsage()
-            //self.logic.requestData()()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.logic.requestData()
+            }
         }
         
         // MARK: - OneSignal

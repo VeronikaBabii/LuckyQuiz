@@ -13,6 +13,8 @@ class NewLogic {
     //MARK: - deeplink/naming/organic logic
     let placeholder = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
     
+    var status: (user: String, source: String)? = nil
+    
     func getDataFromDeeplink(completion: (ResultData?) -> ()) {
         
         if true {
@@ -35,13 +37,20 @@ class NewLogic {
         }
     }
 
+    // pass data here and create link
     func createDataFromResult(_ data: ResultData, _ status: String, _ callback: String) {
         
     }
 
     func requestData() {
         
-        // deeplink
+        print("\nUser - \(status?.user ?? "") \nSource - \(status?.source ?? "")")
+        
+        if status?.user != "true" {
+            print("\nUser not true")
+        }
+         
+        // user == "true" - check deeplink
         getDataFromDeeplink() { deeplinkData -> () in
             
             if deeplinkData != nil {
@@ -49,7 +58,7 @@ class NewLogic {
                 createDataFromResult(deeplinkData!, "status", "callback")
             }
             
-            // naming
+            // no deeplink - check naming
             getDataFromNaming(mediaSources: "Facebook") { namingData -> () in
                 
                 if namingData != nil {
@@ -58,9 +67,9 @@ class NewLogic {
                 }
             }
             
-            // organic
+            // no naming - create organic
             var computedKey: String {
-                if true {
+                if status?.source == TrafficSource.FACEBOOK.rawValue {
                     return Consts.ORGANIC_FB
                 } else {
                     return Consts.ORGANIC_INAPP
@@ -68,7 +77,7 @@ class NewLogic {
             }
             
             var computedSub1: String {
-                if true {
+                if status?.source == TrafficSource.FACEBOOK.rawValue {
                     return "organic_fb"
                 } else {
                     return "organic_inapp"
@@ -76,6 +85,7 @@ class NewLogic {
             }
             
             let organicData = ResultData(key: computedKey, sub1: computedSub1, source: TrafficSource.FACEBOOK)
+            print(organicData)
             createDataFromResult(organicData, "status", "callback")
         }
     }
@@ -113,11 +123,8 @@ class NewLogic {
                 return
             }
             
-            UserDefaults.standard.set(res.source, forKey: "fb-source")
-            print(UserDefaults.standard.object(forKey: "source") ?? "no source")
-            
-            UserDefaults.standard.set(res.user, forKey: "fb-user")
-            print(UserDefaults.standard.object(forKey: "fb-user") ?? "no user")
+            self.status = (res.user, res.source)
+            print(self.status ?? ())
             
             let mediaSources = (res.media_sources)
             var sourceNum = 0

@@ -10,6 +10,7 @@ import Foundation
 
 //
 struct Consts {
+    
     static let ORGANIC_FB    = "oswn6tvtmztmokzwovqc"
     static let ORGANIC_INAPP = "sl4nk4g3x0y8l6f8kiid"
     static let CLOAK_TOKEN   = "jCMs3QPM7gsT5D3V"
@@ -55,8 +56,8 @@ struct ResultData {
     var source: TrafficSource
 }
 
-enum TrafficSource {
-    case FACEBOOK
-    case UNITY
-    case GOOGLE
+enum TrafficSource: String {
+    case FACEBOOK = "fb"
+    case UNITY = "unity"
+    case GOOGLE = "google"
 }
