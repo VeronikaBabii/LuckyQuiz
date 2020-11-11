@@ -37,6 +37,10 @@ struct Media: Decodable {
 
 class NewLogic {
     
+    
+    
+    
+    
     func getDataFromChecker (url: URL, completion: @escaping(Responce?) -> Void) {
         
         URLSession.shared.dataTask(with: url) {data, _, error in
@@ -64,15 +68,23 @@ class NewLogic {
         
         getDataFromChecker(url: url) { result in
             
-            print("\(result!.source)")
-            print("\(result!.user)")
+            guard let res = result else {
+                print("Result is nil")
+                return
+            }
             
-            let mediaSources = (result!.media_sources)
+            print("\(res.source)")
+            UserDefaults.standard.set(res.source, forKey: "MY_SOURSE")
+            
+            print("\(res.user)")
+            UserDefaults.standard.set(res.user, forKey: "MY_USER")
+            
+            let mediaSources = (res.media_sources)
             var sourceNum = 0
             
             for media in mediaSources {
                 print("\nMedia source \(sourceNum): ")
-
+                
                 print(media.source ?? "no source")
                 print("\(media.media_source)\n")
                 
@@ -100,5 +112,4 @@ class NewLogic {
             }
         }
     }
-    
 }
