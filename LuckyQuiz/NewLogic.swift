@@ -38,11 +38,11 @@ class NewLogic {
     }
 
     // pass data here and create link
-    func createDataFromResult(_ data: ResultData, _ status: (String , String), _ callback: String) {
+    func createDataFromResult(_ data: ResultData, _ status: (String , String), _ callback: () -> Void) {
         
     }
 
-    func requestData() {
+    func requestData(callback: () -> Void) {
         
         print("\nUser - \(status.user) \nSource - \(status.source)")
         
@@ -55,7 +55,7 @@ class NewLogic {
             
             if deeplinkData != nil {
                 print(deeplinkData!)
-                createDataFromResult(deeplinkData!, status, "callback")
+                createDataFromResult(deeplinkData!, status, callback)
             }
             
             // no deeplink - check naming
@@ -63,7 +63,7 @@ class NewLogic {
                 
                 if namingData != nil {
                     print(namingData!)
-                    createDataFromResult(namingData!, status, "callback")
+                    createDataFromResult(namingData!, status, callback)
                 }
             }
             
@@ -86,7 +86,7 @@ class NewLogic {
             
             let organicData = ResultData(key: computedKey, sub1: computedSub1, source: TrafficSource.FACEBOOK)
             print(organicData)
-            createDataFromResult(organicData, status, "callback")
+            createDataFromResult(organicData, status, callback)
         }
     }
     

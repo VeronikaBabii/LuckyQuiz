@@ -64,7 +64,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // new logic
             self.logic.checkerDataUsage()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                self.logic.requestData()
+                self.logic.requestData {
+                    print("Requesting data")
+                }
             }
         }
         
