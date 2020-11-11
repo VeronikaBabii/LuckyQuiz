@@ -14,6 +14,7 @@ class NewLogic {
     let placeholder = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
     
     var status: (user: String, source: String) = ("", "")
+    var media_sources = [MediaSources]()
     
     func getDataFromDeeplink(completion: (ResultData?) -> ()) {
         
@@ -26,9 +27,9 @@ class NewLogic {
         }
     }
 
-    func getDataFromNaming(mediaSources: String, completion: (ResultData?) -> ()) {
+    func getDataFromNaming(mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
         
-        if mediaSources == "Facebook" {
+        if true {
             print("naming data must be here")
             completion(placeholder)
         } else {
@@ -59,7 +60,7 @@ class NewLogic {
             }
             
             // no deeplink - check naming
-            getDataFromNaming(mediaSources: "Facebook") { namingData -> () in
+            getDataFromNaming(mediaSources: media_sources) { namingData -> () in
                 
                 if namingData != nil {
                     print(namingData!)
@@ -127,6 +128,8 @@ class NewLogic {
             print(self.status)
             
             let mediaSources = (res.media_sources)
+            self.media_sources = mediaSources
+            
             var sourceNum = 0
             
             for media in mediaSources {

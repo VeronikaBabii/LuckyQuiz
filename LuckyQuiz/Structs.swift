@@ -23,10 +23,10 @@ struct Consts {
 struct Responce: Decodable {
     var source: String
     var user: String
-    var media_sources: [MediaSourses]
+    var media_sources: [MediaSources]
 }
 
-struct MediaSourses: Decodable {
+struct MediaSources: Decodable {
     var source: String?
     var media_source: String
     var key: MediaSource
