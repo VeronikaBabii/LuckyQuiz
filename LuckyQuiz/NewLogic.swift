@@ -8,48 +8,6 @@
 
 import Foundation
 
-struct Responce: Decodable {
-    var source: String
-    var user: String
-    var media_sources: [MediaSourses]
-}
-
-struct MediaSourses: Decodable {
-    var source: String?
-    var media_source: String
-    var key: MediaSource
-    var sub1: MediaSource
-    var sub2: Media
-    var sub3: Media
-}
-
-struct MediaSource: Decodable {
-    var name: String
-    var split: Bool
-    var delimiter: String
-    var position: Int
-}
-
-struct Media: Decodable {
-    var name: String
-    var split: Bool
-}
-
-//
-struct ResultData {
-    var key: String
-    var sub1: String
-    var sub2: String
-    var sub3: String
-    var source: TrafficSource
-}
-
-enum TrafficSource {
-    case FACEBOOK
-    case UNITY
-    case GOOGLE
-}
-
 class NewLogic {
     
     func requestData() {

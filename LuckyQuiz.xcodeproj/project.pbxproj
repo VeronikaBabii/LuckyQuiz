@@ -25,6 +25,7 @@
 		156499CC253C960F001DB310 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 156499C5253C960F001DB310 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		156499D2253CDFF5001DB310 /* PushPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156499D1253CDFF5001DB310 /* PushPromptViewController.swift */; };
 		156D774E255C6EEB00F71186 /* NewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D774D255C6EEB00F71186 /* NewLogic.swift */; };
+		156D7756255C799A00F71186 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D7755255C799A00F71186 /* Structs.swift */; };
 		157E05312550218E00CC405B /* pribambas_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 157E05302550214200CC405B /* pribambas_regular.ttf */; };
 		15DB441D24FAE1BA00964171 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DB441C24FAE1BA00964171 /* GameScreen.storyboard */; };
 		15DB441F24FAE1C300964171 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB441E24FAE1C300964171 /* GameViewController.swift */; };
@@ -84,6 +85,7 @@
 		156499D0253C9E25001DB310 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		156499D1253CDFF5001DB310 /* PushPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushPromptViewController.swift; sourceTree = "<group>"; };
 		156D774D255C6EEB00F71186 /* NewLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogic.swift; sourceTree = "<group>"; };
+		156D7755255C799A00F71186 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		157E05302550214200CC405B /* pribambas_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pribambas_regular.ttf; sourceTree = "<group>"; };
 		159A0ABB2501266300118CDD /* WebViewDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebViewDemo.entitlements; sourceTree = "<group>"; };
 		15DB441C24FAE1BA00964171 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				154FBBE824E71919006CC92B /* SceneDelegate.swift */,
 				154FBBE624E71919006CC92B /* AppDelegate.swift */,
 				156D774D255C6EEB00F71186 /* NewLogic.swift */,
+				156D7755255C799A00F71186 /* Structs.swift */,
 				151018C52510210700A877AC /* Utils.swift */,
 				15E63DC925190F0E005888E5 /* WebView */,
 				15DB441724FAE14C00964171 /* Game */,
@@ -438,6 +441,7 @@
 				154FBBEB24E71919006CC92B /* ViewController.swift in Sources */,
 				15DB442E24FB9B8800964171 /* Question.swift in Sources */,
 				154FBBE724E71919006CC92B /* AppDelegate.swift in Sources */,
+				156D7756255C799A00F71186 /* Structs.swift in Sources */,
 				15DB442824FB9B3300964171 /* WinViewController.swift in Sources */,
 				151018C62510210700A877AC /* Utils.swift in Sources */,
 				154FBBE924E71919006CC92B /* SceneDelegate.swift in Sources */,
