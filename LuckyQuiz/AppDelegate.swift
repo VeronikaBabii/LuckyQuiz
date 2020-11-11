@@ -61,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //self.utils.checkAgreementStatus()
             self.logic.checkerDataUsage()
+            //self.logic.requestData()()
         }
         
         // MARK: - OneSignal

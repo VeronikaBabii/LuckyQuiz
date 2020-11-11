@@ -2,8 +2,8 @@
 //  NewLogic.swift
 //  LuckyQuiz
 //
-//  Created by Veronika Babii on 11.11.2020.
-//  Copyright © 2020 Veronika Babii. All rights reserved.
+//  Created by Mark Vais on 11.11.2020.
+//  Copyright © 2020 Mark Vais. All rights reserved.
 //
 
 import Foundation
@@ -35,11 +35,28 @@ struct Media: Decodable {
     var split: Bool
 }
 
+//
+struct ResultData {
+    var key: String
+    var sub1: String
+    var sub2: String
+    var sub3: String
+    var source: TrafficSource
+}
+
+enum TrafficSource {
+    case FACEBOOK
+    case UNITY
+    case GOOGLE
+}
+
 class NewLogic {
     
-    
-    
-    
+    func requestData() {
+        
+        
+        
+    }
     
     func getDataFromChecker (url: URL, completion: @escaping(Responce?) -> Void) {
         
@@ -73,11 +90,11 @@ class NewLogic {
                 return
             }
             
-            print("\(res.source)")
-            UserDefaults.standard.set(res.source, forKey: "MY_SOURSE")
+            UserDefaults.standard.set(res.source, forKey: "fb-source")
+            print(UserDefaults.standard.object(forKey: "source") ?? "no source")
             
-            print("\(res.user)")
-            UserDefaults.standard.set(res.user, forKey: "MY_USER")
+            UserDefaults.standard.set(res.user, forKey: "fb-user")
+            print(UserDefaults.standard.object(forKey: "fb-user") ?? "no user")
             
             let mediaSources = (res.media_sources)
             var sourceNum = 0
