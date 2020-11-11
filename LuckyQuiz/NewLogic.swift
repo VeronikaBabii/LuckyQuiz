@@ -10,6 +10,7 @@ import Foundation
 
 class NewLogic {
     
+    //MARK: - deeplink/naming/organic logic
     let placeholder = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
     
     func getDataFromDeeplink(completion: (ResultData?) -> ()) {
@@ -40,6 +41,7 @@ class NewLogic {
 
     func requestData() {
         
+        // deeplink
         getDataFromDeeplink() { deeplinkData -> () in
             
             if deeplinkData != nil {
@@ -47,6 +49,7 @@ class NewLogic {
                 createDataFromResult(deeplinkData!, "status", "callback")
             }
             
+            // naming
             getDataFromNaming(mediaSources: "Facebook") { namingData -> () in
                 
                 if namingData != nil {
@@ -55,17 +58,29 @@ class NewLogic {
                 }
             }
             
-            let organicData = ResultData(
-                key: Consts.ORGANIC_FB,
-                sub1: "organic_fb",
-                source: <#T##TrafficSource#>)
+            // organic
+            var computedKey: String {
+                if true {
+                    return Consts.ORGANIC_FB
+                } else {
+                    return Consts.ORGANIC_INAPP
+                }
+            }
             
+            var computedSub1: String {
+                if true {
+                    return "organic_fb"
+                } else {
+                    return "organic_inapp"
+                }
+            }
+            
+            let organicData = ResultData(key: computedKey, sub1: computedSub1, source: TrafficSource.FACEBOOK)
             createDataFromResult(organicData, "status", "callback")
         }
     }
     
-    
-    
+    //MARK: - parse jsonData from checker api
     func getDataFromChecker (url: URL, completion: @escaping(Responce?) -> Void) {
         
         URLSession.shared.dataTask(with: url) {data, _, error in
