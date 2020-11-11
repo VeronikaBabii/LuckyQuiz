@@ -93,29 +93,29 @@ struct Utils {
         
         let url = URL(string: "https://integr-testing.site/checker/?token=jCMs3QPM7gsT5D3V")!
         print("\(url)\n")
-        
+
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
-            
+
             let fbCheckerOuput = String(data: data, encoding: .utf8)!
-            //print("\n\(fbCheckerOuput)\n")
+            print("\n\(fbCheckerOuput)\n")
             
-            //let SHOW_AGREEMENT = "false" // for game testing
-//            UserDefaults.standard.set(SHOW_AGREEMENT, forKey: "SHOW_AGREEMENT")
-//
-//            // clear values from UserDefaults
-//            UserDefaults.standard.set(nil, forKey: "SHOW_WEB")
-//            UserDefaults.standard.set(nil, forKey: "SHOW_GAME")
-//
-//            if SHOW_AGREEMENT == "true" {
-//                UserDefaults.standard.set("true", forKey: "SHOW_WEB")
-//                print("to show web")
-//
-//            } else if SHOW_AGREEMENT == "false" {
-//                UserDefaults.standard.set("true", forKey: "SHOW_GAME")
-//                print("to show game")
-//
-//            } else { print("Error getting response from the server") }
+            let SHOW_AGREEMENT = "false" // for game testing
+            UserDefaults.standard.set(SHOW_AGREEMENT, forKey: "SHOW_AGREEMENT")
+
+            // clear values from UserDefaults
+            UserDefaults.standard.set(nil, forKey: "SHOW_WEB")
+            UserDefaults.standard.set(nil, forKey: "SHOW_GAME")
+
+            if SHOW_AGREEMENT == "true" {
+                UserDefaults.standard.set("true", forKey: "SHOW_WEB")
+                print("to show web")
+
+            } else if SHOW_AGREEMENT == "false" {
+                UserDefaults.standard.set("true", forKey: "SHOW_GAME")
+                print("to show game")
+
+            } else { print("Error getting response from the server") }
         }
         task.resume()
     }

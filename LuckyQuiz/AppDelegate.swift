@@ -60,6 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //print("now showing - \(AGREEMENT_URL)\n")
             
             //self.utils.checkAgreementStatus()
+            
+            // new logic
             self.logic.checkerDataUsage()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                 self.logic.requestData()
