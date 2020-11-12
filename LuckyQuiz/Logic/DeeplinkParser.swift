@@ -8,8 +8,6 @@
 
 import Foundation
 
-// parse deeplink more beutifully
-
 struct InnerAppLinkData: Decodable {
     var target_url: String
     var extras: Extras
@@ -25,8 +23,8 @@ struct Extras: Decodable {
 class DeeplinkParser {
     
     // 1 - get deeplink and form jsonStr from in
-    
     func formJsonStr(deeplink: String) -> String {
+        
         // 1 - receive deeplink
         print("\(deeplink)\n")
         

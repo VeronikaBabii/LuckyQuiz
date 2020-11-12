@@ -8,9 +8,8 @@
 
 import Foundation
 
-//
+// constants
 struct Consts {
-    
     static let ORGANIC_FB    = "oswn6tvtmztmokzwovqc"
     static let ORGANIC_INAPP = "sl4nk4g3x0y8l6f8kiid"
     static let CLOAK_TOKEN   = "jCMs3QPM7gsT5D3V"
@@ -19,7 +18,7 @@ struct Consts {
     static let METRICA_SDK_KEY   = "7b9a2df8-dcef-47f6-b78a-abfc0b3c5b68"
 }
 
-//
+// for cloak responce parsing
 struct Responce: Decodable {
     var source: String
     var user: String
@@ -47,7 +46,7 @@ struct Media: Decodable {
     var split: Bool
 }
 
-//
+// for Deeplink/Naming/Organic result data
 struct ResultData {
     var key: String
     var sub1: String

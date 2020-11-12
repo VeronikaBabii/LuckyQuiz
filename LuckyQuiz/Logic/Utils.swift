@@ -7,9 +7,17 @@
 //
 
 import UIKit
-import FBSDKCoreKit
 
 struct Utils {
+    
+    //MARK: -
+    
+    func getQueriesFromNaming(_ namingStr: String) -> [String: String] {
+        
+        
+        
+        return ["":""]
+    }
     
     // MARK: - old - parsing deeplink ugly way 
     func getQueriesFromDeeplink(_ url: String) -> [String: String] {
@@ -122,20 +130,4 @@ struct Utils {
         }
         task.resume()
     }
-    
-    // MARK: - other 
-    func printUserDefaults() {
-        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-            print("\(key) = \(value) \n")
-        }
-        print("\n")
-    }
-    
-    //MARK: -
-    
-    func getQueriesFromNaming(_ url: String) -> [String: String] {
-        return ["":""]
-    }
 }
-
-

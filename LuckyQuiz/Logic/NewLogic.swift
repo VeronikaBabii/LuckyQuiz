@@ -33,9 +33,12 @@ class NewLogic {
         let queries = DeeplinkParser().getParamsFromDeeplink(deeplink: deeplink)
         print("Deeplink queries are \(queries)")
         
-        
-        
-        let deeplinkData = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
+        let deeplinkData = ResultData(
+            key: queries["key"] ?? "",
+            sub1: queries["sub1"] ?? "",
+            sub2: queries["sub2"] ?? "",
+            sub3: queries["sub3"] ?? "",
+            source: TrafficSource.FACEBOOK)
         
         completion(deeplinkData)
     }
@@ -58,9 +61,12 @@ class NewLogic {
         let queries = Utils().getQueriesFromNaming(naming)
         print("Naming queries are \(queries)")
         
-        
-        
-        let namingData = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
+        let namingData = ResultData(
+            key: "",
+            sub1: "",
+            sub2: "",
+            sub3: "",
+            source: TrafficSource.FACEBOOK)
         
         completion(namingData)
     }
