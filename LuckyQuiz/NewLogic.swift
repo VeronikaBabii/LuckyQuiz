@@ -15,45 +15,61 @@ class NewLogic {
     var status: (user: String, source: String) = ("", "")
     var media_sources = [MediaSources]()
     
-    func getDataFromDeeplink(completion: (ResultData?) -> ()) {
+    func getDataFromDeeplink(deeplink: String?, completion: (ResultData?) -> ()) {
         
+        if deeplink == "" {
+            print("empty deeplink - go further")
+            completion(nil)
+            return
+        }
+        
+        guard let deeplink = deeplink else {
+            print("no deeplink")
+            completion(nil)
+            return
+        }
         // get deeplink and proccess it into deeplinkData in ResultData format
-        let deeplink = ""
         
         let queries = Utils().getQueriesFromDeeplink(deeplink)
         print("Deeplink queries are \(queries)")
         
+        
+        
         let deeplinkData = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
         
         completion(deeplinkData)
-        
-        if false { // add some condition
-            print("no deeplinkData")
-            completion(nil)
-        }
     }
     
-    func getDataFromNaming(mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
+    func getDataFromNaming(naming: String?, mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
         
+        if naming == "" {
+            print("empty naming - go further")
+            completion(nil)
+            return
+        }
+        
+        guard let naming = naming else {
+            print("no naming")
+            completion(nil)
+            return
+        }
         // get naming and proccess it into namingData in ResultData format
-        let naming = ""
         
         let queries = Utils().getQueriesFromNaming(naming)
+        print("Naming queries are \(queries)")
+        
+        
         
         let namingData = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
         
         completion(namingData)
-        
-        if false { // add some condition
-            print("no namingData")
-            completion(nil)
-        }
     }
     
     func createDataFromResult(_ data: ResultData, _ status: (String , String), _ callback: () -> Void) {
         
         // create link from passed params
-        let link = ""
+        let link = "https://egame.site/click.php"
+        
         
     }
     
@@ -63,45 +79,48 @@ class NewLogic {
         
         if status.user != "true" {
             print("\nUser not true")
+            return
         }
         
         // user == "true" - check deeplink
-        getDataFromDeeplink() { deeplinkData -> () in
+        getDataFromDeeplink(deeplink: "") { deeplinkData -> () in
             
             if deeplinkData != nil {
                 print("Deeplink data - \(deeplinkData!)")
                 createDataFromResult(deeplinkData!, status, callback)
+                return
             }
             
             // no deeplink - check naming
-            getDataFromNaming(mediaSources: media_sources) { namingData -> () in
+            getDataFromNaming(naming: "", mediaSources: media_sources) { namingData -> () in
                 
                 if namingData != nil {
-                    print("Naming data   - \(namingData!)")
+                    print("Naming data - \(namingData!)")
                     createDataFromResult(namingData!, status, callback)
+                    return
                 }
-            }
-            
-            // no naming - create organic
-            var computedKey: String {
-                if status.source == TrafficSource.FACEBOOK.rawValue {
-                    return Consts.ORGANIC_FB
-                } else {
-                    return Consts.ORGANIC_INAPP
+                
+                // no naming - create organic
+                var computedKey: String {
+                    if status.source == TrafficSource.FACEBOOK.rawValue {
+                        return Consts.ORGANIC_FB
+                    } else {
+                        return Consts.ORGANIC_INAPP
+                    }
                 }
-            }
-            
-            var computedSub1: String {
-                if status.source == TrafficSource.FACEBOOK.rawValue {
-                    return "organic_fb"
-                } else {
-                    return "organic_inapp"
+                
+                var computedSub1: String {
+                    if status.source == TrafficSource.FACEBOOK.rawValue {
+                        return "organic_fb"
+                    } else {
+                        return "organic_inapp"
+                    }
                 }
+                
+                let organicData = ResultData(key: computedKey, sub1: computedSub1, source: TrafficSource.FACEBOOK)
+                print("Organic data - \(organicData)")
+                createDataFromResult(organicData, status, callback)
             }
-            
-            let organicData = ResultData(key: computedKey, sub1: computedSub1, source: TrafficSource.FACEBOOK)
-            print("Organic data  - \(organicData)")
-            createDataFromResult(organicData, status, callback)
         }
     }
     
@@ -150,27 +169,27 @@ class NewLogic {
                 print("\nMedia source \(sourceNum): ")
                 
                 print(media.source ?? "no source")
-                print("\(media.media_source)\n")
+                print("\(media.media_source)")
                 
-                print("Key details:")
-                print(media.key.name)
-                print(media.key.split)
-                print(media.key.delimiter)
-                print(media.key.position)
-                
-                print("Sub1 details: ")
-                print(media.sub1.name)
-                print(media.sub1.split)
-                print(media.sub1.delimiter)
-                print(media.sub1.position)
-                
-                print("Sub2 details: ")
-                print(media.sub2.name)
-                print(media.sub2.split)
-                
-                print("Sub1 details: ")
-                print(media.sub3.name)
-                print(media.sub3.split)
+                //                print("Key details:")
+                //                print(media.key.name)
+                //                print(media.key.split)
+                //                print(media.key.delimiter)
+                //                print(media.key.position)
+                //
+                //                print("Sub1 details: ")
+                //                print(media.sub1.name)
+                //                print(media.sub1.split)
+                //                print(media.sub1.delimiter)
+                //                print(media.sub1.position)
+                //
+                //                print("Sub2 details: ")
+                //                print(media.sub2.name)
+                //                print(media.sub2.split)
+                //
+                //                print("Sub1 details: ")
+                //                print(media.sub3.name)
+                //                print(media.sub3.split)
                 
                 sourceNum += 1
             }
