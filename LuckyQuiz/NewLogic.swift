@@ -11,7 +11,6 @@ import Foundation
 class NewLogic {
     
     //MARK: - deeplink/naming/organic logic
-    let placeholder = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
     
     var status: (user: String, source: String) = ("", "")
     var media_sources = [MediaSources]()
@@ -21,9 +20,10 @@ class NewLogic {
         // get deeplink and proccess it into deeplinkData in ResultData format
         let deeplink = ""
         
+        let queries = Utils().getQueriesFromDeeplink(deeplink)
+        print("Deeplink queries are \(queries)")
         
-        
-        let deeplinkData = ResultData(key: <#T##String#>, sub1: <#T##String#>, sub2: <#T##String?#>, sub3: <#T##String?#>, source: <#T##TrafficSource#>)
+        let deeplinkData = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
         
         completion(deeplinkData)
         
@@ -38,9 +38,9 @@ class NewLogic {
         // get naming and proccess it into namingData in ResultData format
         let naming = ""
         
+        let queries = Utils().getQueriesFromNaming(naming)
         
-        
-        let namingData = ResultData(key: <#T##String#>, sub1: <#T##String#>, sub2: <#T##String?#>, sub3: <#T##String?#>, source: <#T##TrafficSource#>)
+        let namingData = ResultData(key: "", sub1: "", sub2: "", sub3: "", source: TrafficSource.FACEBOOK)
         
         completion(namingData)
         
@@ -55,9 +55,6 @@ class NewLogic {
         // create link from passed params
         let link = ""
         
-        
-        
-        print(link)
     }
     
     func requestData(callback: () -> Void) {
@@ -72,7 +69,7 @@ class NewLogic {
         getDataFromDeeplink() { deeplinkData -> () in
             
             if deeplinkData != nil {
-                print(deeplinkData!)
+                print("Deeplink data - \(deeplinkData!)")
                 createDataFromResult(deeplinkData!, status, callback)
             }
             
@@ -80,7 +77,7 @@ class NewLogic {
             getDataFromNaming(mediaSources: media_sources) { namingData -> () in
                 
                 if namingData != nil {
-                    print(namingData!)
+                    print("Naming data   - \(namingData!)")
                     createDataFromResult(namingData!, status, callback)
                 }
             }
@@ -103,7 +100,7 @@ class NewLogic {
             }
             
             let organicData = ResultData(key: computedKey, sub1: computedSub1, source: TrafficSource.FACEBOOK)
-            print(organicData)
+            print("Organic data  - \(organicData)")
             createDataFromResult(organicData, status, callback)
         }
     }

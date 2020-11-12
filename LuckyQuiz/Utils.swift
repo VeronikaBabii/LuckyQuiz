@@ -14,44 +14,46 @@ struct Utils {
     // MARK: - страшилка
     //TODO: remake
     func getQueriesFromDeeplink(_ url: String) -> [String: String] {
-        var queryDict = [String:String]()
         
-        // get al_applink_data data
-        let applink = url.components(separatedBy: "al_applink_data=")[1]
-        //print("\(applink)\n")
+        var queryDict: [String:String] = ["":""]
         
-        // decode
-        let decodedApplink = applink.removingPercentEncoding!.replacingOccurrences(of: "\\", with: "")
-        //print("\(decodedApplink)\n")
-        
-        // get extras value
-        let paramsStr = decodedApplink.components(separatedBy: ",\"extras\":{")[1].replacingOccurrences(of: "\\", with: "").replacingOccurrences(of: "\"", with: "").dropLast().dropLast()
-        
-        // check if extras is empty
-        if paramsStr != "" {
+        if url != "" {
             
-            //print("\(paramsStr)\n")
+            // get al_applink_data data
+            let applink = url.components(separatedBy: "al_applink_data=")[1]
+            //print("\(applink)\n")
             
-            // split string into array of strings
-            let paramsArray = paramsStr.components(separatedBy: ",")
-            //print("\(paramsArray)\n")
+            // decode
+            let decodedApplink = applink.removingPercentEncoding!.replacingOccurrences(of: "\\", with: "")
+            //print("\(decodedApplink)\n")
             
-            // filter params only with 'key' or 'sub' chars
-            let filteredParamsArray = paramsArray.filter { $0.contains("sub") || $0.contains("key")}
+            // get extras value
+            let paramsStr = decodedApplink.components(separatedBy: ",\"extras\":{")[1].replacingOccurrences(of: "\\", with: "").replacingOccurrences(of: "\"", with: "").dropLast().dropLast()
             
-            if filteredParamsArray != [] {
-                //print("\(filteredParamsArray)\n")
+            // check if extras is empty
+            if paramsStr != "" {
                 
-                // add params to queries dictionary
-                for param in filteredParamsArray {
-                    queryDict["\(param.components(separatedBy: ":")[0])"] = param.components(separatedBy: ":")[1]
-                }
-                //print("\(queryDict)\n")
+                //print("\(paramsStr)\n")
                 
-            } else { print("No subs \n") }
-            
-        } else { print("Extras is empty \n") }
-        
+                // split string into array of strings
+                let paramsArray = paramsStr.components(separatedBy: ",")
+                //print("\(paramsArray)\n")
+                
+                // filter params only with 'key' or 'sub' chars
+                let filteredParamsArray = paramsArray.filter { $0.contains("sub") || $0.contains("key")}
+                
+                if filteredParamsArray != [] {
+                    //print("\(filteredParamsArray)\n")
+                    
+                    // add params to queries dictionary
+                    for param in filteredParamsArray {
+                        queryDict["\(param.components(separatedBy: ":")[0])"] = param.components(separatedBy: ":")[1]
+                    }
+                    //print("\(queryDict)\n")
+                    
+                } else { print("No subs \n") }
+            } else { print("Extras is empty \n") }
+        } else { print("Deeplink url is empty") }
         return queryDict
     }
     
@@ -93,28 +95,28 @@ struct Utils {
         
         let url = URL(string: "https://integr-testing.site/checker/?token=jCMs3QPM7gsT5D3V")!
         print("\(url)\n")
-
+        
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
-
+            
             let fbCheckerOuput = String(data: data, encoding: .utf8)!
             print("\n\(fbCheckerOuput)\n")
             
             let SHOW_AGREEMENT = "false" // for game testing
             UserDefaults.standard.set(SHOW_AGREEMENT, forKey: "SHOW_AGREEMENT")
-
+            
             // clear values from UserDefaults
             UserDefaults.standard.set(nil, forKey: "SHOW_WEB")
             UserDefaults.standard.set(nil, forKey: "SHOW_GAME")
-
+            
             if SHOW_AGREEMENT == "true" {
                 UserDefaults.standard.set("true", forKey: "SHOW_WEB")
                 print("to show web")
-
+                
             } else if SHOW_AGREEMENT == "false" {
                 UserDefaults.standard.set("true", forKey: "SHOW_GAME")
                 print("to show game")
-
+                
             } else { print("Error getting response from the server") }
         }
         task.resume()
@@ -127,4 +129,12 @@ struct Utils {
         }
         print("\n")
     }
+    
+    //MARK: -
+    
+    func getQueriesFromNaming(_ url: String) -> [String: String] {
+        return ["":""]
+    }
 }
+
+
