@@ -8,7 +8,7 @@
 
 import Foundation
 
-// trying to parse deeplink more beutifully
+// parse deeplink more beutifully
 
 struct InnerAppLinkData: Decodable {
     var target_url: String
@@ -19,16 +19,19 @@ struct Extras: Decodable {
     var key: String
     var sub1: String
     var sub2: String?
+    var sub3: String?
 }
 
 class DeeplinkParser {
     
-    func formJsonStr(url: String) -> String {
+    // 1 - get deeplink and form jsonStr from in
+    
+    func formJsonStr(deeplink: String) -> String {
         // 1 - receive deeplink
-        print("\(url)\n")
+        print("\(deeplink)\n")
         
         // 2 - split by al_applink_data=
-        let outerApplink = url.components(separatedBy: "al_applink_data=")[1]
+        let outerApplink = deeplink.components(separatedBy: "al_applink_data=")[1]
         print("\(outerApplink)\n")
         
         // 3 - decode
@@ -43,14 +46,16 @@ class DeeplinkParser {
         let withoutExtras = innerApplink.components(separatedBy: "\",\"")[0]
         print("\(withoutExtras)\n")
         
-        // 6 - trying to get rid of bad symbols - /
-        let withoutBadSymbols = withoutExtras.replacingOccurrences(of: "\\/", with: "")
-        print("\(withoutBadSymbols)\n")
+        // 6 - get rid of \
+        let withoutBadSymbols = withoutExtras.replacingOccurrences(of: "\\", with: "")
         
         return withoutBadSymbols
     }
     
+    // 2 - jsonStr to Json and then decode via structs
     func decodeJSON(jsonString: String, completion: @escaping (InnerAppLinkData?) -> Void) {
+        
+        print("\(jsonString)\n")
         
         let data = jsonString.data(using: .utf8)!
         
@@ -65,30 +70,39 @@ class DeeplinkParser {
         }
     }
     
-    func usage() {
+    // 3 - get deeplink params from decoded Json
+    func getParamsFromDeeplink(deeplink: String) -> [String: String] {
         let parse = DeeplinkParser()
         
-        // main variants - get deeplink from api and parse it
-        let url = "gbquiz://link?should_fallback=false&al_applink_data=%7B%22target_url%22%3A%22gbquiz%3A%5C%2F%5C%2Flink%3Fshould_fallback%3Dfalse%26al_applink_data%3D%7B%5C%22target_url%5C%22%3A%5C%22gbquiz%3A%5C%2F%5C%2Flink%5C%22%2C%5C%22extras%5C%22%3A%7B%5C%22key%5C%22%3A%5C%221234567890%5C%22%2C%5C%22sub1%5C%22%3A%5C%22blabla%5C%22%7D%7D%22%2C%22extras%22%3A%7B%22fb_app_id%22%3A354340085862913%7D%7D"
+        let jsonStr = parse.formJsonStr(deeplink: deeplink)
+
+        var queriesDict = [String: String]()
         
-        let str: String = parse.formJsonStr(url: url)
-        
-        parse.decodeJSON(jsonString: str) { result in
-            print(result?.extras.key ?? "no key")
-            print(result?.extras.sub1 ?? "no sub1")
-            print(result?.extras.sub2 ?? "no sub2")
+        parse.decodeJSON(jsonString: jsonStr) { result in
+            
+            guard let result = result else {
+                print("Result is empty")
+                return
+            }
+            
+            // neccessary params
+            print(result.extras.key)
+            queriesDict["key"] = result.extras.key
+            
+            print(result.extras.sub1)
+            queriesDict["sub1"] = result.extras.sub1
+            
+            // optional params
+            if result.extras.sub2 != nil {
+                print(result.extras.sub2 ?? "")
+                queriesDict["sub2"] = result.extras.sub2
+            }
+            
+            if result.extras.sub2 != nil {
+                print(result.extras.sub3 ?? "")
+                queriesDict["sub3"] = result.extras.sub3
+            }
         }
-        
-        // split on subs received link from formJsonStr method
-        let string =
-            """
-            {\"target_url\":\"gbquiz:link\",\"extras\":{\"key\":\"1234567890\",\"sub1\":\"blabla\"}}
-            """
-        
-        parse.decodeJSON(jsonString: string) { result in
-            print(result?.extras.key ?? "no key")
-            print(result?.extras.sub1 ?? "no sub1")
-            print(result?.extras.sub2 ?? "no sub2")
-        }
+        return queriesDict
     }
 }

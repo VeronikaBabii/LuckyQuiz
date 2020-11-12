@@ -36,7 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else if let url = url?.absoluteString {
                 print("\n\(url)\n")
                 
-                queries = self.utils.getQueriesFromDeeplink(url)
+                UserDefaults.standard.set(url, forKey: "deeplink")
+                
+                //queries = self.utils.getQueriesFromDeeplink(url)
                 
             } else { // no fb deeplink - process organic deeplink (add custom parameters to our craft link)
                 print("\nNo app link available\n")
@@ -61,9 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //self.utils.checkAgreementStatus()
             
             // new logic
+            
             self.logic.checkerDataUsage()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                self.logic.requestData {
+                let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
+                self.logic.requestData(deep: deep) {
                     print("Requesting data")
                 }
             }

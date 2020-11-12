@@ -30,7 +30,7 @@ class NewLogic {
         }
         // get deeplink and proccess it into deeplinkData in ResultData format
         
-        let queries = Utils().getQueriesFromDeeplink(deeplink)
+        let queries = DeeplinkParser().getParamsFromDeeplink(deeplink: deeplink)
         print("Deeplink queries are \(queries)")
         
         
@@ -73,7 +73,8 @@ class NewLogic {
         
     }
     
-    func requestData(callback: () -> Void) {
+    // call it
+    func requestData(deep: String?, callback: () -> Void) {
         
         print("\nUser - \(status.user) \nSource - \(status.source)")
         
@@ -83,7 +84,7 @@ class NewLogic {
         }
         
         // user == "true" - check deeplink
-        getDataFromDeeplink(deeplink: "") { deeplinkData -> () in
+        getDataFromDeeplink(deeplink: deep) { deeplinkData -> () in
             
             if deeplinkData != nil {
                 print("Deeplink data - \(deeplinkData!)")

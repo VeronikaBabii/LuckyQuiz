@@ -31,11 +31,10 @@ struct Utils {
             
             // get extras value
             let paramsStr = decodedApplink1.components(separatedBy: ",\"extras\":{")[1].replacingOccurrences(of: "\\", with: "").replacingOccurrences(of: "\"", with: "").dropLast().dropLast()
+            print("\(paramsStr)\n")
             
             // check if extras is empty
             if paramsStr != "" {
-                
-                //print("\(paramsStr)\n")
                 
                 // split string into array of strings
                 let paramsArray = paramsStr.components(separatedBy: ",")
