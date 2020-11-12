@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Received error while fetching deferred app link: \(error)")
                 
             } else if let url = url?.absoluteString {
-                print("\n\(url)\n")
                 
                 UserDefaults.standard.set(url, forKey: "deeplink")
                 
@@ -67,9 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
                 
-                let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
-                
-                self.logic.requestData(deep: deep) {
+                self.logic.requestData() {
                     print("Requesting data")
                 }
             }

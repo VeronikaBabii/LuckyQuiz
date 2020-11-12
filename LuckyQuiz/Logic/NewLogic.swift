@@ -15,16 +15,10 @@ class NewLogic {
     var status: (user: String, source: String) = ("", "")
     var media_sources = [MediaSources]()
     
-    func getDataFromDeeplink(deeplink: String?, completion: (ResultData?) -> ()) {
+    func getDataFromDeeplink(deeplink: String, completion: (ResultData?) -> ()) {
         
         if deeplink == "" {
-            print("Empty deeplink - going further")
-            completion(nil)
-            return
-        }
-        
-        guard let deeplink = deeplink else {
-            print("no deeplink")
+            print("Empty or no deeplink - going further")
             completion(nil)
             return
         }
@@ -43,16 +37,10 @@ class NewLogic {
         completion(deeplinkData)
     }
     
-    func getDataFromNaming(naming: String?, mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
+    func getDataFromNaming(naming: String, mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
         
         if naming == "" {
-            print("Empty naming - going further")
-            completion(nil)
-            return
-        }
-        
-        guard let naming = naming else {
-            print("no naming")
+            print("Empty or no naming - going further")
             completion(nil)
             return
         }
@@ -99,8 +87,8 @@ class NewLogic {
         }
     }
     
-    // call it
-    func requestData(deep: String?, callback: () -> Void) {
+    // main
+    func requestData(callback: () -> Void) {
         
         print("\nUser - \(status.user) \nSource - \(status.source)")
         
@@ -110,6 +98,8 @@ class NewLogic {
         }
         
         // user == "true" - check deeplink
+        let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
+        
         getDataFromDeeplink(deeplink: deep) { deeplinkData -> () in
             
             if deeplinkData != nil {
@@ -119,7 +109,9 @@ class NewLogic {
             }
             
             // no deeplink - check naming
-            getDataFromNaming(naming: "", mediaSources: media_sources) { namingData -> () in
+            let name = "\(UserDefaults.standard.object(forKey: "naming") ?? "")"
+            
+            getDataFromNaming(naming: name, mediaSources: media_sources) { namingData -> () in
                 
                 if namingData != nil {
                     print("Naming data - \(namingData!)")
