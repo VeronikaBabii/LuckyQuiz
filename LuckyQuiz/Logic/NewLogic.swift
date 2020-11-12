@@ -58,7 +58,7 @@ class NewLogic {
         }
         // get naming and proccess it into namingData in ResultData format
         
-        let queries = Utils().getQueriesFromNaming(naming)
+        let queries = NamingParser().getQueriesFromNaming(naming)
         print("Naming queries are \(queries)")
         
         let namingData = ResultData(

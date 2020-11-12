@@ -10,15 +10,6 @@ import UIKit
 
 struct Utils {
     
-    //MARK: -
-    
-    func getQueriesFromNaming(_ namingStr: String) -> [String: String] {
-        
-        
-        
-        return ["":""]
-    }
-    
     // MARK: - old - parsing deeplink ugly way 
     func getQueriesFromDeeplink(_ url: String) -> [String: String] {
         
