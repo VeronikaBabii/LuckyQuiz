@@ -71,10 +71,18 @@ class NewLogic {
         completion(namingData)
     }
     
-    func createDataFromResult(_ data: ResultData, _ status: (String , String), _ callback: () -> Void) {
+    func formLinkFromResult(_ data: ResultData, _ status: (String , String), _ callback: () -> Void) {
         
         // create link from passed params
-        let link = "https://egame.site/click.php"
+        var link = "https://egame.site/click.php"
+        
+        let key = data.key
+        link.append("?key=\(key)")
+        print(link)
+        
+        let sub1 = data.sub1
+        link.append("&sub1=\(sub1)")
+        print(link)
         
         
     }
@@ -94,7 +102,7 @@ class NewLogic {
             
             if deeplinkData != nil {
                 print("Deeplink data - \(deeplinkData!)")
-                createDataFromResult(deeplinkData!, status, callback)
+                formLinkFromResult(deeplinkData!, status, callback)
                 return
             }
             
@@ -103,7 +111,7 @@ class NewLogic {
                 
                 if namingData != nil {
                     print("Naming data - \(namingData!)")
-                    createDataFromResult(namingData!, status, callback)
+                    formLinkFromResult(namingData!, status, callback)
                     return
                 }
                 
@@ -126,7 +134,7 @@ class NewLogic {
                 
                 let organicData = ResultData(key: computedKey, sub1: computedSub1, source: TrafficSource.FACEBOOK)
                 print("Organic data - \(organicData)")
-                createDataFromResult(organicData, status, callback)
+                formLinkFromResult(organicData, status, callback)
             }
         }
     }

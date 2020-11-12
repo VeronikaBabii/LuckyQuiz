@@ -13,10 +13,9 @@ import OneSignal
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    
-    let utils = Utils()
+    //let utils = Utils()
     let logic = NewLogic()
-    let vc = ViewController()
+    //let vc = ViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -28,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // fb deeplinking
         AppLinkUtility.fetchDeferredAppLink { (url, error) in
             
-            var queries = [String: String]()
+            //var queries = [String: String]()
             
             if let error = error {
                 print("Received error while fetching deferred app link: \(error)")
@@ -43,21 +42,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else { // no fb deeplink - process organic deeplink (add custom parameters to our craft link)
                 print("\nNo app link available\n")
                 
-                queries["key"] = "9mn79hcpu4dwnr9vq385"
-                queries["sub1"] = "organic"
+//                queries["key"] = "9mn79hcpu4dwnr9vq385"
+//                queries["sub1"] = "organic"
             }
             
-            queries["sub4"] = Bundle.main.bundleIdentifier
-            queries["sub5"] = self.utils.getUniqueID()
+            //queries["sub4"] = Bundle.main.bundleIdentifier
+            //queries["sub5"] = self.utils.getUniqueID()
             
             // sort query dictionary (key, sub1, sub2...)
-            let sortedBySubs = queries.sorted(by: <)
-            print("\(sortedBySubs)\n")
+//            let sortedBySubs = queries.sorted(by: <)
+//            print("\(sortedBySubs)\n")
             
             // add formed web url to show to UserDefaults
-            let AGREEMENT_URL = self.utils.formUrlToShow(sortedBySubs)
+            //let AGREEMENT_URL = self.utils.formUrlToShow(sortedBySubs)
             
-            UserDefaults.standard.set(AGREEMENT_URL, forKey: "AGREEMENT_URL")
+            //UserDefaults.standard.set(AGREEMENT_URL, forKey: "AGREEMENT_URL")
             //print("now showing - \(AGREEMENT_URL)\n")
             
             //self.utils.checkAgreementStatus()
@@ -65,18 +64,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // new logic
             
             self.logic.checkerDataUsage()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+                
                 let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
+                
                 self.logic.requestData(deep: deep) {
                     print("Requesting data")
                 }
             }
+            
         }
         
         // MARK: - OneSignal
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
 
-        // add OneSignal app id
         OneSignal.initWithLaunchOptions(launchOptions, appId: "a7e60277-d981-4310-82f1-e790e23777a4", handleNotificationAction: nil, settings: onesignalInitSettings)
 
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
