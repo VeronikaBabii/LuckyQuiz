@@ -47,11 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             queries["sub4"] = Bundle.main.bundleIdentifier
             queries["sub5"] = self.utils.getUniqueID()
-            //print("\(queries)\n")
             
             // sort query dictionary (key, sub1, sub2...)
             let sortedBySubs = queries.sorted(by: <)
-            //print("\(sortedBySubs)\n")
+            print("\(sortedBySubs)\n")
             
             // add formed web url to show to UserDefaults
             let AGREEMENT_URL = self.utils.formUrlToShow(sortedBySubs)

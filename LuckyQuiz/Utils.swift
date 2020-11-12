@@ -11,8 +11,7 @@ import FBSDKCoreKit
 
 struct Utils {
     
-    // MARK: - страшилка
-    //TODO: remake
+    // MARK: - old - parsing deeplink ugly way 
     func getQueriesFromDeeplink(_ url: String) -> [String: String] {
         
         var queryDict: [String:String] = ["":""]
@@ -21,14 +20,17 @@ struct Utils {
             
             // get al_applink_data data
             let applink = url.components(separatedBy: "al_applink_data=")[1]
-            //print("\(applink)\n")
+            print("\(applink)\n")
             
             // decode
-            let decodedApplink = applink.removingPercentEncoding!.replacingOccurrences(of: "\\", with: "")
-            //print("\(decodedApplink)\n")
+            let decodedApplink = applink.removingPercentEncoding!
+            print("\(decodedApplink)\n")
+            
+            let decodedApplink1 = decodedApplink.replacingOccurrences(of: "\\", with: "")
+            print("\(decodedApplink1)\n")
             
             // get extras value
-            let paramsStr = decodedApplink.components(separatedBy: ",\"extras\":{")[1].replacingOccurrences(of: "\\", with: "").replacingOccurrences(of: "\"", with: "").dropLast().dropLast()
+            let paramsStr = decodedApplink1.components(separatedBy: ",\"extras\":{")[1].replacingOccurrences(of: "\\", with: "").replacingOccurrences(of: "\"", with: "").dropLast().dropLast()
             
             // check if extras is empty
             if paramsStr != "" {
@@ -37,19 +39,19 @@ struct Utils {
                 
                 // split string into array of strings
                 let paramsArray = paramsStr.components(separatedBy: ",")
-                //print("\(paramsArray)\n")
+                print("\(paramsArray)\n")
                 
                 // filter params only with 'key' or 'sub' chars
                 let filteredParamsArray = paramsArray.filter { $0.contains("sub") || $0.contains("key")}
                 
                 if filteredParamsArray != [] {
-                    //print("\(filteredParamsArray)\n")
+                    print("\(filteredParamsArray)\n")
                     
                     // add params to queries dictionary
                     for param in filteredParamsArray {
                         queryDict["\(param.components(separatedBy: ":")[0])"] = param.components(separatedBy: ":")[1]
                     }
-                    //print("\(queryDict)\n")
+                    print("\(queryDict)\n")
                     
                 } else { print("No subs \n") }
             } else { print("Extras is empty \n") }
