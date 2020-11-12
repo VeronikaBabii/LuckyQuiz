@@ -18,7 +18,7 @@ class NewLogic {
     func getDataFromDeeplink(deeplink: String?, completion: (ResultData?) -> ()) {
         
         if deeplink == "" {
-            print("empty deeplink - go further")
+            print("Empty deeplink - going further")
             completion(nil)
             return
         }
@@ -36,8 +36,8 @@ class NewLogic {
         let deeplinkData = ResultData(
             key: queries["key"] ?? "",
             sub1: queries["sub1"] ?? "",
-            sub2: queries["sub2"] ?? "",
-            sub3: queries["sub3"] ?? "",
+            sub2: queries["sub2"] ?? nil,
+            sub3: queries["sub3"] ?? nil,
             source: TrafficSource.FACEBOOK)
         
         completion(deeplinkData)
@@ -46,7 +46,7 @@ class NewLogic {
     func getDataFromNaming(naming: String?, mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
         
         if naming == "" {
-            print("empty naming - go further")
+            print("Empty naming - going further")
             completion(nil)
             return
         }
@@ -76,6 +76,7 @@ class NewLogic {
         // create link from passed params
         var link = "https://egame.site/click.php"
         
+        // neccessary params
         let key = data.key
         link.append("?key=\(key)")
         print(link)
@@ -84,7 +85,18 @@ class NewLogic {
         link.append("&sub1=\(sub1)")
         print(link)
         
+        // optional params
+        if data.sub2 != nil && data.sub2 != "" {
+            let sub2 = data.sub2
+            link.append("&sub2=\(sub2!)")
+            print(link)
+        }
         
+        if data.sub3 != nil && data.sub3 != "" {
+            let sub3 = data.sub3
+            link.append("&sub3=\(sub3!)")
+            print(link)
+        }
     }
     
     // call it
