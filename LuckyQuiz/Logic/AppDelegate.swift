@@ -13,77 +13,43 @@ import OneSignal
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    //let utils = Utils()
     let logic = NewLogic()
-    //let vc = ViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // MARK: - fb setup code
         AppEvents.activateApp()
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions) // handle login action
-        
-        // fb deeplinking
         AppLinkUtility.fetchDeferredAppLink { (url, error) in
-            
-            //var queries = [String: String]()
             
             if let error = error {
                 print("Received error while fetching deferred app link: \(error)")
                 
-            } else if let url = url?.absoluteString {
+            } else if let deeplink = url?.absoluteString {
                 
-                UserDefaults.standard.set(url, forKey: "deeplink")
+                print(deeplink)
                 
-                //queries = self.utils.getQueriesFromDeeplink(url)
                 
-            } else { // no fb deeplink - process organic deeplink (add custom parameters to our craft link)
+                
+            } else {
                 print("\nNo app link available\n")
                 
-//                queries["key"] = "9mn79hcpu4dwnr9vq385"
-//                queries["sub1"] = "organic"
             }
             
-            //queries["sub4"] = Bundle.main.bundleIdentifier
-            //queries["sub5"] = self.utils.getUniqueID()
-            
-            // sort query dictionary (key, sub1, sub2...)
-//            let sortedBySubs = queries.sorted(by: <)
-//            print("\(sortedBySubs)\n")
-            
-            // add formed web url to show to UserDefaults
-            //let AGREEMENT_URL = self.utils.formUrlToShow(sortedBySubs)
-            
-            //UserDefaults.standard.set(AGREEMENT_URL, forKey: "AGREEMENT_URL")
-            //print("now showing - \(AGREEMENT_URL)\n")
-            
-            //self.utils.checkAgreementStatus()
-            
-            // new logic
-            
-            self.logic.checkerDataUsage()
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
-                
-                self.logic.requestData() {
-                    print("Requesting data")
-                }
-            }
-            
+            self.logic.requestData()
         }
         
         // MARK: - OneSignal
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
-
+        
         OneSignal.initWithLaunchOptions(launchOptions, appId: "a7e60277-d981-4310-82f1-e790e23777a4", handleNotificationAction: nil, settings: onesignalInitSettings)
-
+        
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
-
+        
         // to show the iOS push notification prompt
-//        OneSignal.promptForPushNotifications(userResponse: { accepted in
-//          print("User accepted notifications: \(accepted)")
-//        })
+        //        OneSignal.promptForPushNotifications(userResponse: { accepted in
+        //          print("User accepted notifications: \(accepted)")
+        //        })
         
         return true
     }
@@ -93,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
         return true
     }
-
+    
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
         return true

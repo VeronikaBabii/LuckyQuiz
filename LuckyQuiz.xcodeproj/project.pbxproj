@@ -154,6 +154,7 @@
 				159A0ABB2501266300118CDD /* WebViewDemo.entitlements */,
 				157E05302550214200CC405B /* pribambas_regular.ttf */,
 				154FBBE824E71919006CC92B /* SceneDelegate.swift */,
+				151018C52510210700A877AC /* Utils.swift */,
 				156D7762255DA41000F71186 /* Logic */,
 				15E63DC925190F0E005888E5 /* WebView */,
 				15DB441724FAE14C00964171 /* Game */,
@@ -186,12 +187,11 @@
 		156D7762255DA41000F71186 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				156D7755255C799A00F71186 /* Structs.swift */,
 				154FBBE624E71919006CC92B /* AppDelegate.swift */,
 				156D774D255C6EEB00F71186 /* NewLogic.swift */,
-				156D775E255D508600F71186 /* DeeplinkParser.swift */,
 				156D7767255DAA1200F71186 /* NamingParser.swift */,
-				156D7755255C799A00F71186 /* Structs.swift */,
-				151018C52510210700A877AC /* Utils.swift */,
+				156D775E255D508600F71186 /* DeeplinkParser.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";

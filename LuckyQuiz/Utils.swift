@@ -10,6 +10,8 @@ import UIKit
 
 struct Utils {
     
+    // all code is UNUSED 
+    
     // MARK: - old - parsing deeplink ugly way 
     func getQueriesFromDeeplink(_ url: String) -> [String: String] {
         

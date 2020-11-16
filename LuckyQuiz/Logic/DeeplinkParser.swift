@@ -25,24 +25,21 @@ class DeeplinkParser {
     // 1 - get deeplink and form jsonStr from in
     func formJsonStr(deeplink: String) -> String {
         
-        // 1 - receive deeplink
-        print("\(deeplink)\n")
-        
-        // 2 - split by al_applink_data=
+        // 1 - split deeplink by al_applink_data=
         let outerApplink = deeplink.components(separatedBy: "al_applink_data=")[1]
-        print("\(outerApplink)\n")
+        //print("\(outerApplink)\n")
         
-        // 3 - decode
+        // 2 - decode
         let decodedApplink = outerApplink.removingPercentEncoding!
-        print("\(decodedApplink)\n")
+        //print("\(decodedApplink)\n")
         
-        // 4 - split by al_applink_data=
+        // 3 - split by al_applink_data=
         let innerApplink = decodedApplink.components(separatedBy: "al_applink_data=")[1]
-        print("\(innerApplink)\n")
+        //print("\(innerApplink)\n")
         
-        // 5 - get rid of unneeded extras part
+        // 4 - get rid of unneeded extras part
         let withoutExtras = innerApplink.components(separatedBy: "\",\"")[0]
-        print("\(withoutExtras)\n")
+        //print("\(withoutExtras)\n")
         
         // 6 - get rid of \
         let withoutBadSymbols = withoutExtras.replacingOccurrences(of: "\\", with: "")
@@ -51,9 +48,9 @@ class DeeplinkParser {
     }
     
     // 2 - jsonStr to Json and then decode via structs
-    func decodeJSON(jsonString: String, completion: @escaping (InnerAppLinkData?) -> Void) {
+    func parseJSON(jsonString: String, completion: @escaping (InnerAppLinkData?) -> Void) {
         
-        print("\(jsonString)\n")
+        print("\n\(jsonString)\n")
         
         let data = jsonString.data(using: .utf8)!
         
@@ -76,7 +73,7 @@ class DeeplinkParser {
 
         var queriesDict = [String: String]()
         
-        parse.decodeJSON(jsonString: jsonStr) { result in
+        parse.parseJSON(jsonString: jsonStr) { result in
             
             guard let result = result else {
                 print("Result is empty")
