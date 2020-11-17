@@ -51,13 +51,10 @@ class NewLogic {
             let mediaSources = (res.media_sources)
             self.media_sources = mediaSources
             
-            var sourceNum = 0
-            
-            for media in mediaSources {
-                print("\nMedia source \(sourceNum): ")
+           // for media in mediaSources {
                 
-                print(media.source ?? "no source")
-                print("\(media.media_source)")
+//                print(media.source ?? "no source")
+//                print("\(media.media_source)")
                 
                 //                print("Key details:")
                 //                print(media.key.name)
@@ -78,9 +75,7 @@ class NewLogic {
                 //                print("Sub1 details: ")
                 //                print(media.sub3.name)
                 //                print(media.sub3.split)
-                
-                sourceNum += 1
-            }
+          //  }
             completion(status)
         }
     }
@@ -94,11 +89,15 @@ class NewLogic {
             
             print("\nUser - \(status.user) \nSource - \(status.source)")
             
-            // 2 - check user from cloak
+            // 2 - check user from cloak (true - show web, false - show game) // for game testing
             if status.user != "true" {
-                print("\nUser not true")
+                UserDefaults.standard.set("false", forKey: "SHOW_WEB")
+                print("\nUser not true - showing game")
                 return
             }
+            
+            UserDefaults.standard.set("true", forKey: "SHOW_WEB")
+            print("\nUser true - showing web")
             
             // 3 - user == "true" - check deeplink
             let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
@@ -218,5 +217,8 @@ class NewLogic {
             link.append("&sub3=\(sub3!)")
             print(link)
         }
+        
+        let urlToShow = ""
+        UserDefaults.standard.set(urlToShow, forKey: "AGREEMENT_URL")
     }
 }

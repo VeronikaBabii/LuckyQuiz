@@ -26,14 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Received error while fetching deferred app link: \(error)")
                 
             } else if let deeplink = url?.absoluteString {
-                
                 print(deeplink)
-                
-                
+                UserDefaults.standard.set(deeplink, forKey: "deeplink")
                 
             } else {
                 print("\nNo app link available\n")
-                
             }
             
             self.logic.requestData()
