@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import OneSignal
+import AppsFlyerLib
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

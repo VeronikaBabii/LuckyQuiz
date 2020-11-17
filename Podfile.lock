@@ -1,4 +1,5 @@
 PODS:
+  - AppsFlyerFramework (5.4.4)
   - Bolts (1.9.1):
     - Bolts/AppLinks (= 1.9.1)
     - Bolts/Tasks (= 1.9.1)
@@ -42,6 +43,7 @@ PODS:
   - OneSignal (2.15.2)
 
 DEPENDENCIES:
+  - AppsFlyerFramework
   - Bolts
   - FacebookCore
   - FacebookLogin
@@ -51,6 +53,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppsFlyerFramework
     - Bolts
     - FacebookCore
     - FacebookLogin
@@ -63,6 +66,7 @@ SPEC REPOS:
     - OneSignal
 
 SPEC CHECKSUMS:
+  AppsFlyerFramework: a511099f7bedbb1d5804d733c6152d6f8092c4fa
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
@@ -74,6 +78,6 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 259737eab3cc807087374553abdf588b3096ba55
   OneSignal: 9531e385388565f4d31797ddadbe0fcc786430ec
 
-PODFILE CHECKSUM: e74253cb3e716b22cdf6e2999e32fa59c10f1f18
+PODFILE CHECKSUM: d4777155d81b98d315ed7843612b5d4be1a4a4c3
 
 COCOAPODS: 1.9.1
