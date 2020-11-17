@@ -10,8 +10,16 @@ import UIKit
 
 class ThirdWinVC: UIViewController {
     
+    @IBOutlet weak var winLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScore()
+    }
+    
+    func setScore() {
+        let score = "\(UserDefaults.standard.object(forKey: "score") ?? "5")"
+        winLbl.text = "Great job!\nYour score is \(score)"
     }
     
     @IBAction func startAgain(_ sender: UIButton) {

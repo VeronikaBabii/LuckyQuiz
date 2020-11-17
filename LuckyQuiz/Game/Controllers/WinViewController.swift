@@ -12,19 +12,15 @@ class WinViewController: UIViewController {
     
     @IBOutlet weak var winLabel: UILabel!
     
-    //var score = String()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("s - \(score)")
+        setScore()
     }
     
-//    func onUserAction(data: String) {
-//        let myScore = data.replacingOccurrences(of: "Score: ", with: "")
-//        print("score is \(myScore)")
-//        score = myScore
-//        print(score)
-//    }
+    func setScore() {
+        let score = "\(UserDefaults.standard.object(forKey: "score") ?? "5")"
+        winLabel.text = "Great job!\nYour score is \(score)"
+    }
     
     @IBAction func startAgain(_ sender: UIButton) {
         let quizViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.quizViewController) as? QuizViewController

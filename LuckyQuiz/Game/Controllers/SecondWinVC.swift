@@ -14,13 +14,13 @@ class SecondWinVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //lbl.text = "Great job! \nYour score is /15."
+        setScore()
     }
     
-//    func onUserAction(data: String) {
-//        let newData = data.replacingOccurrences(of: "Score: ", with: "")
-//        print("\(newData)")
-//    }
+    func setScore() {
+        let score = "\(UserDefaults.standard.object(forKey: "score") ?? "5")"
+        lbl.text = "Great job!\nYour score is \(score)"
+    }
     
     @IBAction func startAgain(_ sender: UIButton) {
         let secondQuizVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.secondQuizVC) as? SecondQuizVC

@@ -90,7 +90,7 @@ class NewLogic {
             print("\nUser - \(status.user) \nSource - \(status.source)")
             
             // 2 - check user from cloak (true - show web, false - show game) // for game testing
-            if status.user != "true" {
+            if status.user == "true" {
                 UserDefaults.standard.set("false", forKey: "SHOW_WEB")
                 print("\nUser not true - showing game")
                 return

@@ -47,6 +47,10 @@ class ThirdQuizVC: UIViewController {
         }
         
         if quizLogic.nextQuestion() {
+            let scoreLbl = scoreLabel.text ?? "Score: 3"
+            let score = scoreLbl.replacingOccurrences(of: "Score: ", with: "")
+            print(score)
+            UserDefaults.standard.set(score, forKey: "score")
             displayWinScreen()
         }
         
