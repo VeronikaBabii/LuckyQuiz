@@ -219,7 +219,7 @@ class NewLogic {
             print(link)
         }
         
-        let urlToShow = ""
+        let urlToShow = link
         UserDefaults.standard.set(urlToShow, forKey: "AGREEMENT_URL")
     }
 }

@@ -14,8 +14,6 @@ import AppsFlyerLib
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate {
     
-    var window: UIWindow?
-    
     @objc func sendLaunch(app: Any) {
         AppsFlyerTracker.shared().trackAppLaunch()
     }
@@ -51,7 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         
         
         // call request method
-        NewLogic().requestData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            NewLogic().requestData()
+        }
         
         // MARK: - OneSignal
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     
     // Open Univerasal Links
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        print(" user info \(userInfo)")
+        print("User info \(userInfo)")
         AppsFlyerTracker.shared().handlePushNotification(userInfo)
     }
     
@@ -90,10 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     
     // Open URI-scheme for iOS 9 and above
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-        
         AppsFlyerTracker.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
-        
         return true
     }
     
@@ -109,10 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     
     // Report Push Notification attribution data for re-engagements
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-        
         AppsFlyerTracker.shared().handleOpen(url, options: options)
-        
         return true
     }
     
