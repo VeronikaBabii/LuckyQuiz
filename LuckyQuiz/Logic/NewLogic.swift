@@ -151,7 +151,7 @@ class NewLogic {
     func getDataFromDeeplink(deeplink: String, completion: (ResultData?) -> ()) {
         
         if deeplink == "" {
-            print("Empty or no deeplink - going further")
+            print("No deeplink - going further")
             completion(nil)
             return
         }
@@ -173,7 +173,7 @@ class NewLogic {
     func getDataFromNaming(naming: String, mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
         
         if naming == "" {
-            print("Empty or no naming - going further")
+            print("No naming - going further")
             completion(nil)
             return
         }

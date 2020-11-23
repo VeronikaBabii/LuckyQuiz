@@ -12,103 +12,46 @@ import OneSignal
 import AppsFlyerLib
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate {
     
-    let logic = NewLogic()
+    var window: UIWindow?
+    
+    @objc func sendLaunch(app: Any) {
+        AppsFlyerTracker.shared().trackAppLaunch()
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // MARK: - AppsFlyer
+        AppsFlyerTracker.shared().appsFlyerDevKey = ""
+        AppsFlyerTracker.shared().appleAppID = "354340085862913"
+        AppsFlyerTracker.shared().delegate = self
+        //AppsFlyerTracker.shared().isDebug = true
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(sendLaunch),
+                                               name: UIApplication.didBecomeActiveNotification, object: nil)
         
         // MARK: - Fb deeplinking
-        
         AppEvents.activateApp()
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        
-        
-        // 1 - make cloak request
-        logic.checkerDataUsage() { [self] status in
+        // fetch deeplink and add to UserDefaults
+        AppLinkUtility.fetchDeferredAppLink { (url, error) in
             
-            print("\nUser - \(status.user) \nSource - \(status.source)")
-            
-            // 2 - check user from cloak (true - show web, false - show game) // for game testing
-            if status.user != "true" {
-                UserDefaults.standard.set("false", forKey: "SHOW_WEB")
-                print("\nUser not true - showing game")
-                return
-            }
-            
-            UserDefaults.standard.set("true", forKey: "SHOW_WEB")
-            print("\nUser true - showing web")
-            
-            // 3 - user == "true" - check deeplink
-            AppLinkUtility.fetchDeferredAppLink { (url, error) in
-                
-                if let deeplink = url?.absoluteString {
-                    print(deeplink)
-                    UserDefaults.standard.set(deeplink, forKey: "deeplink")
-                    let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
-                    
-                    logic.getDataFromDeeplink(deeplink: deep) { deeplinkData -> () in
-                        
-                        if deeplinkData != nil {
-                            print("Deeplink data - \(deeplinkData!)")
-                            logic.formLinkFromResult(deeplinkData!, status)
-                            return
-                        }
-                    }
-                    
-                } else {
-                    print("\nNo app link available or error fetching deferred app link\n")
-                    
-                    // 4 - no deeplink - check naming
-                    
-                    // AppsFlyerLib.fetchNaming { (naming, error) in
-                        
-                        //if let naming = naming?.absoluteString {
-                    
-                            let name = "\(UserDefaults.standard.object(forKey: "naming") ?? "")"
-                        
-                            logic.getDataFromNaming(naming: name, mediaSources: logic.media_sources) { namingData -> () in
-                                
-                                if namingData != nil {
-                                    print("Naming data - \(namingData!)")
-                                    logic.formLinkFromResult(namingData!, status)
-                                    return
-                                }
-                            }
-                        //} else {
-                                
-                            // 5 - no naming - create organic
-                    
-                            var computedKey: String {
-                                if status.source == TrafficSource.FACEBOOK.rawValue {
-                                    return Consts.ORGANIC_FB
-                                } else {
-                                    return Consts.ORGANIC_INAPP
-                                }
-                            }
-                            
-                            var computedSub1: String {
-                                if status.source == TrafficSource.FACEBOOK.rawValue {
-                                    return "organic_fb"
-                                } else {
-                                    return "organic_inapp"
-                                }
-                            }
-                            
-                            let organicData = ResultData(key: computedKey, sub1: computedSub1, source: TrafficSource.FACEBOOK)
-                            print("Organic data - \(organicData)")
-                            logic.formLinkFromResult(organicData, status)
-                
-                        //}
-                    //}
-                }
+            if let deeplink = url?.absoluteString {
+                print(deeplink)
+                UserDefaults.standard.set(deeplink, forKey: "deeplink")
+            } else {
+                //print("\nNo app link available or error fetching deeplink\n")
+                UserDefaults.standard.set(nil, forKey: "deeplink")
             }
         }
+        
+        // TODO: fetch naming and add to UD
+        
+        
+        // call request method
+        NewLogic().requestData()
         
         // MARK: - OneSignal
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
@@ -118,22 +61,103 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
         
         // to show the iOS push notification prompt
-        //        OneSignal.promptForPushNotifications(userResponse: { accepted in
-        //          print("User accepted notifications: \(accepted)")
-        //        })
-    
+        // OneSignal.promptForPushNotifications(userResponse: { accepted in
+        //   print("User accepted notifications: \(accepted)")
+        // })
+        
         return true
     }
     
     // MARK: - Track App Installs and App Opens
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Start the SDK (start the IDFA timeout set above, for iOS 14 or later)
+        //AppsFlyerTracker.shared().start()
+    }
+    
+    // Open Univerasal Links
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print(" user info \(userInfo)")
+        AppsFlyerTracker.shared().handlePushNotification(userInfo)
+    }
+    
+    // Open Deeplinks
+    // Open URI-scheme for iOS 8 and below
+    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        AppsFlyerTracker.shared().continue(userActivity, restorationHandler: restorationHandler)
         return true
     }
     
+    // Open URI-scheme for iOS 9 and above
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        
+        AppsFlyerTracker.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
+        
         return true
+    }
+    
+    // Reports app open from deep link for iOS 10 or later
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        AppsFlyerTracker.shared().continue(userActivity, restorationHandler: nil)
+        return true
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        AppsFlyerTracker.shared().handlePushNotification(userInfo)
+    }
+    
+    // Report Push Notification attribution data for re-engagements
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+        
+        AppsFlyerTracker.shared().handleOpen(url, options: options)
+        
+        return true
+    }
+    
+    // MARK: - AppsFlyerTracker protocol implementation
+    // code from AF guide
+    
+    // Handle Organic/Non-organic installation
+    func onConversionDataSuccess(_ installData: [AnyHashable: Any]) {
+        print("onConversionDataSuccess data:")
+        for (key, value) in installData {
+            print(key, ":", value)
+        }
+        if let status = installData["af_status"] as? String {
+            if (status == "Non-organic") {
+                if let sourceID = installData["media_source"],
+                   let campaign = installData["campaign"] {
+                    print("This is a Non-Organic install. Media source: \(sourceID)  Campaign: \(campaign)")
+                }
+            } else {
+                print("This is an organic install.")
+            }
+            if let is_first_launch = installData["is_first_launch"] as? Bool,
+               is_first_launch {
+                print("First Launch")
+            } else {
+                print("Not First Launch")
+            }
+        }
+    }
+    
+    func onConversionDataFail(_ error: Error) {
+        print(error)
+    }
+    
+    //Handle Deep Link
+    func onAppOpenAttribution(_ attributionData: [AnyHashable : Any]) {
+        //Handle Deep Link Data
+        print("onAppOpenAttribution data:")
+        for (key, value) in attributionData {
+            print(key, ":",value)
+        }
+    }
+    
+    func onAppOpenAttributionFailure(_ error: Error) {
+        print(error)
     }
     
     // MARK: - UISceneSession Lifecycle
