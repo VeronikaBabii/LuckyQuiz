@@ -42,13 +42,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbs-QV-1Uw">
-                                        <rect key="frame" x="0.0" y="40" width="374" height="61.5"/>
+                                        <rect key="frame" x="0.0" y="40" width="374" height="69"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="IFp-YH-pYc">
-                                        <rect key="frame" x="0.0" y="111.5" width="374" height="406.5"/>
+                                        <rect key="frame" x="0.0" y="119" width="374" height="399"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -150,7 +150,7 @@
                                 <rect key="frame" x="20" y="194" width="374" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great job!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="l0T-8w-YDj">
-                                        <rect key="frame" x="111" y="0.0" width="152" height="346"/>
+                                        <rect key="frame" x="99" y="0.0" width="176" height="346"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -324,13 +324,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ml-cw-geN">
-                                        <rect key="frame" x="0.0" y="40" width="374" height="61.5"/>
+                                        <rect key="frame" x="0.0" y="40" width="374" height="69"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="CkP-Ve-qM9">
-                                        <rect key="frame" x="0.0" y="111.5" width="374" height="406.5"/>
+                                        <rect key="frame" x="0.0" y="119" width="374" height="399"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -432,7 +432,7 @@
                                 <rect key="frame" x="20" y="194" width="374" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great job!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="0lW-NA-kU6">
-                                        <rect key="frame" x="111" y="0.0" width="152" height="346"/>
+                                        <rect key="frame" x="99" y="0.0" width="176" height="346"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -521,13 +521,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSb-m0-o9b">
-                                        <rect key="frame" x="0.0" y="40" width="374" height="61.5"/>
+                                        <rect key="frame" x="0.0" y="40" width="374" height="69"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LoP-hO-JjF">
-                                        <rect key="frame" x="0.0" y="111.5" width="374" height="406.5"/>
+                                        <rect key="frame" x="0.0" y="119" width="374" height="399"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -629,7 +629,7 @@
                                 <rect key="frame" x="20" y="194" width="374" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great job!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="vMc-BS-vGY">
-                                        <rect key="frame" x="111" y="0.0" width="152" height="346"/>
+                                        <rect key="frame" x="99" y="0.0" width="176" height="346"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
