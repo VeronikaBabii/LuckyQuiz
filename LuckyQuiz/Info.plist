@@ -98,5 +98,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+    <true/>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+    <true/>
 </dict>
 </plist>

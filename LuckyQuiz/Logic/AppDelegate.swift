@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
                 print(deeplink)
                 UserDefaults.standard.set(deeplink, forKey: "deeplink")
             } else {
-                //print("\nNo app link available or error fetching deeplink\n")
+                print("\nNo app link available or error fetching deeplink\n")
                 UserDefaults.standard.set(nil, forKey: "deeplink")
             }
         }
@@ -69,46 +69,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     }
     
     // MARK: - Track App Installs and App Opens
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Start the SDK (start the IDFA timeout set above, for iOS 14 or later)
-        //AppsFlyerTracker.shared().start()
-    }
-    
-    // Open Univerasal Links
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        print("User info \(userInfo)")
-        AppsFlyerTracker.shared().handlePushNotification(userInfo)
-    }
-    
-    // Open Deeplinks
-    // Open URI-scheme for iOS 8 and below
-    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        AppsFlyerTracker.shared().continue(userActivity, restorationHandler: restorationHandler)
-        return true
-    }
-    
-    // Open URI-scheme for iOS 9 and above
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        AppsFlyerTracker.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
-        return true
-    }
-    
-    // Reports app open from deep link for iOS 10 or later
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        AppsFlyerTracker.shared().continue(userActivity, restorationHandler: nil)
-        return true
-    }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        AppsFlyerTracker.shared().handlePushNotification(userInfo)
-    }
-    
-    // Report Push Notification attribution data for re-engagements
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        AppsFlyerTracker.shared().handleOpen(url, options: options)
+        ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
         return true
     }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        return true
+    }
+    
+    //    func applicationDidBecomeActive(_ application: UIApplication) {
+    //        // Start the SDK (start the IDFA timeout set above, for iOS 14 or later)
+    //        //AppsFlyerTracker.shared().start()
+    //    }
+    //
+    //    // Open Univerasal Links
+    //    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+    //        print("User info \(userInfo)")
+    //        AppsFlyerTracker.shared().handlePushNotification(userInfo)
+    //    }
+    //
+    //    // Open Deeplinks
+    //    // Open URI-scheme for iOS 8 and below
+    //    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    //        AppsFlyerTracker.shared().continue(userActivity, restorationHandler: restorationHandler)
+    //        return true
+    //    }
+    //
+    //    // Open URI-scheme for iOS 9 and above
+    //    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+    //        AppsFlyerTracker.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
+    //        return true
+    //    }
+    //
+    //    // Reports app open from deep link for iOS 10 or later
+    //    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+    //        AppsFlyerTracker.shared().continue(userActivity, restorationHandler: nil)
+    //        return true
+    //    }
+    //
+    //    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    //        AppsFlyerTracker.shared().handlePushNotification(userInfo)
+    //    }
+    //
+    //    // Report Push Notification attribution data for re-engagements
+    //    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    //        AppsFlyerTracker.shared().handleOpen(url, options: options)
+    //        return true
+    //    }
     
     // MARK: - AppsFlyerTracker protocol implementation
     // code from AF guide
