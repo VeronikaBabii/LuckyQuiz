@@ -8,14 +8,21 @@
 
 import Foundation
 
-// constants
 struct Consts {
     static let ORGANIC_FB    = "oswn6tvtmztmokzwovqc"
     static let ORGANIC_INAPP = "sl4nk4g3x0y8l6f8kiid"
     static let CLOAK_TOKEN   = "jCMs3QPM7gsT5D3V"
     
+    static let APPLE_APP_ID = "1536002227" 
+    static let FB_APP_ID    = "354340085862913"
+    static let ONESIGNAL_ID = "a7e60277-d981-4310-82f1-e790e23777a4"
+    
     static let APPSFLYER_DEV_KEY = "Yd8HTCGPw8b4VDeBvrNqtd"
-    static let METRICA_SDK_KEY   = "7b9a2df8-dcef-47f6-b78a-abfc0b3c5b68"
+    
+    static let METRICA_SDK_KEY      = "7b9a2df8-dcef-47f6-b78a-abfc0b3c5b68"
+    static let METRICA_POST_API_KEY = "bb299571-92d7-4e90-a7e9-c30742d99d35"
+    static let METRICA_APP_ID       = "3758374"
+
 }
 
 // for cloak responce parsing

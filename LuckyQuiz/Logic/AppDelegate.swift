@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import OneSignal
 import AppsFlyerLib
+import YandexMobileMetrica
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate {
@@ -21,19 +22,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // MARK: - AppsFlyer
-        AppsFlyerTracker.shared().appsFlyerDevKey = ""
-        AppsFlyerTracker.shared().appleAppID = "354340085862913"
+        AppsFlyerTracker.shared().appsFlyerDevKey = Consts.APPSFLYER_DEV_KEY
+        AppsFlyerTracker.shared().appleAppID = Consts.APPLE_APP_ID
         AppsFlyerTracker.shared().delegate = self
         //AppsFlyerTracker.shared().isDebug = true
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(sendLaunch),
                                                name: UIApplication.didBecomeActiveNotification, object: nil)
-
+        
+        // MARK: - Yandex AppMetrica
+        let configuration = YMMYandexMetricaConfiguration.init(apiKey: Consts.METRICA_SDK_KEY)
+        
+        configuration?.handleActivationAsSessionStart = true
+        configuration?.logs = true
+        
+        YMMYandexMetrica.activate(with: configuration!)
+        
+        let params : [String : Any] = ["key1": "value1", "key2": "value2"]
+        YMMYandexMetrica.reportEvent("EVENT", parameters: params, onFailure: { (error) in
+            print("DID FAIL REPORT EVENT: %@")
+            print("REPORT ERROR: %@", error.localizedDescription)
+        })
+        
         // MARK: - Fb deeplinking
         AppEvents.activateApp()
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        // fetch deeplink and add to UserDefaults
         AppLinkUtility.fetchDeferredAppLink { (url, error) in
             
             if let error = error {
@@ -50,9 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
             }
         }
         
-        // TODO: fetch naming and add to UD
-        
-        
         // call request method
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             NewLogic().requestData()
@@ -61,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         // MARK: - OneSignal
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
         
-        OneSignal.initWithLaunchOptions(launchOptions, appId: "a7e60277-d981-4310-82f1-e790e23777a4", handleNotificationAction: nil, settings: onesignalInitSettings)
+        OneSignal.initWithLaunchOptions(launchOptions, appId: Consts.ONESIGNAL_ID, handleNotificationAction: nil, settings: onesignalInitSettings)
         
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
         
@@ -74,55 +85,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     }
     
     // MARK: - Track App Installs and App Opens
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//        ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-//        return true
-//    }
-//
-//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-//        ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-//        return true
-//    }
+    //    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    //        ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+    //        return true
+    //    }
+    //
+    //    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+    //        ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+    //        return true
+    //    }
     
-        func applicationDidBecomeActive(_ application: UIApplication) {
-            // Start the SDK (start the IDFA timeout set above, for iOS 14 or later)
-            //AppsFlyerTracker.shared().start()
-        }
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Start the SDK (start the IDFA timeout set above, for iOS 14 or later)
+        AppsFlyerTracker.shared().trackAppLaunch()
+    }
     
-        // Open Univerasal Links
-        func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-            print("User info \(userInfo)")
-            AppsFlyerTracker.shared().handlePushNotification(userInfo)
-        }
+    // Open Univerasal Links
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print("User info \(userInfo)")
+        AppsFlyerTracker.shared().handlePushNotification(userInfo)
+    }
     
-        // Open Deeplinks
-        // Open URI-scheme for iOS 8 and below
-        private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-            AppsFlyerTracker.shared().continue(userActivity, restorationHandler: restorationHandler)
-            return true
-        }
+    // Open Deeplinks
+    // Open URI-scheme for iOS 8 and below
+    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        AppsFlyerTracker.shared().continue(userActivity, restorationHandler: restorationHandler)
+        return true
+    }
     
-        // Open URI-scheme for iOS 9 and above
-        func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-            AppsFlyerTracker.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
-            return true
-        }
+    // Open URI-scheme for iOS 9 and above
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        AppsFlyerTracker.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
+        return true
+    }
     
-        // Reports app open from deep link for iOS 10 or later
-        func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-            AppsFlyerTracker.shared().continue(userActivity, restorationHandler: nil)
-            return true
-        }
+    // Reports app open from deep link for iOS 10 or later
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        AppsFlyerTracker.shared().continue(userActivity, restorationHandler: nil)
+        return true
+    }
     
-        func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-            AppsFlyerTracker.shared().handlePushNotification(userInfo)
-        }
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        AppsFlyerTracker.shared().handlePushNotification(userInfo)
+    }
     
-        // Report Push Notification attribution data for re-engagements
-        func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-            AppsFlyerTracker.shared().handleOpen(url, options: options)
-            return true
-        }
+    // Report Push Notification attribution data for re-engagements
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        AppsFlyerTracker.shared().handleOpen(url, options: options)
+        return true
+    }
     
     // MARK: - AppsFlyerTracker protocol implementation
     // code from AF guide
@@ -150,11 +161,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
             }
         }
     }
-
+    
     func onConversionDataFail(_ error: Error) {
         print(error)
     }
-
+    
     //Handle Deep Link
     func onAppOpenAttribution(_ attributionData: [AnyHashable : Any]) {
         //Handle Deep Link Data
@@ -163,7 +174,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
             print(key, ":",value)
         }
     }
-
+    
     func onAppOpenAttributionFailure(_ error: Error) {
         print(error)
     }

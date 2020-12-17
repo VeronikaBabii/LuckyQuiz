@@ -35,6 +35,12 @@ PODS:
   - FBSDKShareKit/Share (5.15.1):
     - FBSDKCoreKit (~> 5.0)
   - OneSignal (2.15.2)
+  - YandexMobileMetrica/Dynamic (3.12.0):
+    - YandexMobileMetrica/Dynamic/Core (= 3.12.0)
+    - YandexMobileMetrica/Dynamic/Crashes (= 3.12.0)
+  - YandexMobileMetrica/Dynamic/Core (3.12.0)
+  - YandexMobileMetrica/Dynamic/Crashes (3.12.0):
+    - YandexMobileMetrica/Dynamic/Core
 
 DEPENDENCIES:
   - AppsFlyerFramework
@@ -43,6 +49,7 @@ DEPENDENCIES:
   - FacebookSDK
   - FacebookShare
   - OneSignal (< 3.0, >= 2.11.2)
+  - YandexMobileMetrica/Dynamic (= 3.12.0)
 
 SPEC REPOS:
   trunk:
@@ -56,6 +63,7 @@ SPEC REPOS:
     - FBSDKMarketingKit
     - FBSDKShareKit
     - OneSignal
+    - YandexMobileMetrica
 
 SPEC CHECKSUMS:
   AppsFlyerFramework: a511099f7bedbb1d5804d733c6152d6f8092c4fa
@@ -68,7 +76,8 @@ SPEC CHECKSUMS:
   FBSDKMarketingKit: b9dd220b38cc613c71d3eb626cd60bc8e938fbb4
   FBSDKShareKit: 259737eab3cc807087374553abdf588b3096ba55
   OneSignal: 9531e385388565f4d31797ddadbe0fcc786430ec
+  YandexMobileMetrica: 7ba67267e1ef841f77d5db17a5091b8e9eba911f
 
-PODFILE CHECKSUM: cd56cb0d77af88bb54e744fc6be9c97dbe7b2c3c
+PODFILE CHECKSUM: 6c54d238672e88ffc896cdd2d88dd62e26305655
 
 COCOAPODS: 1.10.0

@@ -14,6 +14,7 @@ target 'LuckyQuiz' do
   pod 'FacebookSDK'
   pod 'OneSignal', '>= 2.11.2', '< 3.0'
   pod 'AppsFlyerFramework' 
+  pod 'YandexMobileMetrica/Dynamic', '3.12.0'
 
 end
 
