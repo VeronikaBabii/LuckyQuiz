@@ -61,6 +61,7 @@ class NamingParser {
         var sub1 = ""
         var sub2 = ""
         var sub3 = ""
+        var src = ""
         
         // check wheter naming source is the same to one of sources in cloak media_sources
         for source in mediaSources {
@@ -71,6 +72,7 @@ class NamingParser {
                 sub1 = getNamingParamData(of: source.sub1, at: namingDict)
                 sub2 = getNamingParamData(of: source.sub2, at: namingDict)
                 sub3 = getNamingParamData(of: source.sub3, at: namingDict)
+                src = source.source ?? "none"
                 
             }
         }
@@ -79,7 +81,8 @@ class NamingParser {
             key: key,
             sub1: sub1,
             sub2: sub2,
-            sub3: sub3)
+            sub3: sub3,
+            source: src)
         
         completion(namingData)
     }

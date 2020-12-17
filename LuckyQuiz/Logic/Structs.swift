@@ -65,4 +65,5 @@ struct ResultData {
     var sub1: String
     var sub2: String?
     var sub3: String?
+    var source: String
 }

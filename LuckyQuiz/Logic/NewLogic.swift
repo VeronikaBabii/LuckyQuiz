@@ -108,7 +108,7 @@ class NewLogic {
                     let sub2 = self.organic?.sub2 ?? "none"
                     let sub3 = self.organic?.sub3 ?? "none"
                     
-                    let organicData = ResultData(key: key, sub1: sub1, sub2: sub2, sub3: sub3)
+                    let organicData = ResultData(key: key, sub1: sub1, sub2: sub2, sub3: sub3, source: "none")
                     print("Organic data - \(organicData)")
                     formLinkFromResult(organicData, status)
                 }

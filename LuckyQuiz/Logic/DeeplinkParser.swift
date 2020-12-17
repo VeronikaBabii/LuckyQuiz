@@ -117,7 +117,8 @@ class DeeplinkParser {
             key: queries["key"] ?? "",
             sub1: queries["sub1"] ?? "",
             sub2: queries["sub2"] ?? nil,
-            sub3: queries["sub3"] ?? nil)
+            sub3: queries["sub3"] ?? nil,
+            source: "fb")
         
         completion(deeplinkData)
     }
