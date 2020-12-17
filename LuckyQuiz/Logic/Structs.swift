@@ -30,21 +30,21 @@ struct MediaSources: Decodable {
     var media_source: String
     var key: MediaSource
     var sub1: MediaSource
-    var sub2: Media
-    var sub3: Media
+    var sub2: MediaSource
+    var sub3: MediaSource
 }
 
 struct MediaSource: Decodable {
     var name: String
     var split: Bool
-    var delimiter: String
-    var position: Int
+    var delimiter: String?
+    var position: Int?
 }
 
-struct Media: Decodable {
-    var name: String
-    var split: Bool
-}
+//struct Media: Decodable {
+//    var name: String
+//    var split: Bool
+//}
 
 // for Deeplink/Naming/Organic result data
 struct ResultData {

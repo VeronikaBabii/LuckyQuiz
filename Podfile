@@ -12,7 +12,6 @@ target 'LuckyQuiz' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'FacebookSDK'
-  pod 'Bolts'
   pod 'OneSignal', '>= 2.11.2', '< 3.0'
   pod 'AppsFlyerFramework' 
 

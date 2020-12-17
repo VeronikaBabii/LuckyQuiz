@@ -100,4 +100,26 @@ class DeeplinkParser {
         }
         return queriesDict
     }
+    
+    // NewLogic helper
+    func getDataFromDeeplink(deeplink: String, completion: (ResultData?) -> ()) {
+        
+        if deeplink == "" {
+            print("No deeplink - going further")
+            completion(nil)
+            return
+        }
+        
+        let queries = DeeplinkParser().getParamsFromDeeplink(deeplink: deeplink)
+        print("Deeplink queries are \(queries)")
+        
+        let deeplinkData = ResultData(
+            key: queries["key"] ?? "",
+            sub1: queries["sub1"] ?? "",
+            sub2: queries["sub2"] ?? nil,
+            sub3: queries["sub3"] ?? nil,
+            source: TrafficSource.FACEBOOK)
+        
+        completion(deeplinkData)
+    }
 }

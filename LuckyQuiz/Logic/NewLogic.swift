@@ -10,7 +10,6 @@ import Foundation
 
 class NewLogic {
     
-    //var status: (user: String, source: String) = ("", "")
     var media_sources = [MediaSources]()
     
     //MARK: - parse jsonData from checker api
@@ -50,32 +49,6 @@ class NewLogic {
             
             let mediaSources = (res.media_sources)
             self.media_sources = mediaSources
-            
-           // for media in mediaSources {
-                
-//                print(media.source ?? "no source")
-//                print("\(media.media_source)")
-                
-                //                print("Key details:")
-                //                print(media.key.name)
-                //                print(media.key.split)
-                //                print(media.key.delimiter)
-                //                print(media.key.position)
-                //
-                //                print("Sub1 details: ")
-                //                print(media.sub1.name)
-                //                print(media.sub1.split)
-                //                print(media.sub1.delimiter)
-                //                print(media.sub1.position)
-                //
-                //                print("Sub2 details: ")
-                //                print(media.sub2.name)
-                //                print(media.sub2.split)
-                //
-                //                print("Sub1 details: ")
-                //                print(media.sub3.name)
-                //                print(media.sub3.split)
-          //  }
             completion(status)
         }
     }
@@ -103,7 +76,7 @@ class NewLogic {
             
             let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
             
-            getDataFromDeeplink(deeplink: deep) { deeplinkData -> () in
+            DeeplinkParser().getDataFromDeeplink(deeplink: deep) { deeplinkData -> () in
                 
                 if deeplinkData != nil {
                     print("Deeplink data - \(deeplinkData!)")
@@ -112,9 +85,7 @@ class NewLogic {
                 }
                 
                 // 4 - no deeplink - check naming
-                let name = "\(UserDefaults.standard.object(forKey: "naming") ?? "")"
-                
-                getDataFromNaming(naming: name, mediaSources: media_sources) { namingData -> () in
+                NamingParser().getDataFromNaming(mediaSources: media_sources) { namingData -> () in
                     
                     if namingData != nil {
                         print("Naming data - \(namingData!)")
@@ -145,51 +116,6 @@ class NewLogic {
                 }
             }
         }
-    }
-    
-    // helpers
-    func getDataFromDeeplink(deeplink: String, completion: (ResultData?) -> ()) {
-        
-        if deeplink == "" {
-            print("No deeplink - going further")
-            completion(nil)
-            return
-        }
-        // get deeplink and proccess it into deeplinkData in ResultData format
-        
-        let queries = DeeplinkParser().getParamsFromDeeplink(deeplink: deeplink)
-        print("Deeplink queries are \(queries)")
-        
-        let deeplinkData = ResultData(
-            key: queries["key"] ?? "",
-            sub1: queries["sub1"] ?? "",
-            sub2: queries["sub2"] ?? nil,
-            sub3: queries["sub3"] ?? nil,
-            source: TrafficSource.FACEBOOK)
-        
-        completion(deeplinkData)
-    }
-    
-    func getDataFromNaming(naming: String, mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
-        
-        if naming == "" {
-            print("No naming - going further")
-            completion(nil)
-            return
-        }
-        // get naming and proccess it into namingData in ResultData format
-        
-        let queries = NamingParser().processMediaSourcesIntoNaming(mediaSources)
-        print("Naming queries are \(queries)")
-        
-        let namingData = ResultData(
-            key: "",
-            sub1: "",
-            sub2: "",
-            sub3: "",
-            source: TrafficSource.FACEBOOK)
-        
-        completion(namingData)
     }
     
     func formLinkFromResult(_ data: ResultData, _ status: (String , String)) {
