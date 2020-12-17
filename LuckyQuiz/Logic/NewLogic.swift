@@ -103,7 +103,6 @@ class NewLogic {
                     }
                     
                     // 5 - no naming - create organic
-                    
                     let key = self.organic?.org_key ?? "oswn6tvtmztmokzwovqc"
                     let sub1 = self.organic?.sub1 ?? "none"
                     let sub2 = self.organic?.sub2 ?? "none"

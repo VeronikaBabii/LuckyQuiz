@@ -11,7 +11,7 @@ import Foundation
 struct Consts {
     static let ORGANIC_FB    = "oswn6tvtmztmokzwovqc"
     static let ORGANIC_INAPP = "sl4nk4g3x0y8l6f8kiid"
-    static let CLOAK_TOKEN   = "jCMs3QPM7gsT5D3V"
+    //static let CLOAK_TOKEN   = "jCMs3QPM7gsT5D3V"
     
     static let APPLE_APP_ID = "1536002227" 
     static let FB_APP_ID    = "354340085862913"
@@ -32,14 +32,15 @@ struct Responce: Decodable {
     var organic: OrganicData
     var user: String
     var media_sources: [MediaSources]
+    var integration_version: String
 }
 
 struct OrganicData: Decodable {
     var org_status: String
     var org_key: String
-    var sub1: String
-    var sub2: String
-    var sub3: String
+    var sub1: String?
+    var sub2: String?
+    var sub3: String?
 }
 
 struct MediaSources: Decodable {
