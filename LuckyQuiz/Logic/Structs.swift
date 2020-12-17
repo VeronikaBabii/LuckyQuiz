@@ -27,9 +27,19 @@ struct Consts {
 
 // for cloak responce parsing
 struct Responce: Decodable {
-    var source: String
+    var naming: String
+    var deeplink: String
+    var organic: OrganicData
     var user: String
     var media_sources: [MediaSources]
+}
+
+struct OrganicData: Decodable {
+    var org_status: String
+    var org_key: String
+    var sub1: String
+    var sub2: String
+    var sub3: String
 }
 
 struct MediaSources: Decodable {
@@ -48,22 +58,10 @@ struct MediaSource: Decodable {
     var position: Int?
 }
 
-//struct Media: Decodable {
-//    var name: String
-//    var split: Bool
-//}
-
 // for Deeplink/Naming/Organic result data
 struct ResultData {
     var key: String
     var sub1: String
     var sub2: String?
     var sub3: String?
-    var source: TrafficSource
-}
-
-enum TrafficSource: String {
-    case FACEBOOK = "fb"
-    case UNITY = "unity"
-    case GOOGLE = "google"
 }

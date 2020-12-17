@@ -190,8 +190,8 @@
 				156D7755255C799A00F71186 /* Structs.swift */,
 				154FBBE624E71919006CC92B /* AppDelegate.swift */,
 				156D774D255C6EEB00F71186 /* NewLogic.swift */,
-				156D7767255DAA1200F71186 /* NamingParser.swift */,
 				156D775E255D508600F71186 /* DeeplinkParser.swift */,
+				156D7767255DAA1200F71186 /* NamingParser.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";

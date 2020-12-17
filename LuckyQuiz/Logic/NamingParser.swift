@@ -79,8 +79,7 @@ class NamingParser {
             key: key,
             sub1: sub1,
             sub2: sub2,
-            sub3: sub3,
-            source: TrafficSource.FACEBOOK)
+            sub3: sub3)
         
         completion(namingData)
     }
@@ -100,12 +99,12 @@ class NamingParser {
             let splited = namingName.components(separatedBy: splitBy)
             let elem: String = splited[pos]
             res = elem
-            print(res)
+            //print(res)
             
         } else { // split is false - get all param value
             let cloakName = ss.name
             res = namingDict[cloakName] as? String ?? "none"
-            print(res)
+            //print(res)
         }
         
         return res

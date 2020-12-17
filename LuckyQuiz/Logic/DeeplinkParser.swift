@@ -50,7 +50,7 @@ class DeeplinkParser {
     // 2 - jsonStr to Json and then decode via structs
     func parseJSON(jsonString: String, completion: @escaping (InnerAppLinkData?) -> Void) {
         
-        print("\n\(jsonString)\n")
+        //print("\n\(jsonString)\n")
         
         let data = jsonString.data(using: .utf8)!
         
@@ -81,20 +81,20 @@ class DeeplinkParser {
             }
             
             // neccessary params
-            print(result.extras.key)
+            //print(result.extras.key)
             queriesDict["key"] = result.extras.key
             
-            print(result.extras.sub1)
+            //print(result.extras.sub1)
             queriesDict["sub1"] = result.extras.sub1
             
             // optional params
             if result.extras.sub2 != nil {
-                print(result.extras.sub2 ?? "")
+                //print(result.extras.sub2 ?? "")
                 queriesDict["sub2"] = result.extras.sub2
             }
             
             if result.extras.sub2 != nil {
-                print(result.extras.sub3 ?? "")
+                //print(result.extras.sub3 ?? "")
                 queriesDict["sub3"] = result.extras.sub3
             }
         }
@@ -117,8 +117,7 @@ class DeeplinkParser {
             key: queries["key"] ?? "",
             sub1: queries["sub1"] ?? "",
             sub2: queries["sub2"] ?? nil,
-            sub3: queries["sub3"] ?? nil,
-            source: TrafficSource.FACEBOOK)
+            sub3: queries["sub3"] ?? nil)
         
         completion(deeplinkData)
     }
