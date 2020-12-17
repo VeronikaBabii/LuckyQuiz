@@ -37,6 +37,7 @@ class NewLogic {
     func checkerDataUsage(completion: @escaping ((user: String, source: String)) -> ()) {
         
         let url = URL(string: "https://integr-testing.site/checker/?token=\(Consts.CLOAK_TOKEN)")!
+        //let url = URL(string: "https://integr-testing.site/apps_v2/checker/?bundle=com.gb.luckyquiz")!
         
         getDataFromChecker(url: url) { result in
             
@@ -73,7 +74,6 @@ class NewLogic {
             print("\nUser true - showing web")
             
             // 3 - user == "true" - check deeplink
-            
             let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
             
             DeeplinkParser().getDataFromDeeplink(deeplink: deep) { deeplinkData -> () in

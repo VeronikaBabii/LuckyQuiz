@@ -92,7 +92,7 @@ class NamingParser {
         
         if ss.split == true {
             let cloakName = ss.name
-            let namingName = namingDict[cloakName] as! String
+            let namingName = namingDict[cloakName] as? String ?? "none"
             
             let splitBy = ss.delimiter ?? "" // if we have a split, so that del and pos
             let pos = ss.position ?? 0
@@ -104,7 +104,7 @@ class NamingParser {
             
         } else { // split is false - get all param value
             let cloakName = ss.name
-            res = namingDict[cloakName] as! String
+            res = namingDict[cloakName] as? String ?? "none"
             print(res)
         }
         

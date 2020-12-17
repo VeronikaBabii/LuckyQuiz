@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         AppsFlyerTracker.shared().appsFlyerDevKey = Consts.APPSFLYER_DEV_KEY
         AppsFlyerTracker.shared().appleAppID = Consts.APPLE_APP_ID
         AppsFlyerTracker.shared().delegate = self
-        //AppsFlyerTracker.shared().isDebug = true
+        AppsFlyerTracker.shared().isDebug = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(sendLaunch),
                                                name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -83,17 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         
         return true
     }
-    
-    // MARK: - Track App Installs and App Opens
-    //    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    //        ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-    //        return true
-    //    }
-    //
-    //    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-    //        ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-    //        return true
-    //    }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Start the SDK (start the IDFA timeout set above, for iOS 14 or later)
