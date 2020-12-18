@@ -10,7 +10,6 @@ import UIKit
 import WebKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-import OneSignal
 
 class ViewController: UIViewController {
     
@@ -27,7 +26,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.7) {
             self.checkWhatToShow() // can only be called from here
             self.loading.stopAnimating()
         }
@@ -35,10 +34,13 @@ class ViewController: UIViewController {
     
     func checkWhatToShow() {
         
-        if UserDefaults.standard.object(forKey: "SHOW_WEB") as! String == "true" {
+        if UserDefaults.standard.object(forKey: "SHOW_WEB") as? String == "true" {
             
             // show user notifications prompt here if it's a first launch
-            showPushPrompt()
+            let launch: String = UserDefaults.standard.object(forKey: "isFirstLaunch") as? String ?? "false"
+            if launch == "true" {
+                showPushPrompt()
+            }
             
             // load url in webview
             let url = "\(UserDefaults.standard.object(forKey: "AGREEMENT_URL") ?? "https://www.google.com")"
@@ -47,7 +49,7 @@ class ViewController: UIViewController {
             let request = URLRequest(url: link)
             self.webView.load(request)
             
-        } else if UserDefaults.standard.object(forKey: "SHOW_WEB") as! String == "false" {
+        } else if UserDefaults.standard.object(forKey: "SHOW_WEB") as? String == "false" {
             
             print("showing game")
             
@@ -64,8 +66,9 @@ class ViewController: UIViewController {
     }
     
     func showPushPrompt() {
-        OneSignal.promptForPushNotifications(userResponse: { accepted in
-          print("User accepted OneSignal notifications - \(accepted)")
-        })
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let promptVC = storyboard.instantiateViewController(identifier: "pushPrompt")
+        promptVC.modalPresentationStyle = .fullScreen
+        show(promptVC, sender: self)
     }
 }

@@ -76,11 +76,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
         
-        // to show the iOS push notification prompt
-        // OneSignal.promptForPushNotifications(userResponse: { accepted in
-        //   print("User accepted notifications: \(accepted)")
-        // })
-        
         return true
     }
     
@@ -142,10 +137,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
             } else {
                 print("This is an organic install.")
             }
-            if let is_first_launch = installData["is_first_launch"] as? Bool,
-               is_first_launch {
+            if let is_first_launch = installData["is_first_launch"] as? Bool, is_first_launch {
+                UserDefaults.standard.set("true", forKey: "isFirstLaunch")
                 print("First Launch")
             } else {
+                UserDefaults.standard.set("false", forKey: "isFirstLaunch")
                 print("Not First Launch")
             }
         }
