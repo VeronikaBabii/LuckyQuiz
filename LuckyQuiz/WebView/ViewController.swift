@@ -12,18 +12,16 @@ import WebKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var backImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.allowsLinkPreview = false
-        loading.startAnimating()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.7) {
             self.checkWhatToShow() // can only be called from here
-            self.loading.stopAnimating()
         }
     }
     
@@ -44,9 +42,14 @@ class ViewController: UIViewController {
             let request = URLRequest(url: link)
             self.webView.load(request)
             
-        } else if UserDefaults.standard.object(forKey: "SHOW_WEB") as? String == "false" {
+            print("showing web")
             
-            print("showing game")
+            // hide image
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+                self.backImage.isHidden = true
+            }
+            
+        } else if UserDefaults.standard.object(forKey: "SHOW_WEB") as? String == "false" {
             
             // TODO: add showing of webview for user rights acceptance (reason for webview usage)
             
@@ -54,6 +57,13 @@ class ViewController: UIViewController {
             let gameViewController = storyboard.instantiateViewController(identifier: "gameVC") as? GameViewController
             self.view.window?.rootViewController = gameViewController
             self.view.window?.makeKeyAndVisible()
+            
+            print("showing game")
+            
+            // hide image
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+                self.backImage.isHidden = true
+            }
             
         } else {
             print("Error: SHOW_WEB or SHOW_GAME is nil!")

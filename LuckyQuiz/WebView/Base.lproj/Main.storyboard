@@ -25,20 +25,21 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="rKj-kK-qLh">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="v2F-O0-kCB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BjS-ki-DLd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0Dp-UP-61v"/>
                             <constraint firstItem="BjS-ki-DLd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5vX-U7-mpa"/>
+                            <constraint firstItem="v2F-O0-kCB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PlZ-DZ-6GJ"/>
+                            <constraint firstItem="v2F-O0-kCB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XL7-ET-FhP"/>
                             <constraint firstItem="BjS-ki-DLd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="YO1-s4-PoY"/>
-                            <constraint firstItem="rKj-kK-qLh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f0t-sB-Dhq"/>
                             <constraint firstItem="BjS-ki-DLd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gHX-3N-ODd"/>
-                            <constraint firstItem="rKj-kK-qLh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vEd-kO-flg"/>
+                            <constraint firstItem="v2F-O0-kCB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ijp-Xz-crs"/>
+                            <constraint firstAttribute="bottom" secondItem="v2F-O0-kCB" secondAttribute="bottom" id="nB2-rL-cjJ"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -68,13 +69,13 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="loading" destination="rKj-kK-qLh" id="QfL-y0-Otc"/>
+                        <outlet property="backImage" destination="v2F-O0-kCB" id="hLu-Vr-rCL"/>
                         <outlet property="webView" destination="BjS-ki-DLd" id="75H-8E-Qmz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479.7101449275362" y="124.55357142857142"/>
+            <point key="canvasLocation" x="1478.2608695652175" y="124.55357142857142"/>
         </scene>
         <!--Push Prompt View Controller-->
         <scene sceneID="eWi-nO-94b">
@@ -152,6 +153,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="621" height="1344"/>
         <image name="back-orange" width="621" height="1344"/>
         <image name="fire_joker" width="250" height="250"/>
         <systemColor name="systemBackgroundColor">
