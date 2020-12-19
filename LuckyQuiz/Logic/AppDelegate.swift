@@ -125,9 +125,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     // Handle Organic/Non-organic installation
     func onConversionDataSuccess(_ installData: [AnyHashable: Any]) {
         print("onConversionDataSuccess data:")
+        
+        var namingDataDict = [AnyHashable: Any]()
+        
         for (key, value) in installData {
             print(key, ":", value)
+            namingDataDict[key] = value
         }
+        print("\n\(namingDataDict)\n")
+        
+        UserDefaults.standard.set(namingDataDict, forKey: "namingDataDict")
+        
         if let status = installData["af_status"] as? String {
             if (status == "Non-organic") {
                 if let sourceID = installData["media_source"],

@@ -37,7 +37,7 @@ struct Responce: Decodable {
 
 struct OrganicData: Decodable {
     var org_status: String
-    var org_key: String
+    var org_key: String?
     var sub1: String?
     var sub2: String?
     var sub3: String?
