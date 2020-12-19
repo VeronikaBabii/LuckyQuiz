@@ -10,7 +10,6 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    
     @IBAction func gamblingTapped(_ sender: UIButton) {
         UserDefaults.standard.set("1", forKey: "quizNum")
     }
@@ -22,5 +21,4 @@ class GameViewController: UIViewController {
     @IBAction func gamingTapped(_ sender: UIButton) {
         UserDefaults.standard.set("3", forKey: "quizNum")
     }
-    
 }

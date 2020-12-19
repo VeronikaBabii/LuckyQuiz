@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         AppLinkUtility.fetchDeferredAppLink { (url, error) in
             
             if let error = error {
-                print("Received error while fetching deferred app link: \(error)")
+                print("Received error while fetching deferred app link: \n\(error)")
                 UserDefaults.standard.set(nil, forKey: "deeplink")
                 
             } else if let deeplink = url?.absoluteString {
@@ -65,7 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         }
         
         // call request method
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            print("requesting")
             NewLogic().requestData()
         }
         

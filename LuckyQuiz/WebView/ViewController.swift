@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.8) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) {
             self.checkWhatToShow() // can only be called from here
         }
     }

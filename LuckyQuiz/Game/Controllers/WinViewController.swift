@@ -33,5 +33,4 @@ class WinViewController: UIViewController {
         view.window?.rootViewController = gameViewController
         view.window?.makeKeyAndVisible()
     }
-    
 }
