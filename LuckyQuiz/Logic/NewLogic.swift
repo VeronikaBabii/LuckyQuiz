@@ -38,7 +38,6 @@ class NewLogic {
     
     func checkerDataUsage(completion: @escaping (String) -> ()) {
         
-        //let url = URL(string: "https://integr-testing.site/checker/?token=\(Consts.CLOAK_TOKEN)")!
         let url = URL(string: "https://integr-testing.site/apps_v2/checker/?bundle=com.gb.luckyquizz")!
         
         getDataFromChecker(url: url) { result in
@@ -64,7 +63,6 @@ class NewLogic {
     }
     
     //MARK: - deeplink/naming/organic logic
-    
     func requestData() {
         
         // 1 - make cloak request
@@ -96,7 +94,7 @@ class NewLogic {
                 // 4 - no deeplink - check naming
                 NamingParser().getDataFromNaming(mediaSources: media_sources) { namingData -> () in
                     
-                    if namingData != nil && whatToShow?.naming == "true" { // check value of naming in cloak
+                    if namingData != nil && whatToShow?.naming == "true" {
                         print("Naming data - \(namingData!)")
                         formLinkFromResult(namingData!, status)
                         return
@@ -105,7 +103,7 @@ class NewLogic {
                     // 5 - no naming - create organic from cloak
                     if (self.organic?.org_status == "true") {
                         
-                        let key = self.organic?.org_key ?? "oswn6tvtmztmokzwovqc"
+                        let key = self.organic?.org_key ?? Consts.ORGANIC_FB
                         let sub1 = self.organic?.sub1 ?? "none"
                         let sub2 = self.organic?.sub2 ?? "none"
                         let sub3 = self.organic?.sub3 ?? "none"
@@ -117,7 +115,7 @@ class NewLogic {
                     
                     // 6 - no organic cloak - show game
                     UserDefaults.standard.set("false", forKey: "SHOW_WEB")
-                    print("No organic cloak")
+                    print("No organic cloak - showing game")
                 }
             }
         }

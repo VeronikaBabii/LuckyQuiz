@@ -10,20 +10,18 @@ import Foundation
 
 class NamingParser {
     
-    // NewLogic helper
     func getDataFromNaming(mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
         
-        // get naming from appsflyer here
+        // get naming from appsflyer
         guard let namingDict: [String: Any] = UserDefaults.standard.object(forKey: "namingDataDict") as? [String : Any]
         else {
             print("namingDict is empty (cannot convert)")
             completion(nil)
             return
         }
-
         print(namingDict)
         
-        // for testing
+        // for naming testing
 //        let namingDict: [String: Any] = ["retargeting_conversion_type":"none",
 //                                         "orig_cost":"0.9",
 //                                         "af_ip":"85.26.241.188",
@@ -116,8 +114,6 @@ class NamingParser {
             res = namingDict[cloakName] as? String ?? "none"
             //print(res)
         }
-        
         return res
     }
-    
 }

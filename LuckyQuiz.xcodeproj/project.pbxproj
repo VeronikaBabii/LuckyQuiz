@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		151018C62510210700A877AC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151018C52510210700A877AC /* Utils.swift */; };
 		1546A9E72548400200D69494 /* SecondWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E62548400200D69494 /* SecondWinVC.swift */; };
 		1546A9E92548402000D69494 /* SecondQuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E82548402000D69494 /* SecondQuizVC.swift */; };
 		1546A9EC2548407800D69494 /* QuizLogic2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9EB2548407800D69494 /* QuizLogic2.swift */; };
@@ -65,7 +64,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		151018C52510210700A877AC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1546A9E62548400200D69494 /* SecondWinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWinVC.swift; sourceTree = "<group>"; };
 		1546A9E82548402000D69494 /* SecondQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondQuizVC.swift; sourceTree = "<group>"; };
 		1546A9EB2548407800D69494 /* QuizLogic2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic2.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				159A0ABB2501266300118CDD /* WebViewDemo.entitlements */,
 				157E05302550214200CC405B /* pribambas_regular.ttf */,
 				154FBBE824E71919006CC92B /* SceneDelegate.swift */,
-				151018C52510210700A877AC /* Utils.swift */,
 				156D7762255DA41000F71186 /* Logic */,
 				15E63DC925190F0E005888E5 /* WebView */,
 				15DB441724FAE14C00964171 /* Game */,
@@ -459,7 +456,6 @@
 				156D7756255C799A00F71186 /* Structs.swift in Sources */,
 				156D775F255D508600F71186 /* DeeplinkParser.swift in Sources */,
 				15DB442824FB9B3300964171 /* WinViewController.swift in Sources */,
-				151018C62510210700A877AC /* Utils.swift in Sources */,
 				154FBBE924E71919006CC92B /* SceneDelegate.swift in Sources */,
 				1546A9F02548413D00D69494 /* ThirdWinVC.swift in Sources */,
 				1546A9EE2548410D00D69494 /* QuizLogic3.swift in Sources */,

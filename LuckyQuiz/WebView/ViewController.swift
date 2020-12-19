@@ -8,16 +8,11 @@
 
 import UIKit
 import WebKit
-import FBSDKCoreKit
-import FBSDKLoginKit
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
-    
-    let utils = Utils()
-    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +21,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.7) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.7) {
             self.checkWhatToShow() // can only be called from here
             self.loading.stopAnimating()
         }

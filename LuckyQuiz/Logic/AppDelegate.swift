@@ -38,11 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         
         YMMYandexMetrica.activate(with: configuration!)
         
-        let params : [String : Any] = ["key1": "value1", "key2": "value2"]
-        YMMYandexMetrica.reportEvent("EVENT", parameters: params, onFailure: { (error) in
-            print("DID FAIL REPORT EVENT: %@")
-            print("REPORT ERROR: %@", error.localizedDescription)
-        })
+//        let params : [String : Any] = ["key1": "value1", "key2": "value2"]
+//        YMMYandexMetrica.reportEvent("EVENT", parameters: params, onFailure: { (error) in
+//            print("DID FAIL REPORT EVENT: %@")
+//            print("REPORT ERROR: %@", error.localizedDescription)
+//        })
         
         // MARK: - Fb deeplinking
         AppEvents.activateApp()
