@@ -7,12 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1546A9E72548400200D69494 /* SecondWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E62548400200D69494 /* SecondWinVC.swift */; };
-		1546A9E92548402000D69494 /* SecondQuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9E82548402000D69494 /* SecondQuizVC.swift */; };
-		1546A9EC2548407800D69494 /* QuizLogic2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9EB2548407800D69494 /* QuizLogic2.swift */; };
-		1546A9EE2548410D00D69494 /* QuizLogic3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9ED2548410D00D69494 /* QuizLogic3.swift */; };
-		1546A9F02548413D00D69494 /* ThirdWinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9EF2548413D00D69494 /* ThirdWinVC.swift */; };
-		1546A9F22548414D00D69494 /* ThirdQuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A9F12548414D00D69494 /* ThirdQuizVC.swift */; };
+		1520CA8C258E9ADB001DB5CC /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520CA8B258E9ADB001DB5CC /* Quiz.swift */; };
+		1520CA9C258EA1EA001DB5CC /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520CA9B258EA1EA001DB5CC /* WinViewController.swift */; };
 		154FBBE724E71919006CC92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FBBE624E71919006CC92B /* AppDelegate.swift */; };
 		154FBBE924E71919006CC92B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FBBE824E71919006CC92B /* SceneDelegate.swift */; };
 		154FBBEB24E71919006CC92B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FBBEA24E71919006CC92B /* ViewController.swift */; };
@@ -30,7 +26,6 @@
 		157E05312550218E00CC405B /* pribambas_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 157E05302550214200CC405B /* pribambas_regular.ttf */; };
 		15DB441D24FAE1BA00964171 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DB441C24FAE1BA00964171 /* GameScreen.storyboard */; };
 		15DB441F24FAE1C300964171 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB441E24FAE1C300964171 /* GameViewController.swift */; };
-		15DB442824FB9B3300964171 /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442724FB9B3300964171 /* WinViewController.swift */; };
 		15DB442A24FB9B4A00964171 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442924FB9B4A00964171 /* QuizViewController.swift */; };
 		15DB442C24FB9B7900964171 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442B24FB9B7900964171 /* Constants.swift */; };
 		15DB442E24FB9B8800964171 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442D24FB9B8800964171 /* Question.swift */; };
@@ -64,12 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1546A9E62548400200D69494 /* SecondWinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWinVC.swift; sourceTree = "<group>"; };
-		1546A9E82548402000D69494 /* SecondQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondQuizVC.swift; sourceTree = "<group>"; };
-		1546A9EB2548407800D69494 /* QuizLogic2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic2.swift; sourceTree = "<group>"; };
-		1546A9ED2548410D00D69494 /* QuizLogic3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic3.swift; sourceTree = "<group>"; };
-		1546A9EF2548413D00D69494 /* ThirdWinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdWinVC.swift; sourceTree = "<group>"; };
-		1546A9F12548414D00D69494 /* ThirdQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdQuizVC.swift; sourceTree = "<group>"; };
+		1520CA8B258E9ADB001DB5CC /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		1520CA9B258EA1EA001DB5CC /* WinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		154FBBE324E71919006CC92B /* LuckyQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckyQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		154FBBE624E71919006CC92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		154FBBE824E71919006CC92B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +83,6 @@
 		159A0ABB2501266300118CDD /* WebViewDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebViewDemo.entitlements; sourceTree = "<group>"; };
 		15DB441C24FAE1BA00964171 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
 		15DB441E24FAE1C300964171 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		15DB442724FB9B3300964171 /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		15DB442924FB9B4A00964171 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		15DB442B24FB9B7900964171 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		15DB442D24FB9B8800964171 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -225,11 +215,7 @@
 			children = (
 				15DB441E24FAE1C300964171 /* GameViewController.swift */,
 				15DB442924FB9B4A00964171 /* QuizViewController.swift */,
-				15DB442724FB9B3300964171 /* WinViewController.swift */,
-				1546A9E82548402000D69494 /* SecondQuizVC.swift */,
-				1546A9E62548400200D69494 /* SecondWinVC.swift */,
-				1546A9F12548414D00D69494 /* ThirdQuizVC.swift */,
-				1546A9EF2548413D00D69494 /* ThirdWinVC.swift */,
+				1520CA9B258EA1EA001DB5CC /* WinViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,9 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				15DB442D24FB9B8800964171 /* Question.swift */,
+				1520CA8B258E9ADB001DB5CC /* Quiz.swift */,
 				15DB442F24FB9B9300964171 /* QuizLogic.swift */,
-				1546A9EB2548407800D69494 /* QuizLogic2.swift */,
-				1546A9ED2548410D00D69494 /* QuizLogic3.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -442,12 +427,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				15DB441F24FAE1C300964171 /* GameViewController.swift in Sources */,
-				1546A9E92548402000D69494 /* SecondQuizVC.swift in Sources */,
 				156499D2253CDFF5001DB310 /* PushPromptViewController.swift in Sources */,
 				15DB443024FB9B9300964171 /* QuizLogic.swift in Sources */,
-				1546A9F22548414D00D69494 /* ThirdQuizVC.swift in Sources */,
-				1546A9EC2548407800D69494 /* QuizLogic2.swift in Sources */,
-				1546A9E72548400200D69494 /* SecondWinVC.swift in Sources */,
 				156D7768255DAA1200F71186 /* NamingParser.swift in Sources */,
 				15DB442A24FB9B4A00964171 /* QuizViewController.swift in Sources */,
 				154FBBEB24E71919006CC92B /* ViewController.swift in Sources */,
@@ -455,12 +436,11 @@
 				154FBBE724E71919006CC92B /* AppDelegate.swift in Sources */,
 				156D7756255C799A00F71186 /* Structs.swift in Sources */,
 				156D775F255D508600F71186 /* DeeplinkParser.swift in Sources */,
-				15DB442824FB9B3300964171 /* WinViewController.swift in Sources */,
 				154FBBE924E71919006CC92B /* SceneDelegate.swift in Sources */,
-				1546A9F02548413D00D69494 /* ThirdWinVC.swift in Sources */,
-				1546A9EE2548410D00D69494 /* QuizLogic3.swift in Sources */,
+				1520CA8C258E9ADB001DB5CC /* Quiz.swift in Sources */,
 				156D774E255C6EEB00F71186 /* NewLogic.swift in Sources */,
 				15DB442C24FB9B7900964171 /* Constants.swift in Sources */,
+				1520CA9C258EA1EA001DB5CC /* WinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

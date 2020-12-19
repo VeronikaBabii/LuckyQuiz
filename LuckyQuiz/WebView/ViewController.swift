@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  WebViewDemo
+//  LuckyQuiz
 //
 //  Created by Mark Vais on 20.09.2020.
 //  Copyright © 2020 Mark Vais. All rights reserved.
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.7) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.8) {
             self.checkWhatToShow() // can only be called from here
         }
     }
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             print("showing web")
             
             // hide image
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) {
                 self.backImage.isHidden = true
             }
             
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
             print("showing game")
             
             // hide image
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) {
                 self.backImage.isHidden = true
             }
             

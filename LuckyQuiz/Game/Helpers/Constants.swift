@@ -1,6 +1,6 @@
 //
 //  Constants.swift
-//  WebViewDemo
+//  LuckyQuiz
 //
 //  Created by Mark Vais on 30.09.2020.
 //  Copyright © 2020 Mark Vais. All rights reserved.

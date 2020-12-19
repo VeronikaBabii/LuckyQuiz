@@ -1,13 +1,12 @@
 //
 //  SceneDelegate.swift
-//  WebViewDemo
+//  LuckyQuiz
 //
 //  Created by Mark Vais on 20.09.2020.
 //  Copyright © 2020 Mark Vais. All rights reserved.
 //
 
 import UIKit
-import FBSDKCoreKit
 import AppsFlyerLib
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -16,9 +15,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // MARK: - appsflyer setup
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
-        //        guard let url = URLContexts.first?.url else { return }
-        //        ApplicationDelegate.shared.application(UIApplication.shared, open: url, sourceApplication: nil, annotation: [UIApplication.OpenURLOptionsKey.annotation])
         
         if let url = URLContexts.first?.url {
             AppsFlyerTracker.shared().handleOpen(url, options: nil)
