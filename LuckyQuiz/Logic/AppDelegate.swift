@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         AppsFlyerTracker.shared().appsFlyerDevKey = Consts.APPSFLYER_DEV_KEY
         AppsFlyerTracker.shared().appleAppID = Consts.APPLE_APP_ID
         AppsFlyerTracker.shared().delegate = self
-        AppsFlyerTracker.shared().isDebug = true
+        //AppsFlyerTracker.shared().isDebug = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(sendLaunch),
                                                name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         let configuration = YMMYandexMetricaConfiguration.init(apiKey: Consts.METRICA_SDK_KEY)
         
         configuration?.handleActivationAsSessionStart = true
-        configuration?.logs = true
+        //configuration?.logs = true
         
         YMMYandexMetrica.activate(with: configuration!)
         

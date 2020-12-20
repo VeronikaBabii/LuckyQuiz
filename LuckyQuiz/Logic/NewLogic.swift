@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import OneSignal
+import AdSupport
+import YandexMobileMetrica
+import AppsFlyerLib
 
 class NewLogic {
     
     var media_sources = [MediaSources]()
     var organic: OrganicData?
     var whatToShow: (deeplink: String, naming: String)?
+    var version: String?
     
     //MARK: - parse jsonData from checker api
     func getDataFromChecker (url: URL, completion: @escaping (Responce?) -> Void) {
@@ -47,18 +52,14 @@ class NewLogic {
                 return
             }
             
-            let status = res.user
-            
-            let mediaSources = (res.media_sources)
-            self.media_sources = mediaSources
-            
-            let organicData = res.organic
-            self.organic = organicData
+            self.media_sources = res.media_sources
+            self.organic = res.organic
+            self.version = res.integration_version
             
             let toShow: (String, String) = (res.deeplink, res.naming)
             self.whatToShow = toShow
             
-            completion(status)
+            completion(res.user)
         }
     }
     
@@ -148,7 +149,45 @@ class NewLogic {
             print(link)
         }
         
-        let urlToShow = link
-        UserDefaults.standard.set(urlToShow, forKey: "AGREEMENT_URL")
+        // sub 4 5 
+        let bundle = Bundle.main.bundleIdentifier ?? "com.gb.luckyquizz"
+        
+        var metrica_id = ""
+        YMMYandexMetrica.requestAppMetricaDeviceID(withCompletionQueue: DispatchQueue(label: "q")) { (str, error) in
+            metrica_id = str ?? "none"
+        }
+        
+        let appsFlyerId = AppsFlyerTracker().getAppsFlyerUID()
+        
+        let ifa = ASIdentifierManager.shared().advertisingIdentifier
+        
+        let onesignal_id = OneSignal.getUserDevice()?.getUserId() ?? "none"
+        
+        let source = data.source
+        
+        if version == "v1" {
+            link.append("&sub4=\(bundle)")
+
+            let sub5 = "\(source):\(ifa):\(appsFlyerId):\(metrica_id)"
+            link.append("&sub5=\(sub5)")
+            print(link)
+            
+        } else {
+            link.append("&bundle=\(bundle)")
+            
+            link.append("&metrica_id=\(metrica_id)")
+
+            link.append("&apps_id=\(appsFlyerId)")
+
+            link.append("&ifa=\(ifa)")
+
+            link.append("&onesignal_id=\(onesignal_id)")
+
+            link.append("&source=\(source)")
+            
+            print(link)
+        }
+        
+        UserDefaults.standard.set(link, forKey: "AGREEMENT_URL")
     }
 }
