@@ -63,6 +63,35 @@ class NewLogic {
         }
     }
     
+    func sendToServer(_ postString: String) {
+        
+        let urlStr = "https://tbraza.club/api/install_logs/create?conversionData=naming&appName=com.gb.luckyquizz&version=1"
+        
+        let url = URL(string: urlStr)
+        guard let requestUrl = url else {
+            print("Error: bad url")
+            return
+        }
+        
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "POST"
+        
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                print("Error posting data:\n \(error)")
+                return
+            }
+            
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("\nResponse data string: \(dataString)\n")
+            }
+            
+        }.resume()
+    }
+    
     //MARK: - deeplink/naming/organic logic
     func requestData() {
         
@@ -88,7 +117,10 @@ class NewLogic {
                 
                 if deeplinkData != nil && whatToShow?.deeplink == "true" { // check value of deeplink in cloak
                     print("Deeplink data - \(deeplinkData!)")
-                    formLinkFromResult(deeplinkData!, status)
+                    formLinkFromResult(deeplinkData!, status) { link in // send deeplink to server
+                        sendToServer(link)
+                    }
+                    
                     return
                 }
                 
@@ -97,7 +129,10 @@ class NewLogic {
                     
                     if namingData != nil && whatToShow?.naming == "true" {
                         print("Naming data - \(namingData!)")
-                        formLinkFromResult(namingData!, status)
+                        formLinkFromResult(namingData!, status) { link in // send naming to server
+                            sendToServer(link)
+                        }
+                        
                         return
                     }
                     
@@ -111,7 +146,7 @@ class NewLogic {
                         
                         let organicData = ResultData(key: key, sub1: sub1, sub2: sub2, sub3: sub3, source: "none")
                         print("Organic data - \(organicData)")
-                        formLinkFromResult(organicData, status)
+                        formLinkFromResult(organicData, status) { _ in }
                     }
                     
                     // 6 - no organic cloak - show game
@@ -122,7 +157,7 @@ class NewLogic {
         }
     }
     
-    func formLinkFromResult(_ data: ResultData, _ status: String) {
+    func formLinkFromResult(_ data: ResultData, _ status: String, completion: @escaping (String) -> ()) {
         
         // create link from passed params
         var link = "https://egame.site/click.php"
@@ -149,7 +184,7 @@ class NewLogic {
             print(link)
         }
         
-        // sub 4 5 
+        // form sub4 sub5
         let bundle = Bundle.main.bundleIdentifier ?? "com.gb.luckyquizz"
         
         var metrica_id = ""
@@ -167,27 +202,26 @@ class NewLogic {
         
         if version == "v1" {
             link.append("&sub4=\(bundle)")
-
+            
             let sub5 = "\(source):\(ifa):\(appsFlyerId):\(metrica_id)"
             link.append("&sub5=\(sub5)")
-            print(link)
             
         } else {
             link.append("&bundle=\(bundle)")
             
             link.append("&metrica_id=\(metrica_id)")
-
-            link.append("&apps_id=\(appsFlyerId)")
-
-            link.append("&ifa=\(ifa)")
-
-            link.append("&onesignal_id=\(onesignal_id)")
-
-            link.append("&source=\(source)")
             
-            print(link)
+            link.append("&apps_id=\(appsFlyerId)")
+            
+            link.append("&ifa=\(ifa)")
+            
+            link.append("&onesignal_id=\(onesignal_id)")
+            
+            link.append("&source=\(source)")
         }
         
+        print(link)
+        completion(link)
         UserDefaults.standard.set(link, forKey: "AGREEMENT_URL")
     }
 }
