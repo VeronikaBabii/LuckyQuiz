@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="pribambas_regular.ttf">
+            <string>Pribambas-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -75,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478.2608695652175" y="124.55357142857142"/>
+            <point key="canvasLocation" x="-1552" y="128"/>
         </scene>
         <!--Push Prompt View Controller-->
         <scene sceneID="eWi-nO-94b">
@@ -149,12 +154,303 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQN-pa-9FT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2207.2463768115945" y="127.90178571428571"/>
+            <point key="canvasLocation" x="1371" y="129"/>
+        </scene>
+        <!--Quiz View Controller-->
+        <scene sceneID="ayI-oX-OxN">
+            <objects>
+                <viewController storyboardIdentifier="quizVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="P1n-pA-KsE" customClass="QuizViewController" customModule="LuckyQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GEU-XK-bC2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="bXM-04-7Lb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Abw-vk-Vdg">
+                                <rect key="frame" x="20" y="44" width="374" height="808"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sda-B2-mmq">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0lM-1B-hoF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="20"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack:" destination="P1n-pA-KsE" eventType="touchUpInside" id="wSC-oa-ppY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCk-71-k5f">
+                                        <rect key="frame" x="0.0" y="40" width="374" height="69"/>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Su-jf-1s2">
+                                        <rect key="frame" x="0.0" y="119" width="374" height="399"/>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvs-kn-70h">
+                                        <rect key="frame" x="0.0" y="528" width="374" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="bXd-x5-eZD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="25"/>
+                                        <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="1" backgroundImage="Rectangle">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="answerButtonPressed:" destination="P1n-pA-KsE" eventType="touchUpInside" id="CKT-2N-89h"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tq5-U0-cZj">
+                                        <rect key="frame" x="0.0" y="618" width="374" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="HSk-Hw-bOF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="25"/>
+                                        <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="2" backgroundImage="Rectangle">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="answerButtonPressed:" destination="P1n-pA-KsE" eventType="touchUpInside" id="7HO-kG-s7J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHX-et-MOS">
+                                        <rect key="frame" x="0.0" y="708" width="374" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="p1J-Ry-c03"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="25"/>
+                                        <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="3" backgroundImage="Rectangle">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="answerButtonPressed:" destination="P1n-pA-KsE" eventType="touchUpInside" id="Q7W-Yb-Yp0"/>
+                                        </connections>
+                                    </button>
+                                    <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="LC9-7i-b5T">
+                                        <rect key="frame" x="0.0" y="798" width="374" height="11"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.2770131528" green="0.3800790906" blue="0.57570761439999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="cPf-Ho-5GF"/>
+                                        </constraints>
+                                        <color key="progressTintColor" red="1" green="0.45854175089999999" blue="0.9319322256" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </progressView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FGT-FR-e1Q"/>
+                        <color key="backgroundColor" red="0.1450980392" green="0.17254901959999999" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Abw-vk-Vdg" firstAttribute="top" secondItem="FGT-FR-e1Q" secondAttribute="top" id="1Hy-Id-OEu"/>
+                            <constraint firstAttribute="bottom" secondItem="bXM-04-7Lb" secondAttribute="bottom" id="DzF-mT-d2I"/>
+                            <constraint firstItem="Abw-vk-Vdg" firstAttribute="leading" secondItem="GEU-XK-bC2" secondAttribute="leadingMargin" id="KJj-K4-0sy"/>
+                            <constraint firstItem="bXM-04-7Lb" firstAttribute="top" secondItem="GEU-XK-bC2" secondAttribute="top" id="OwU-zi-n33"/>
+                            <constraint firstItem="bXM-04-7Lb" firstAttribute="leading" secondItem="GEU-XK-bC2" secondAttribute="leading" id="W0J-0q-X6A"/>
+                            <constraint firstItem="FGT-FR-e1Q" firstAttribute="bottom" secondItem="Abw-vk-Vdg" secondAttribute="bottom" constant="10" id="b0G-sg-0eo"/>
+                            <constraint firstItem="FGT-FR-e1Q" firstAttribute="trailing" secondItem="bXM-04-7Lb" secondAttribute="trailing" id="c1h-bw-GhE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Abw-vk-Vdg" secondAttribute="trailing" id="yIc-YV-bb0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YKJ-aw-LUy"/>
+                    <connections>
+                        <outlet property="firstButton" destination="xvs-kn-70h" id="RI5-x5-8Qo"/>
+                        <outlet property="progressBar" destination="LC9-7i-b5T" id="Wvo-NW-oh3"/>
+                        <outlet property="questionLabel" destination="3Su-jf-1s2" id="fxd-2i-wMm"/>
+                        <outlet property="scoreLabel" destination="OCk-71-k5f" id="lWy-OS-fzT"/>
+                        <outlet property="secondButton" destination="Tq5-U0-cZj" id="2UO-5e-pF5"/>
+                        <outlet property="thirdButton" destination="LHX-et-MOS" id="UMe-CE-74P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PBC-XN-ekk" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-58" y="128"/>
+        </scene>
+        <!--Win View Controller-->
+        <scene sceneID="t2E-Ih-dvv">
+            <objects>
+                <viewController storyboardIdentifier="winVC" id="vXR-C1-ugn" customClass="WinViewController" customModule="LuckyQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g07-pZ-IBp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ttN-qY-uvC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="Cuk-Hh-aGm">
+                                <rect key="frame" x="20" y="194" width="374" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great job!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Fde-Oc-OpE">
+                                        <rect key="frame" x="99" y="0.0" width="176" height="346"/>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkH-uh-aKq">
+                                        <rect key="frame" x="0.0" y="377" width="374" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="Wgg-nR-2Oe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="30"/>
+                                        <state key="normal" title="Start again" backgroundImage="Rectangle">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startAgain:" destination="vXR-C1-ugn" eventType="touchUpInside" id="rES-zq-pet"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0B-yZ-ySO">
+                                        <rect key="frame" x="0.0" y="488" width="374" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="1Z9-IF-pWl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="30"/>
+                                        <state key="normal" title="Go home" backgroundImage="Rectangle">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goHome:" destination="vXR-C1-ugn" eventType="touchUpInside" id="Q7u-vy-8Kj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Y0B-yZ-ySO" firstAttribute="leading" secondItem="Cuk-Hh-aGm" secondAttribute="leading" id="Q9d-LT-Xj1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y0B-yZ-ySO" secondAttribute="trailing" id="hQt-5V-PUh"/>
+                                    <constraint firstItem="tkH-uh-aKq" firstAttribute="leading" secondItem="Cuk-Hh-aGm" secondAttribute="leading" id="kBU-vw-wBK"/>
+                                    <constraint firstAttribute="trailing" secondItem="tkH-uh-aKq" secondAttribute="trailing" id="kKR-cK-Oop"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcm-Ek-b9m"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ttN-qY-uvC" firstAttribute="top" secondItem="g07-pZ-IBp" secondAttribute="top" id="14c-y0-eoy"/>
+                            <constraint firstItem="ttN-qY-uvC" firstAttribute="leading" secondItem="Bcm-Ek-b9m" secondAttribute="leading" id="Hk1-76-ie3"/>
+                            <constraint firstAttribute="bottom" secondItem="ttN-qY-uvC" secondAttribute="bottom" id="LL5-nw-oRH"/>
+                            <constraint firstItem="Cuk-Hh-aGm" firstAttribute="top" secondItem="Bcm-Ek-b9m" secondAttribute="top" constant="150" id="bnK-YZ-Hdc"/>
+                            <constraint firstItem="Bcm-Ek-b9m" firstAttribute="trailing" secondItem="Cuk-Hh-aGm" secondAttribute="trailing" constant="20" id="f3n-K7-K2b"/>
+                            <constraint firstItem="ttN-qY-uvC" firstAttribute="trailing" secondItem="Bcm-Ek-b9m" secondAttribute="trailing" id="lxY-zP-Ogc"/>
+                            <constraint firstItem="Bcm-Ek-b9m" firstAttribute="bottom" secondItem="Cuk-Hh-aGm" secondAttribute="bottom" constant="100" id="nY3-R9-SJz"/>
+                            <constraint firstItem="Cuk-Hh-aGm" firstAttribute="leading" secondItem="Bcm-Ek-b9m" secondAttribute="leading" constant="20" id="obd-Fe-ON0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="winLabel" destination="Fde-Oc-OpE" id="xFc-m1-Duy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tHY-Cf-U6w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661" y="128"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="iq3-by-mQi">
+            <objects>
+                <viewController storyboardIdentifier="gameVC" id="HLf-LS-ZEF" customClass="GameViewController" customModule="LuckyQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gIE-yd-MRP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="q7S-zD-rtG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SFa-eI-FKX">
+                                <rect key="frame" x="20" y="144" width="374" height="638"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Think you know it all about the gambling industry?  Quiz yourself and see how informed and knowledgeable you are in ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-Ic-KKw">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="368"/>
+                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="29"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ThS-11-ok2">
+                                        <rect key="frame" x="0.0" y="378" width="374" height="260"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-TH-7Fd">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="UEy-EU-dEN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="28"/>
+                                                <state key="normal" title="GAMBLING" backgroundImage="Rectangle">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="quiz1Tapped:" destination="HLf-LS-ZEF" eventType="touchUpInside" id="VIw-Vv-Ffu"/>
+                                                    <segue destination="P1n-pA-KsE" kind="show" id="tZe-wn-XBh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWY-ez-NUo">
+                                                <rect key="frame" x="0.0" y="90" width="374" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="s7n-V2-3uf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="28"/>
+                                                <state key="normal" title="CASINO" backgroundImage="Rectangle">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="quiz2Tapped:" destination="HLf-LS-ZEF" eventType="touchUpInside" id="oNz-67-U7S"/>
+                                                    <segue destination="P1n-pA-KsE" kind="show" id="13e-wk-cCT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iS-zI-dYE">
+                                                <rect key="frame" x="0.0" y="180" width="374" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="hXE-P6-WTf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="28"/>
+                                                <state key="normal" title="GAMING" backgroundImage="Rectangle">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="quiz3Tapped:" destination="HLf-LS-ZEF" eventType="touchUpInside" id="S71-mG-mBa"/>
+                                                    <segue destination="P1n-pA-KsE" kind="show" id="8J4-CX-1No"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hIu-cu-KEG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="q7S-zD-rtG" secondAttribute="bottom" id="5UJ-zb-6Pq"/>
+                            <constraint firstItem="hIu-cu-KEG" firstAttribute="bottom" secondItem="SFa-eI-FKX" secondAttribute="bottom" constant="80" id="eFd-h9-LMu"/>
+                            <constraint firstItem="SFa-eI-FKX" firstAttribute="top" secondItem="hIu-cu-KEG" secondAttribute="top" constant="100" id="fks-yL-3By"/>
+                            <constraint firstItem="q7S-zD-rtG" firstAttribute="trailing" secondItem="hIu-cu-KEG" secondAttribute="trailing" id="ha4-Vp-8bq"/>
+                            <constraint firstItem="q7S-zD-rtG" firstAttribute="top" secondItem="gIE-yd-MRP" secondAttribute="top" id="rBK-lz-pOn"/>
+                            <constraint firstItem="hIu-cu-KEG" firstAttribute="trailing" secondItem="SFa-eI-FKX" secondAttribute="trailing" constant="20" id="u9k-8E-7md"/>
+                            <constraint firstItem="q7S-zD-rtG" firstAttribute="leading" secondItem="hIu-cu-KEG" secondAttribute="leading" id="yHI-PU-Dsl"/>
+                            <constraint firstItem="SFa-eI-FKX" firstAttribute="leading" secondItem="hIu-cu-KEG" secondAttribute="leading" constant="20" id="zp9-vB-nWf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wjD-UF-lkD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="128"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8J4-CX-1No"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="1" width="360" height="640"/>
+        <image name="Rectangle" width="322" height="68"/>
         <image name="back" width="621" height="1344"/>
         <image name="back-orange" width="621" height="1344"/>
+        <image name="background" width="621" height="1344"/>
         <image name="fire_joker" width="250" height="250"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

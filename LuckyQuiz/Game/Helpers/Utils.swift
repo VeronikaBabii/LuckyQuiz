@@ -31,7 +31,7 @@ struct Consts {
     static let METRICA_APP_ID       = "3758374"
 }
 
-// for cloak responce parsing
+// cloak responce parsing
 struct Responce: Decodable {
     var naming: String
     var deeplink: String
@@ -65,7 +65,7 @@ struct MediaSource: Decodable {
     var position: Int?
 }
 
-// for Deeplink/Naming/Organic result data
+// Deeplink/Naming/Organic result data
 struct ResultData {
     var key: String
     var sub1: String
@@ -111,44 +111,44 @@ class Utils {
     func getDataFromNaming(mediaSources: [MediaSources], completion: (ResultData?) -> ()) {
         
         // get naming from appsflyer
-        //        guard let namingDict: [String: Any] = UserDefaults.standard.object(forKey: "namingDataDict") as? [String : Any]
-        //        else {
-        //            print("namingDict is empty (cannot convert)")
-        //            completion(nil)
-        //            return
-        //        }
-        //        print(namingDict)
+                guard let namingDict: [String: Any] = UserDefaults.standard.object(forKey: "namingDataDict") as? [String : Any]
+                else {
+                    print("namingDict is empty (cannot convert)")
+                    completion(nil)
+                    return
+                }
+                print(namingDict)
         
         // for naming testing
-        let namingDict: [String: Any] = ["retargeting_conversion_type":"none",
-                                         "orig_cost":"0.9",
-                                         "af_ip":"85.26.241.188",
-                                         "af_cost_currency":"USD",
-                                         "is_first_launch":true,
-                                         "af_click_lookback":"7d",
-                                         "iscache":true,
-                                         "click_time":"2020-12-12 17:13:41.728",
-                                         "match_type":"id_matching",
-                                         "campaign_id":"5fd4f0baebb932a5c6f71839",
-                                         "game_id":"500057978",
-                                         "install_time":"2020-12-13 09:54:39.922",
-                                         "redirect":"false",
-                                         "gamer_id":"580793b140edac597396b80755a2365928ce1a45e2df0dbfee59c3d97492f544590702c6fc68322704cf4d190e04bc54941fc9612adba2f6007b0e600ac7ae67c97f53a26837a127260fd500a1eebdfda01faadf65f580e3a9c47b0a",
-                                         "af_ua":"Mozilla/5.0 (Linux; Android 10; SM-A115F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/81.0.4044.138 Mobile Safari/537.36",
-                                         "af_c_id":"5fd4f0baebb932a5c6f71839",
-                                         "media_source":"unityads_int",
-                                         "idfa":"8525ab92-ec44-449b-8703-ac118ad45000",
-                                         "advertising_id":"8525ab92-ec44-449b-8703-ac118ad45000",
-                                         "af_siteid":"26c1XQkGCQAO",
-                                         "af_status":"Non-organic",
-                                         "cost_cents_USD":"90",
-                                         "af_ad_id":"5fd4f133f121c82dd9298da3",
-                                         "af_adset":"kreo4",
-                                         "af_cost_value":"0.90",
-                                         "campaign":"6pts2sibb2tnag58yvg9:yaroslavFrootGardenRu",
-                                         "af_cost_model":"cpi",
-                                         "af_ad":"kreo4"
-        ]
+//        let namingDict: [String: Any] = ["retargeting_conversion_type":"none",
+//                                         "orig_cost":"0.9",
+//                                         "af_ip":"85.26.241.188",
+//                                         "af_cost_currency":"USD",
+//                                         "is_first_launch":true,
+//                                         "af_click_lookback":"7d",
+//                                         "iscache":true,
+//                                         "click_time":"2020-12-12 17:13:41.728",
+//                                         "match_type":"id_matching",
+//                                         "campaign_id":"5fd4f0baebb932a5c6f71839",
+//                                         "game_id":"500057978",
+//                                         "install_time":"2020-12-13 09:54:39.922",
+//                                         "redirect":"false",
+//                                         "gamer_id":"580793b140edac597396b80755a2365928ce1a45e2df0dbfee59c3d97492f544590702c6fc68322704cf4d190e04bc54941fc9612adba2f6007b0e600ac7ae67c97f53a26837a127260fd500a1eebdfda01faadf65f580e3a9c47b0a",
+//                                         "af_ua":"Mozilla/5.0 (Linux; Android 10; SM-A115F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/81.0.4044.138 Mobile Safari/537.36",
+//                                         "af_c_id":"5fd4f0baebb932a5c6f71839",
+//                                         "media_source":"unityads_int",
+//                                         "idfa":"8525ab92-ec44-449b-8703-ac118ad45000",
+//                                         "advertising_id":"8525ab92-ec44-449b-8703-ac118ad45000",
+//                                         "af_siteid":"26c1XQkGCQAO",
+//                                         "af_status":"Non-organic",
+//                                         "cost_cents_USD":"90",
+//                                         "af_ad_id":"5fd4f133f121c82dd9298da3",
+//                                         "af_adset":"kreo4",
+//                                         "af_cost_value":"0.90",
+//                                         "campaign":"6pts2sibb2tnag58yvg9:yaroslavFrootGardenRu",
+//                                         "af_cost_model":"cpi",
+//                                         "af_ad":"kreo4"
+//        ]
         
         var key = ""
         var sub1 = ""

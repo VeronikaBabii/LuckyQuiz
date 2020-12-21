@@ -51,7 +51,7 @@ class ViewController: UIViewController {
             
             // TODO: add showing of webview for user rights acceptance (reason for webview usage)
             
-            let storyboard = UIStoryboard(name: "GameScreen", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let gameViewController = storyboard.instantiateViewController(identifier: "gameVC") as? GameViewController
             self.view.window?.rootViewController = gameViewController
             self.view.window?.makeKeyAndVisible()

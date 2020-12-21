@@ -22,7 +22,6 @@
 		156499D2253CDFF5001DB310 /* PushPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156499D1253CDFF5001DB310 /* PushPromptViewController.swift */; };
 		156D774E255C6EEB00F71186 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D774D255C6EEB00F71186 /* Logic.swift */; };
 		157E05312550218E00CC405B /* pribambas_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 157E05302550214200CC405B /* pribambas_regular.ttf */; };
-		15DB441D24FAE1BA00964171 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DB441C24FAE1BA00964171 /* GameScreen.storyboard */; };
 		15DB441F24FAE1C300964171 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB441E24FAE1C300964171 /* GameViewController.swift */; };
 		15DB442A24FB9B4A00964171 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442924FB9B4A00964171 /* QuizViewController.swift */; };
 		15DB442E24FB9B8800964171 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB442D24FB9B8800964171 /* Question.swift */; };
@@ -76,7 +75,6 @@
 		156D774D255C6EEB00F71186 /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		157E05302550214200CC405B /* pribambas_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pribambas_regular.ttf; sourceTree = "<group>"; };
 		159A0ABB2501266300118CDD /* WebViewDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebViewDemo.entitlements; sourceTree = "<group>"; };
-		15DB441C24FAE1BA00964171 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
 		15DB441E24FAE1C300964171 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		15DB442924FB9B4A00964171 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		15DB442D24FB9B8800964171 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				154FBBEC24E71919006CC92B /* Main.storyboard */,
-				15DB441C24FAE1BA00964171 /* GameScreen.storyboard */,
 				154FBBF124E7191C006CC92B /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -319,7 +316,6 @@
 				154FBBF024E7191C006CC92B /* Assets.xcassets in Resources */,
 				154FBBEE24E71919006CC92B /* Main.storyboard in Resources */,
 				157E05312550218E00CC405B /* pribambas_regular.ttf in Resources */,
-				15DB441D24FAE1BA00964171 /* GameScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
