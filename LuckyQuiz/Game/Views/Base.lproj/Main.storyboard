@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1552" y="128"/>
+            <point key="canvasLocation" x="-1517" y="128"/>
         </scene>
         <!--Push Prompt View Controller-->
         <scene sceneID="eWi-nO-94b">
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQN-pa-9FT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1371" y="129"/>
+            <point key="canvasLocation" x="-59" y="809"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="ayI-oX-OxN">
@@ -164,7 +164,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="bXM-04-7Lb">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="bXM-04-7Lb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Abw-vk-Vdg">
@@ -184,13 +184,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCk-71-k5f">
-                                        <rect key="frame" x="0.0" y="40" width="374" height="69"/>
+                                        <rect key="frame" x="0.0" y="40" width="374" height="61.5"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Su-jf-1s2">
-                                        <rect key="frame" x="0.0" y="119" width="374" height="399"/>
+                                        <rect key="frame" x="0.0" y="111.5" width="374" height="406.5"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -285,14 +285,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ttN-qY-uvC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="ttN-qY-uvC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="Cuk-Hh-aGm">
                                 <rect key="frame" x="20" y="194" width="374" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great job!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Fde-Oc-OpE">
-                                        <rect key="frame" x="99" y="0.0" width="176" height="346"/>
+                                        <rect key="frame" x="111" y="0.0" width="152" height="346"/>
                                         <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -364,6 +364,36 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="q7S-zD-rtG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tz5-gJ-iD1">
+                                <rect key="frame" x="344" y="59" width="50" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mPr-L8-PS2">
+                                        <rect key="frame" x="0.0" y="0.5" width="50" height="49"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oO-eL-yzh">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="dPk-03-5QR" kind="show" id="i9D-ht-UBf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mPr-L8-PS2" firstAttribute="top" secondItem="Tz5-gJ-iD1" secondAttribute="top" id="VTP-Zq-qTM"/>
+                                    <constraint firstItem="7oO-eL-yzh" firstAttribute="leading" secondItem="Tz5-gJ-iD1" secondAttribute="leading" id="bhn-hY-Svf"/>
+                                    <constraint firstAttribute="trailing" secondItem="7oO-eL-yzh" secondAttribute="trailing" id="fGC-Zh-I34"/>
+                                    <constraint firstAttribute="width" constant="50" id="h2w-jX-RT8"/>
+                                    <constraint firstAttribute="bottom" secondItem="7oO-eL-yzh" secondAttribute="bottom" id="krd-C3-g9e"/>
+                                    <constraint firstAttribute="height" constant="50" id="mMJ-ei-dQM"/>
+                                    <constraint firstAttribute="trailing" secondItem="mPr-L8-PS2" secondAttribute="trailing" id="pXb-pP-PXe"/>
+                                    <constraint firstItem="mPr-L8-PS2" firstAttribute="leading" secondItem="Tz5-gJ-iD1" secondAttribute="leading" id="qha-An-WFy"/>
+                                    <constraint firstAttribute="bottom" secondItem="mPr-L8-PS2" secondAttribute="bottom" id="sIh-Hy-VmX"/>
+                                    <constraint firstItem="7oO-eL-yzh" firstAttribute="top" secondItem="Tz5-gJ-iD1" secondAttribute="top" id="wpF-8a-3E0"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SFa-eI-FKX">
                                 <rect key="frame" x="20" y="144" width="374" height="638"/>
                                 <subviews>
@@ -430,8 +460,10 @@
                             <constraint firstItem="hIu-cu-KEG" firstAttribute="bottom" secondItem="SFa-eI-FKX" secondAttribute="bottom" constant="80" id="eFd-h9-LMu"/>
                             <constraint firstItem="SFa-eI-FKX" firstAttribute="top" secondItem="hIu-cu-KEG" secondAttribute="top" constant="100" id="fks-yL-3By"/>
                             <constraint firstItem="q7S-zD-rtG" firstAttribute="trailing" secondItem="hIu-cu-KEG" secondAttribute="trailing" id="ha4-Vp-8bq"/>
+                            <constraint firstItem="Tz5-gJ-iD1" firstAttribute="top" secondItem="hIu-cu-KEG" secondAttribute="top" constant="15" id="jq7-Y5-7ID"/>
                             <constraint firstItem="q7S-zD-rtG" firstAttribute="top" secondItem="gIE-yd-MRP" secondAttribute="top" id="rBK-lz-pOn"/>
                             <constraint firstItem="hIu-cu-KEG" firstAttribute="trailing" secondItem="SFa-eI-FKX" secondAttribute="trailing" constant="20" id="u9k-8E-7md"/>
+                            <constraint firstItem="hIu-cu-KEG" firstAttribute="trailing" secondItem="Tz5-gJ-iD1" secondAttribute="trailing" constant="20" id="x9N-yb-O4h"/>
                             <constraint firstItem="q7S-zD-rtG" firstAttribute="leading" secondItem="hIu-cu-KEG" secondAttribute="leading" id="yHI-PU-Dsl"/>
                             <constraint firstItem="SFa-eI-FKX" firstAttribute="leading" secondItem="hIu-cu-KEG" secondAttribute="leading" constant="20" id="zp9-vB-nWf"/>
                         </constraints>
@@ -439,19 +471,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjD-UF-lkD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-810" y="128"/>
+            <point key="canvasLocation" x="-810.14492753623199" y="127.90178571428571"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="sfL-UR-zvk">
+            <objects>
+                <viewController id="dPk-03-5QR" customClass="InfoViewController" customModule="LuckyQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9n7-Nd-wL5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ue5-uE-CTY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Nq1-lS-W2J">
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JNf-f9-X8n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ue5-uE-CTY" firstAttribute="top" secondItem="JNf-f9-X8n" secondAttribute="top" id="8ln-1O-nAL"/>
+                            <constraint firstAttribute="bottom" secondItem="Ue5-uE-CTY" secondAttribute="bottom" id="MkL-lB-w23"/>
+                            <constraint firstItem="Nq1-lS-W2J" firstAttribute="centerY" secondItem="9n7-Nd-wL5" secondAttribute="centerY" id="NqK-vX-VW6"/>
+                            <constraint firstItem="Ue5-uE-CTY" firstAttribute="leading" secondItem="JNf-f9-X8n" secondAttribute="leading" id="QHh-eQ-Rfc"/>
+                            <constraint firstItem="Nq1-lS-W2J" firstAttribute="centerX" secondItem="9n7-Nd-wL5" secondAttribute="centerX" id="SA9-P0-Zir"/>
+                            <constraint firstItem="Ue5-uE-CTY" firstAttribute="trailing" secondItem="JNf-f9-X8n" secondAttribute="trailing" id="yQ1-jb-xMn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="P9P-XX-KFY"/>
+                    <connections>
+                        <outlet property="webView" destination="Ue5-uE-CTY" id="5Hf-gY-Nhj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NHV-tH-X2e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810.14492753623199" y="808.92857142857144"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8J4-CX-1No"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="1" width="360" height="640"/>
+        <image name="2" width="360" height="640"/>
+        <image name="3" width="360" height="640"/>
         <image name="Rectangle" width="322" height="68"/>
         <image name="back" width="621" height="1344"/>
         <image name="back-orange" width="621" height="1344"/>
         <image name="background" width="621" height="1344"/>
         <image name="fire_joker" width="250" height="250"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
