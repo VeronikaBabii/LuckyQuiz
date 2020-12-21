@@ -78,9 +78,10 @@ class Logic {
                         let sub3 = self.organic?.sub3 ?? "none"
                         
                         let organicData = ResultData(key: key, sub1: sub1, sub2: sub2, sub3: sub3, source: "none")
-                        formLinkFromResult(organicData, status) { _ in }
+                        formLinkFromResult(organicData, status) { link in Utils().sendToServer(link) }
+                    } else {
+                        UserDefaults.standard.set("false", forKey: "show")
                     }
-                    UserDefaults.standard.set("false", forKey: "show")
                 }
             }
         }

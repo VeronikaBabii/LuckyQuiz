@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
                 print("App link is present")
                 UserDefaults.standard.set(deep, forKey: "deep")
             } else {
-                print("\nNo app link available\n")
+                print("No app link available")
                 UserDefaults.standard.set(nil, forKey: "deep")
             }
         }
