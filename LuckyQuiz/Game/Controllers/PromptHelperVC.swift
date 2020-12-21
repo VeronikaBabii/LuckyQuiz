@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             
             print("showing web")
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) { self.backImage.isHidden = true }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.3) { self.backImage.isHidden = true }
             
         } else if UserDefaults.standard.object(forKey: "show") as? String == "false" {
             
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             
             print("showing game")
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) { self.backImage.isHidden = true }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.3) { self.backImage.isHidden = true }
             
         } else { print("Error: empty defaults param") }
     }

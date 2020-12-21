@@ -90,30 +90,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-orange" translatesAutoresizingMaskIntoConstraints="NO" id="Re6-qQ-3Le">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="push-back" translatesAutoresizingMaskIntoConstraints="NO" id="Re6-qQ-3Le">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dDG-yZ-ZBI">
-                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <rect key="frame" x="20" y="494" width="374" height="348"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fire_joker" translatesAutoresizingMaskIntoConstraints="NO" id="twb-EK-xkO">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="389"/>
-                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="T3l-bW-2PD">
-                                        <rect key="frame" x="0.0" y="389" width="374" height="389"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="348"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALLOW NOTIFICATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esl-cc-EpZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="194.5"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALLOW NOTIFICATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="esl-cc-EpZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="174"/>
+                                                <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="38"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sW6-hP-Nee">
-                                                <rect key="frame" x="0.0" y="194.5" width="374" height="194.5"/>
+                                                <rect key="frame" x="0.0" y="174" width="374" height="174"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vL-OO-nXX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="97.5"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="87"/>
+                                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="38"/>
                                                         <state key="normal" title="Yes">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -122,8 +119,8 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLa-zT-z4f">
-                                                        <rect key="frame" x="0.0" y="97.5" width="374" height="97"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                                        <rect key="frame" x="0.0" y="87" width="374" height="87"/>
+                                                        <fontDescription key="fontDescription" name="Pribambas-Regular" family="Pribambas" pointSize="29"/>
                                                         <state key="normal" title="Skip">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -148,7 +145,7 @@
                             <constraint firstItem="r9z-46-sE8" firstAttribute="trailing" secondItem="dDG-yZ-ZBI" secondAttribute="trailing" constant="20" id="cNy-Rw-qgO"/>
                             <constraint firstItem="Re6-qQ-3Le" firstAttribute="top" secondItem="98G-tx-9Nq" secondAttribute="top" id="hse-0r-OEn"/>
                             <constraint firstItem="dDG-yZ-ZBI" firstAttribute="leading" secondItem="r9z-46-sE8" secondAttribute="leading" constant="20" id="pKl-13-URs"/>
-                            <constraint firstItem="dDG-yZ-ZBI" firstAttribute="top" secondItem="r9z-46-sE8" secondAttribute="top" constant="20" id="z1m-8k-k9g"/>
+                            <constraint firstItem="dDG-yZ-ZBI" firstAttribute="top" secondItem="r9z-46-sE8" secondAttribute="top" constant="450" id="z1m-8k-k9g"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -523,10 +520,9 @@
         <image name="3" width="360" height="640"/>
         <image name="Rectangle" width="322" height="68"/>
         <image name="back" width="621" height="1344"/>
-        <image name="back-orange" width="621" height="1344"/>
         <image name="background" width="621" height="1344"/>
-        <image name="fire_joker" width="250" height="250"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="push-back" width="360" height="640"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

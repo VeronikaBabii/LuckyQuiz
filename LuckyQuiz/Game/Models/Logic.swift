@@ -41,7 +41,7 @@ class Logic {
         let url = URL(string: "https://integr-testing.site/apps_v2/checker/?bundle=com.gb.luckyquizz")!
         getDataFromChecker(url: url) { result in
             guard let res = result else { print("Checker data is nil"); return }
-
+            
             self.media_sources = res.media_sources
             self.organic = res.organic
             self.version = res.integration_version
@@ -61,13 +61,13 @@ class Logic {
             let deep = "\(UserDefaults.standard.object(forKey: "deep") ?? "")"
             Utils().getDData(link: deep) { data -> () in
                 if data != nil && toShow?.d == "true" {
-                    formLinkFromResult(data!, status) { link in Utils().sendToServer(link) }
+                    formLinkFromResult(data!) { link in Utils().sendToServer(link) }
                     return
                 }
                 
                 Utils().getNData(mediaSources: media_sources) { data -> () in
                     if data != nil && toShow?.n == "true" {
-                        formLinkFromResult(data!, status) { link in Utils().sendToServer(link) }
+                        formLinkFromResult(data!) { link in Utils().sendToServer(link) }
                         return
                     }
                     
@@ -78,16 +78,16 @@ class Logic {
                         let sub3 = self.organic?.sub3 ?? "none"
                         
                         let organicData = ResultData(key: key, sub1: sub1, sub2: sub2, sub3: sub3, source: "none")
-                        formLinkFromResult(organicData, status) { link in Utils().sendToServer(link) }
-                    } else {
-                        UserDefaults.standard.set("false", forKey: "show")
+                        formLinkFromResult(organicData) { link in Utils().sendToServer(link) }
+                        return
                     }
+                    UserDefaults.standard.set("false", forKey: "show")
                 }
             }
         }
     }
     
-    func formLinkFromResult(_ data: ResultData, _ status: String, completion: @escaping (String) -> ()) {
+    func formLinkFromResult(_ data: ResultData, completion: @escaping (String) -> ()) {
         var link = "https://egame.site/click.php"
         
         link.append("?key=\(data.key)")
