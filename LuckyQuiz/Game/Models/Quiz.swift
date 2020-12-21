@@ -27,7 +27,6 @@ enum Quiz {
 
 struct Quizes {
     
-    // gambling
     let quiz1 = [
         Question(q: "The average age of gambler is", a: ["27", "35", "45"], c: "45"),
         Question(q: "Slots first appeared in", a: ["1860s", "1880s", "1900s"], c: "1880s"),
@@ -48,7 +47,6 @@ struct Quizes {
         Question(q: "In Roulette, what is betting the ball will land on a black pocket?", a: ["White Bet", "Black Bet", "Red Bet"], c: "Black Bet"),
     ]
     
-    // casino
     let quiz2 = [
         Question(q: "Casinos was originated in", a: ["USA", "Italy", "Mexico"], c: "Italy"),
         Question(q: "What is the highest number on a roulette wheel?", a: ["18", "24", "36"], c: "36"),
@@ -69,7 +67,6 @@ struct Quizes {
         Question(q: "Which kind of slot machine has a fixed jackpot amount?", a: ["Progressive", "Low End", "Flat Top"], c: "Flat Top")
     ]
     
-    // gaming
     let quiz3 = [
         Question(q: "Which color is the most eye-catching?", a: ["Red", "Yellow", "Green"], c: "Yellow"),
         Question(q: "What was the first commercially successful video game?", a: ["Pong", "Super Mario Bros", "Donkey Kong Country"], c: "Pong"),

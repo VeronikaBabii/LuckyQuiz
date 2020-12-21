@@ -16,9 +16,7 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.allowsLinkPreview = false
-        
         let url = "https://github.com/MarkVais/LuckyQuizHD"
-        
         let link = URL(string: url)!
         let request = URLRequest(url: link)
         self.webView.load(request)

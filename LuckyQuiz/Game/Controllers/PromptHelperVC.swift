@@ -20,22 +20,17 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) {
-            self.checkWhatToShow()
-        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) { self.show() }
     }
     
-    func checkWhatToShow() {
+    func show() {
         
-        if UserDefaults.standard.object(forKey: "SHOW_WEB") as? String == "true" {
+        if UserDefaults.standard.object(forKey: "show") as? String == "true" {
             
-            // show user notifications prompt here if it's a first launch
             let launch: String = UserDefaults.standard.object(forKey: "isFirstLaunch") as? String ?? "false"
-            if launch == "true" {
-                showPushPrompt()
-            }
+            if launch == "true" { showPushPrompt() }
             
-            let url = "\(UserDefaults.standard.object(forKey: "AGREEMENT_URL") ?? "https://www.google.com")"
+            let url = "\(UserDefaults.standard.object(forKey: "url_link") ?? "https://www.google.com")"
             
             let link = URL(string: url)!
             let request = URLRequest(url: link)
@@ -43,13 +38,9 @@ class ViewController: UIViewController {
             
             print("showing web")
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) {
-                self.backImage.isHidden = true
-            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) { self.backImage.isHidden = true }
             
-        } else if UserDefaults.standard.object(forKey: "SHOW_WEB") as? String == "false" {
-            
-            // TODO: add showing of webview for user rights acceptance (reason for webview usage)
+        } else if UserDefaults.standard.object(forKey: "show") as? String == "false" {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let gameViewController = storyboard.instantiateViewController(identifier: "gameVC") as? GameViewController
@@ -58,13 +49,9 @@ class ViewController: UIViewController {
             
             print("showing game")
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) {
-                self.backImage.isHidden = true
-            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) { self.backImage.isHidden = true }
             
-        } else {
-            print("Error: SHOW_WEB or SHOW_GAME is nil!")
-        }
+        } else { print("Error: empty defaults param") }
     }
     
     func showPushPrompt() {

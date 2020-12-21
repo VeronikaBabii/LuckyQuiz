@@ -7,68 +7,47 @@
 //
 
 import UIKit
-import FBSDKCoreKit
 import OneSignal
 import AppsFlyerLib
+import FBSDKCoreKit
 import YandexMobileMetrica
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate {
     
-    @objc func sendLaunch(app: Any) {
-        AppsFlyerTracker.shared().trackAppLaunch()
-    }
+    @objc func sendLaunch(app: Any) { AppsFlyerTracker.shared().trackAppLaunch() }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // MARK: - AppsFlyer
         AppsFlyerTracker.shared().appsFlyerDevKey = Consts.APPSFLYER_DEV_KEY
         AppsFlyerTracker.shared().appleAppID = Consts.APPLE_APP_ID
         AppsFlyerTracker.shared().delegate = self
         //AppsFlyerTracker.shared().isDebug = true
-        
         NotificationCenter.default.addObserver(self, selector: #selector(sendLaunch),
                                                name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        // MARK: - Yandex AppMetrica
         let configuration = YMMYandexMetricaConfiguration.init(apiKey: Consts.METRICA_SDK_KEY)
-        
         configuration?.handleActivationAsSessionStart = true
         //configuration?.logs = true
-        
         YMMYandexMetrica.activate(with: configuration!)
         
-        // MARK: - Fb deeplinking
         AppEvents.activateApp()
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        
         AppLinkUtility.fetchDeferredAppLink { (url, error) in
-            
             if let error = error {
-                print("Received error while fetching deferred app link: \n\(error)")
-                UserDefaults.standard.set(nil, forKey: "deeplink")
-                
-            } else if let deeplink = url?.absoluteString {
-                print(deeplink)
-                UserDefaults.standard.set(deeplink, forKey: "deeplink")
-                
+                print("Error fetching app link: \n\(error)")
+                UserDefaults.standard.set(nil, forKey: "deep")
+            } else if let deep = url?.absoluteString {
+                print("App link is present")
+                UserDefaults.standard.set(deep, forKey: "deep")
             } else {
                 print("\nNo app link available\n")
-                UserDefaults.standard.set(nil, forKey: "deeplink")
+                UserDefaults.standard.set(nil, forKey: "deep")
             }
         }
-        
-        // call request method
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            print("requesting")
-            Logic().requestData()
-        }
-        
-        // MARK: - OneSignal
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { Logic().requestData() }
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
-        
         OneSignal.initWithLaunchOptions(launchOptions, appId: Consts.ONESIGNAL_ID, handleNotificationAction: nil, settings: onesignalInitSettings)
-        
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
         
         return true
@@ -78,26 +57,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         AppsFlyerTracker.shared().trackAppLaunch()
     }
     
-    // Open Univerasal Links
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         print("User info \(userInfo)")
         AppsFlyerTracker.shared().handlePushNotification(userInfo)
     }
     
-    // Open Deeplinks
-    // Open URI-scheme for iOS 8 and below
     private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         AppsFlyerTracker.shared().continue(userActivity, restorationHandler: restorationHandler)
         return true
     }
     
-    // Open URI-scheme for iOS 9 and above
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         AppsFlyerTracker.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
         return true
     }
     
-    // Reports app open from deep link for iOS 10 or later
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         AppsFlyerTracker.shared().continue(userActivity, restorationHandler: nil)
         return true
@@ -107,37 +81,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         AppsFlyerTracker.shared().handlePushNotification(userInfo)
     }
     
-    // Report Push Notification attribution data for re-engagements
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         AppsFlyerTracker.shared().handleOpen(url, options: options)
         return true
     }
     
-    // MARK: - AppsFlyerTracker protocol implementation
-    
-    // Handle Organic/Non-organic installation
     func onConversionDataSuccess(_ installData: [AnyHashable: Any]) {
         print("onConversionDataSuccess data:")
-        
-        var namingDataDict = [AnyHashable: Any]()
-        
+        var dataDict = [AnyHashable: Any]()
         for (key, value) in installData {
             print(key, ":", value)
-            namingDataDict[key] = value
+            dataDict[key] = value
         }
-        print("\n\(namingDataDict)\n")
-        
-        UserDefaults.standard.set(namingDataDict, forKey: "namingDataDict")
+        UserDefaults.standard.set(dataDict, forKey: "dataDict")
         
         if let status = installData["af_status"] as? String {
             if (status == "Non-organic") {
-                if let sourceID = installData["media_source"],
-                   let campaign = installData["campaign"] {
+                if let sourceID = installData["media_source"], let campaign = installData["campaign"] {
                     print("This is a Non-Organic install. Media source: \(sourceID)  Campaign: \(campaign)")
                 }
-            } else {
-                print("This is an organic install.")
-            }
+            } else { print("This is an organic install.") }
+            
             if let is_first_launch = installData["is_first_launch"] as? Bool, is_first_launch {
                 UserDefaults.standard.set("true", forKey: "isFirstLaunch")
                 print("First Launch")
@@ -161,14 +125,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     
     // MARK: - UISceneSession Lifecycle
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
     
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) { }
 }
