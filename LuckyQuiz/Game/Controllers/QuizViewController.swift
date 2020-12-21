@@ -92,14 +92,14 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func goBack(_ sender: UIButton) {
-        let gameViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.gameViewController) as? GameViewController
+        let gameViewController = storyboard?.instantiateViewController(identifier: Storyboard.gameViewController) as? GameViewController
         
         view.window?.rootViewController = gameViewController
         view.window?.makeKeyAndVisible()
     }
     
     func displayWinScreen() {
-        let winViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.winViewController) as? WinViewController
+        let winViewController = storyboard?.instantiateViewController(identifier: Storyboard.winViewController) as? WinViewController
         
         view.window?.rootViewController = winViewController
         view.window?.makeKeyAndVisible()

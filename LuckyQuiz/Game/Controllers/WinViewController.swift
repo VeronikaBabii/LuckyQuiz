@@ -23,13 +23,13 @@ class WinViewController: UIViewController {
     }
     
     @IBAction func startAgain(_ sender: UIButton) {
-        let quizViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.quizViewController) as? QuizViewController
+        let quizViewController = storyboard?.instantiateViewController(identifier: Storyboard.quizViewController) as? QuizViewController
         view.window?.rootViewController = quizViewController
         view.window?.makeKeyAndVisible()
     }
     
     @IBAction func goHome(_ sender: UIButton) {
-        let gameViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.gameViewController) as? GameViewController
+        let gameViewController = storyboard?.instantiateViewController(identifier: Storyboard.gameViewController) as? GameViewController
         view.window?.rootViewController = gameViewController
         view.window?.makeKeyAndVisible()
     }

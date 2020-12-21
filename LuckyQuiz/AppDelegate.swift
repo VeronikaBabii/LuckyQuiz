@@ -38,12 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         
         YMMYandexMetrica.activate(with: configuration!)
         
-//        let params : [String : Any] = ["key1": "value1", "key2": "value2"]
-//        YMMYandexMetrica.reportEvent("EVENT", parameters: params, onFailure: { (error) in
-//            print("DID FAIL REPORT EVENT: %@")
-//            print("REPORT ERROR: %@", error.localizedDescription)
-//        })
-        
         // MARK: - Fb deeplinking
         AppEvents.activateApp()
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -67,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         // call request method
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             print("requesting")
-            NewLogic().requestData()
+            Logic().requestData()
         }
         
         // MARK: - OneSignal
@@ -81,7 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Start the SDK (start the IDFA timeout set above, for iOS 14 or later)
         AppsFlyerTracker.shared().trackAppLaunch()
     }
     
@@ -121,7 +114,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
     }
     
     // MARK: - AppsFlyerTracker protocol implementation
-    // code from AF guide
     
     // Handle Organic/Non-organic installation
     func onConversionDataSuccess(_ installData: [AnyHashable: Any]) {
@@ -156,22 +148,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerTrackerDelegate 
         }
     }
     
-    func onConversionDataFail(_ error: Error) {
-        print(error)
-    }
+    func onConversionDataFail(_ error: Error) { print(error) }
     
-    //Handle Deep Link
     func onAppOpenAttribution(_ attributionData: [AnyHashable : Any]) {
-        //Handle Deep Link Data
         print("onAppOpenAttribution data:")
         for (key, value) in attributionData {
             print(key, ":",value)
         }
     }
     
-    func onAppOpenAttributionFailure(_ error: Error) {
-        print(error)
-    }
+    func onAppOpenAttributionFailure(_ error: Error) { print(error) }
     
     // MARK: - UISceneSession Lifecycle
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

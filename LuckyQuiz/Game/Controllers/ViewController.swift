@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) {
-            self.checkWhatToShow() // can only be called from here
+            self.checkWhatToShow()
         }
     }
     
@@ -35,7 +35,6 @@ class ViewController: UIViewController {
                 showPushPrompt()
             }
             
-            // load url in webview
             let url = "\(UserDefaults.standard.object(forKey: "AGREEMENT_URL") ?? "https://www.google.com")"
             
             let link = URL(string: url)!
@@ -44,7 +43,6 @@ class ViewController: UIViewController {
             
             print("showing web")
             
-            // hide image
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) {
                 self.backImage.isHidden = true
             }
@@ -60,7 +58,6 @@ class ViewController: UIViewController {
             
             print("showing game")
             
-            // hide image
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) {
                 self.backImage.isHidden = true
             }

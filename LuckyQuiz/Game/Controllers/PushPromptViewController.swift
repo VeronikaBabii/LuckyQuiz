@@ -13,6 +13,7 @@ class PushPromptViewController: UIViewController {
 
     // on allow notif button click - show prompt
     @IBAction func allowNotif(_ sender: UIButton) {
+        
         OneSignal.promptForPushNotifications(userResponse: { accepted in
             print("User accepted OneSignal notifications - \(accepted)")
             self.dismiss(animated: true)

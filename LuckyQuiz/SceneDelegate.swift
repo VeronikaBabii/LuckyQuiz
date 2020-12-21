@@ -13,12 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    // MARK: - appsflyer setup
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
-        if let url = URLContexts.first?.url {
-            AppsFlyerTracker.shared().handleOpen(url, options: nil)
-        }
+        if let url = URLContexts.first?.url { AppsFlyerTracker.shared().handleOpen(url, options: nil) }
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
@@ -68,7 +64,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-    
-    
 }
-

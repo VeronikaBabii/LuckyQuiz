@@ -12,7 +12,7 @@ import AdSupport
 import YandexMobileMetrica
 import AppsFlyerLib
 
-class NewLogic {
+class Logic {
     
     var media_sources = [MediaSources]()
     var organic: OrganicData?
@@ -63,35 +63,6 @@ class NewLogic {
         }
     }
     
-    func sendToServer(_ postString: String) {
-        
-        let urlStr = "https://tbraza.club/api/install_logs/create?conversionData=naming&appName=com.gb.luckyquizz&version=1"
-        
-        let url = URL(string: urlStr)
-        guard let requestUrl = url else {
-            print("Error: bad url")
-            return
-        }
-        
-        var request = URLRequest(url: requestUrl)
-        request.httpMethod = "POST"
-        
-        request.httpBody = postString.data(using: String.Encoding.utf8)
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error {
-                print("Error posting data:\n \(error)")
-                return
-            }
-            
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("\nResponse data string: \(dataString)\n")
-            }
-            
-        }.resume()
-    }
-    
     //MARK: - deeplink/naming/organic logic
     func requestData() {
         
@@ -113,24 +84,24 @@ class NewLogic {
             // 3 - user == "true" - check deeplink
             let deep = "\(UserDefaults.standard.object(forKey: "deeplink") ?? "")"
             
-            DeeplinkParser().getDataFromDeeplink(deeplink: deep) { deeplinkData -> () in
+            Utils().getDataFromDeeplink(deeplink: deep) { deeplinkData -> () in
                 
                 if deeplinkData != nil && whatToShow?.deeplink == "true" { // check value of deeplink in cloak
                     print("Deeplink data - \(deeplinkData!)")
                     formLinkFromResult(deeplinkData!, status) { link in // send deeplink to server
-                        sendToServer(link)
+                        Utils().sendToServer(link)
                     }
                     
                     return
                 }
                 
                 // 4 - no deeplink - check naming
-                NamingParser().getDataFromNaming(mediaSources: media_sources) { namingData -> () in
+                Utils().getDataFromNaming(mediaSources: media_sources) { namingData -> () in
                     
                     if namingData != nil && whatToShow?.naming == "true" {
                         print("Naming data - \(namingData!)")
                         formLinkFromResult(namingData!, status) { link in // send naming to server
-                            sendToServer(link)
+                            Utils().sendToServer(link)
                         }
                         
                         return
