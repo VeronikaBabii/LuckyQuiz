@@ -1,2 +1,3 @@
 # LuckyQuiz
-Quiz game with WebView + FacebookSDK, AppsFlyer, OneSignal, YandexMetrica.
+Custom quiz game with WebView (arbitrage app).
+Integrated and set up Pods: FacebookSDK, AppsFlyer, OneSignal, YandexMetrica.
